@@ -1,0 +1,140 @@
+:root {
+    --bg-dark:#111113;
+    --bg:#17181A;
+    --bg-active:#606060;
+    --bg-light:#27282B;
+    --fg: #AAABAD;
+    --fg-light: #CECFD1;
+    --accent:#ff5543;
+    
+}
+
+a {
+  display:block;
+}
+
+body {
+  color: var(--fg);
+}
+
+.title {
+  color: var(--fg-light);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+#sidebar {
+    position: absolute; top: 0; left: 0;
+    width: 400px; height: 100%;
+    background: #111113;
+    z-index: -10;
+    box-shadow: 0 0 3px #111113;
+}
+
+.btn-group {
+  position: absolute;
+  top: 70px;
+  padding-top: 30px;
+  padding-bottom: 40px;
+  background-color: var(--bg);
+}
+
+.btn-group button {
+    background-color: var(--bg-light);
+    color:var(--fg);
+    width: 400px; height:40px;
+    display: table;
+    border: none;
+    transition: all .2s linear;
+    /*margin-bottom:10px;*/
+}
+
+
+.active {
+    background-color: var(--bg-active) !important;
+    transition: all .55s linear;
+    color:var(--fg-light);
+    height:60px !important;
+}
+
+.category {
+   position: fixed; top: 0; left: 400px;
+   width: calc(100% - 400px); height: 100%;
+   background-color: var(--bg-active);
+   transition: all 1.2s ease;
+}
+
+.content {
+  margin-left:60px;
+  margin-right:20px;
+}
+
+#Images {
+  position: relative;
+  padding: 90px;
+}
+
+.img {
+  padding: 15px;
+}
+
+#separator {
+  width:80%;
+  height: 3px;
+  background-color:var(--accent);
+  margin: 35px;
+}
+
+.link-set {
+  background-color: #87bab2;
+  padding:25px;
+}
+
+.link-set:hover {
+  background-color: #ed7d71;
+  
+}
+
+.link-set > * {
+    vertical-align:middle;
+}
+
+a {
+  text-decoration: none;
+  color: var(--bg);
+  display: inline-block;
+  width: 220px;
+  margin:20px;
+  padding: 30px;
+  vertical-align: middle;
+  text-align: center;
+  border-style: dashed;
+  border-width: 4px;
+  border-color: var(--accent);
+}
+
+a:hover {
+  border-color:  #87bab2;
+}
+
+* {
+ font-family: Arial;
+}
+
+#bg {
+  position: fixed; top: 0; left: 0;
+  background:url(https://c1.staticflickr.com/3/2470/3744243464_10d1a16b5f_b.jpg);
+  background-repeat:no-repeat;
+  background-size: cover;
+  z-index:-20;
+  width:100%;
+  height:100%;
+  filter: blur(3px);
+}
+
+/*
+    background:url(../images/House-03.png);
+*/
+

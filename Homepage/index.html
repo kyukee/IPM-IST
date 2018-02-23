@@ -1,1 +1,142 @@
+<!DOCTYPE>
+<html>
 
+<head>
+  <title>IPM Grupo 00</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="visibility()"> 
+  <div id="sidebar">
+  
+    <div class="btn-group">
+      <h1 class="title" style="margin-left:50px">Menu </h1>
+      <button class="tab active" onmouseover="openCategory(event, 'Info')">Info</button>
+      <button class="tab" onmouseover="openCategory(event, 'A')">A</button>
+      <button class="tab" onmouseover="openCategory(event, 'B')">B</button>
+      <button class="tab" onmouseover="openCategory(event, 'C')">C</button>
+      <!-- onclick for mobile? -->
+    </div>
+  
+  </div>
+  
+  <div id="Info" class="category" style="display:block" >
+    <div class="content">
+      <h1 class="accent">Interfaces Pessoa Máquina 2017-18</h1>
+      <h2 class="title">Grupo 00 - Turno IPM17111326L05</h2>
+    </div>
+
+    <table id="Images" align=center>
+      <tr class="img">
+        <td></td>
+        <td width="75%" align=center style="color:#87bab2;font-weight:bold">nome</td>
+        <td style="color:#87bab2;font-weight:bold">numero</td>
+      </tr>
+
+      <tr class="img">
+        <td><img src = "student1.png" width="100"></td>
+        <td width="75%" align=center>Catarina Guerreiro Gomes Pedreira</td>
+        <td align=center>87524</td>
+      </tr>
+      
+      <tr class="img">
+        <td><img src = "student2.png" width="100"></td>
+        <td width="75%" align=center>Iulian Puscasu</td>
+        <td align=center>87665</td>
+      </tr>
+      
+      <tr class="img">
+        <td><img src = "student3.png" width="100"></td>
+        <td width="75%" align=center>Miguel Rodrigo Moreira Oliveira</td>
+        <td align=center>87689</td>
+      </tr>
+      
+    </table>
+  </div>
+  
+  <div id="A" class="category" style="visibility:hidden">
+    <div class="content">
+      <h2 class="title">A</h2>
+      <div class="link-set">
+ 
+        <a href="questionario1.html">
+          Questionario para a analise de tarefas
+        </a>
+         
+        <a href="questionario2.html">
+          Questionário para a ańálise de tarefas <span style="color: #ff5543">(melhorado)</span>
+        </a>
+         
+      </div>
+      
+      <div id="separator"></div>
+      
+      <div class="link-set">
+        <a href="questionario3.html">
+          link3
+         </a>
+      </div>
+      
+    </div>
+  </div>
+    
+
+  <div id="B" class="category" style="visibility:hidden">
+    <div class="content">
+      <h2 class="title">B</h2>
+      <p>Paris is the capital of France.</p> 
+      <p>The Paris area is one of the largest population centers in Europe, with more than 12 million inhabitants.</p>
+      </div>
+  </div>
+  
+  <div id="C" class="category" style="visibility:hidden">
+    <div class="content">
+      <h2 class="title">C</h2>
+      <p>Tokyo is the capital of Japan.</p>
+      <p>It is the center of the Greater Tokyo Area, and the most populous metropolitan area in the world.</p>
+      </div>
+  </div>
+  
+  <script type="text/javascript">
+  	function openCategory(evt, categoryName) {
+      var i, x, tabs;
+      x = document.getElementsByClassName("category");
+      for (i = 0; i < x.length; i++) {
+      	 x[i].style.visibility = "hidden";
+         x[i].style.opacity = "0";
+      }
+      
+      tabs = document.getElementsByClassName("tab");
+      for (i = 0; i < x.length; i++) {
+          tabs[i].className = tabs[i].className.replace(" active", ""); 
+      }
+      
+      document.getElementById(categoryName).style.visibility = "visible";
+      document.getElementById(categoryName).style.opacity = "0.75";
+
+      evt.currentTarget.className += " active";
+    }
+  </script>
+  
+  
+  <script type="text/javascript">
+  	function visibility() {
+      var i, x;
+      x = document.getElementsByClassName("category");
+      for (i = 0; i < x.length; i++) {
+      	 x[i].style.visibility = "hidden";
+         x[i].style.opacity = "0";
+      }
+      
+      document.getElementById('Info').style.visibility = "visible";
+      document.getElementById('Info').style.opacity = "0.6";
+
+    }
+  </script>
+  
+  <div id="bg"></div>
+  
+</body>
+
+</html>

@@ -1,11 +1,11 @@
 :root {
-    --bg-dark:#111113;
-    --bg:#17181A;
-    --bg-active:#606060;
-    --bg-light:#27282B;
-    --fg: #AAABAD;
-    --fg-light: #CECFD1;
-    --accent:#ff5543;
+  --bg-dark:#111113;
+  --bg:#17181A;
+  --bg-active:#606060;
+  --bg-light:#27282B;
+  --fg: #AAABAD;
+  --fg-light: #CECFD1;
+  --accent:#ff5543;
     
 }
 
@@ -26,11 +26,11 @@ body {
 }
 
 #sidebar {
-    position: absolute; top: 0; left: 0;
-    width: 400px; height: 100%;
-    background: #111113;
-    z-index: -10;
-    box-shadow: 0 0 3px #111113;
+  position: absolute; top: 0; left: 0;
+  width: 400px; height: 100%;
+  background: #111113;
+  z-index: -10;
+  box-shadow: 0 0 3px #111113;
 }
 
 #git-icon {
@@ -48,33 +48,34 @@ body {
 }
 
 .btn-group button {
-    background-color: var(--bg-light);
-    color:var(--fg);
-    width: 400px; height:40px;
-    display: table;
-    border: none;
-    transition: all .2s linear;
-    /*margin-bottom:10px;*/
+  background-color: var(--bg-light);
+  color:var(--fg);
+  width: 400px; height:40px;
+  display: table;
+  border: none;
+  transition: all .2s linear;
+  /*margin-bottom:10px;*/
 }
 
 
 .active {
-    background-color: var(--bg-active) !important;
-    transition: all .55s linear;
-    color:var(--fg-light);
-    height:60px !important;
+  background-color: var(--bg-active) !important;
+  transition: all .55s linear;
+  color:var(--fg-light);
+  height:60px !important;
 }
 
 .category {
-   position: fixed; top: 0; left: 400px;
-   width: calc(100% - 400px); height: 100%;
-   background-color: var(--bg-active);
-   transition: all 1.2s ease;
+  position: fixed; top: 0; left: 400px;
+  width: calc(100% - 400px); height: 100%;
+  background-color: var(--bg-active);
+  transition: all 1.2s ease;
 }
 
 .content {
   margin-left:60px;
   margin-right:20px;
+  opacity: 1;
 }
 
 #Images {
@@ -104,7 +105,7 @@ body {
 }
 
 .link-set > * {
-    vertical-align:middle;
+  vertical-align:middle;
 }
 
 .link {

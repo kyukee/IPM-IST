@@ -33,6 +33,12 @@ body {
     box-shadow: 0 0 3px #111113;
 }
 
+#git-icon {
+  position: absolute; bottom: 20; left: 20;
+  width:65px;
+  opacity: 0.3;
+}
+
 .btn-group {
   position: absolute;
   top: 70px;
@@ -101,7 +107,7 @@ body {
     vertical-align:middle;
 }
 
-a {
+.link {
   text-decoration: none;
   color: var(--bg);
   display: inline-block;
@@ -115,7 +121,7 @@ a {
   border-color: var(--accent);
 }
 
-a:hover {
+.link:hover {
   border-color:  #87bab2;
 }
 

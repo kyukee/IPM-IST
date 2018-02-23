@@ -18,6 +18,10 @@
       <button class="tab" onmouseover="openCategory(event, 'C')">C</button>
       <!-- onclick for mobile? -->
     </div>
+
+    <a href="https://github.com/kyukee/IPM-IST">
+      <img id="git-icon" src="github.png">
+    </a>
   
   </div>
   
@@ -30,8 +34,8 @@
     <table id="Images" align=center>
       <tr class="img">
         <td></td>
-        <td width="75%" align=center style="color:#87bab2;font-weight:bold">nome</td>
-        <td style="color:#87bab2;font-weight:bold">numero</td>
+        <td width="75%" align=center style="color:#87bab2;font-weight:bold">Nome</td>
+        <td style="color:#87bab2;font-weight:bold">Número</td>
       </tr>
 
       <tr class="img">
@@ -60,11 +64,11 @@
       <h2 class="title">A</h2>
       <div class="link-set">
  
-        <a href="questionario1.html">
+        <a class="link" href="questionario1.html">
           Questionario para a analise de tarefas
         </a>
          
-        <a href="questionario2.html">
+        <a class="link" href="questionario2.html">
           Questionário para a ańálise de tarefas <span style="color: #ff5543">(melhorado)</span>
         </a>
          
@@ -73,7 +77,7 @@
       <div id="separator"></div>
       
       <div class="link-set">
-        <a href="questionario3.html">
+        <a class="link" href="questionario3.html">
           link3
          </a>
       </div>
@@ -99,11 +103,11 @@
   </div>
   
   <script type="text/javascript">
-  	function openCategory(evt, categoryName) {
+    function openCategory(evt, categoryName) {
       var i, x, tabs;
       x = document.getElementsByClassName("category");
       for (i = 0; i < x.length; i++) {
-      	 x[i].style.visibility = "hidden";
+         x[i].style.visibility = "hidden";
          x[i].style.opacity = "0";
       }
       
@@ -121,11 +125,11 @@
   
   
   <script type="text/javascript">
-  	function visibility() {
+    function visibility() {
       var i, x;
       x = document.getElementsByClassName("category");
       for (i = 0; i < x.length; i++) {
-      	 x[i].style.visibility = "hidden";
+         x[i].style.visibility = "hidden";
          x[i].style.opacity = "0";
       }
       

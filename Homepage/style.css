@@ -31,6 +31,7 @@ body {
   background: #111113;
   z-index: 10;
   box-shadow: 0 0 3px #111113;
+  transition: all 1.2s ease;
 }
 
 #git-icon {
@@ -39,11 +40,9 @@ body {
   opacity: 0.3;
 }
 
+
 .btn-group {
-  position: absolute;
-  top: 70px;
-  padding-top: 30px;
-  padding-bottom: 40px;
+
   background-color: var(--bg);
 }
 
@@ -57,6 +56,24 @@ body {
   /*margin-bottom:10px;*/
 }
 
+
+.box-btn {
+  position: absolute;
+  top: 10px;
+  left: 350px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border: solid;
+  width: 40px !important;
+  height:40px;
+  z-index: 11 !important;
+}
+
+.btn-show-side {
+  top: 10px;
+  left: 0px;
+  z-index: 9 !important;
+}
 
 .active {
   background-color: var(--bg-active) !important;

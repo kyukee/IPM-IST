@@ -43,7 +43,10 @@ body {
 
 
 .btn-group {
-
+  position: absolute; 
+  top: 70px; 
+  padding-top: 30px; 
+  padding-bottom: 40px; 1
   background-color: var(--bg);
 }
 
@@ -64,10 +67,12 @@ body {
   left: 350px;
   padding-top: 0px;
   padding-bottom: 0px;
-  border: solid;
+  border: none;
   width: 40px !important;
   height:40px;
   z-index: 11 !important;
+  background-color: var(--bg); 
+  color:var(--fg); 
 }
 
 .btn-show-side {

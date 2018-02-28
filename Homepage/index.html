@@ -4,31 +4,30 @@
 <head>
   <title>IPM Grupo 21</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="IST_Logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="img/IST_Logo.png">
 </head>
 
 <body onload="visibility()"> 
   <div id="side-opener">
-      <div class="btn-group">
-        <button class="box-btn btn-show-side" onclick="changeSidebar(400)">></button>
-      </div>
+    <button class="box-btn btn-show-side" onclick="changeSidebar(400)">></button>
   </div>
 
   <div id="sidebar">
-    <div class="btn-group">
       <button class="box-btn" onclick="changeSidebar(1)"><</button>
 
-      <h1 class="title" style="margin-left:50px">Menu </h1>
-      <button class="tab active" onmouseover="openCategory(event, 'Info')">Info</button>
-      <button class="tab" onmouseover="openCategory(event, 'A')">A</button>
-      <button class="tab" onmouseover="openCategory(event, 'B')">B</button>
-      <button class="tab" onmouseover="openCategory(event, 'C')">C</button>
+      <div class="btn-group">
+        <h1 class="title" style="margin-left:50px">Menu </h1>
+        <button class="tab active" onmouseover="openCategory(event, 'Info')">Info</button>
+        <button class="tab" onmouseover="openCategory(event, 'A')">Análise de tarefas</button>
+        <button class="tab" onmouseover="openCategory(event, 'B')">Modelo Conceptual</button>
+        <button class="tab" onmouseover="openCategory(event, 'C')">Protótipos</button>
+        <button class="tab" onmouseover="openCategory(event, 'D')">Avaliação com Utilizadores</button>
       <!-- onclick for mobile? -->
     </div>
 
     <a href="https://github.com/kyukee/IPM-IST">
-      <img id="git-icon" src="github.png">
+      <img id="git-icon" src="img/github.png">
     </a>
   
   </div>
@@ -47,19 +46,19 @@
       </tr>
 
       <tr class="img">
-        <td><img src = "Catarina.png" width="100"></td>
+        <td><img src = "img/students/Catarina.png" width="100"></td>
         <td width="75%" align=center>Catarina Guerreiro Gomes Pedreira</td>
         <td align=center>87524</td>
       </tr>
       
       <tr class="img">
-        <td><img src = "Iulian.png" width="100"></td>
+        <td><img src = "img/students/Iulian.png" width="100"></td>
         <td width="75%" align=center>Iulian Puscasu</td>
         <td align=center>87665</td>
       </tr>
       
       <tr class="img">
-        <td><img src = "Miguel.png" width="100"></td>
+        <td><img src = "img/students/Miguel.png" width="100"></td>
         <td width="75%" align=center>Miguel Rodrigo Moreira Oliveira</td>
         <td align=center>87689</td>
       </tr>
@@ -69,135 +68,134 @@
   
   <div id="A" class="category" style="visibility: hidden; opacity: 0;">
     <div class="content">
-      <h2 class="title">A</h2>
-      <div align="center">
-        <div class="link-set" >
-   
-          <a class="link" href="questionario1.html">
-            Questionário para a análise de tarefas
-          </a>
-           
-          <a class="link" href="questionario2.html">
-            Questionário para a ańálise de tarefas <span style="color: #ff5543">(melhorado)</span>
-          </a>
-  
-          <a class="link" href="at1.html">
-            Análise de tarefas + Funcionalidades
-          </a>
-           
-        </div>
-        
-        <div id="separator"></div>
-        
-        <div class="link-set">
-  
-           <a class="link" href="at2.html">
-            Análise de tarefas + Funcionalidades <span style="color: #ff5543">(melhorados)</span>
-           </a>
-  
-           <a class="link" href="mod-conceptual1.html">
-            Modelo Conceptual
-           </a>
-  
-  
-           <a class="link" href="mod-conceptual2.html">
-            Modelo Conceptual <span style="color: #ff5543">(melhorado)</span>
-           </a>
-  
-  
-        </div>
-  
-        <div id="separator"></div>
-  
-        <div class="link-set">
-  
-           <a class="link" href="pbf1.html">
-            PBF 
-           </a>
-  
-  
-           <a class="link" href="pbf2.html">
-            PBF <span style="color: #ff5543">(melhorado)</span>
-           </a>
-  
-           <a class="link" href="protFuncional1-beta.html">
-            Primeiro protótipo funcional
-           </a>
-  
-        </div>
+      <h2 class="title">Análise de tarefas</h2>
+
+      <div class="link-set" >
+        <a class="link" href="questionario1.html">
+          Questionário para a análise de tarefas
+        </a>
+         
+        <a class="link" href="questionario2.html">
+          Questionário para a ańálise de tarefas <span style="color: #ff5543">(melhorado)</span>
+        </a>
       </div>
+      
+      <div id="separator"></div>
+      
+      <div class="link-set">
+        <a class="link" href="at1.html">
+          Análise de tarefas + Funcionalidades
+        </a>
+
+        <a class="link" href="at2.html">
+          Análise de tarefas + Funcionalidades <span style="color: #ff5543">(melhorados)</span>
+        </a>
+      </div>
+
     </div>
   </div>
     
 
   <div id="B" class="category" style="visibility: hidden; opacity: 0;">
     <div class="content">
-      <h2 class="title">B</h2>
+      <h2 class="title">Modelo Conceptual</h2>
 
-      <div align="center">
+      <div class="link-set">
+        <a class="link" href="mod-conceptual1.html">
+          Modelo Conceptual
+        </a>
 
-        <div class="link-set">
-   
-          <a class="link" href="protFuncional1-completo.html">
-            Primeiro protótipo funcional <span style="color: #ff5543">(completo)</span>
-          </a>
-           
-          <a class="link" href="protFuncional2-beta.html">
-            Segundo protótipo funcional 
-          </a>
-  
-          <a class="link" href="protFuncional2-completo.html">
-            Segundo protótipo funcional <span style="color: #ff5543">(completo)</span>
-          </a>
-           
-        </div>
-  
-        <div id="separator"></div>
-  
-        <div class="link-set">
-   
-          <a class="link" href="protFinal-beta.html">
-            Protótipo Final 
-          </a>
-           
-          <a class="link" href="protFinal-completo.html">
-            Protótipo Final <span style="color: #ff5543">(completo)</span>
-          </a>
-  
-          <a class="link" href="tarefas-criterios1.html">
-            Tarefas e Critérios de usabilidade
-          </a>
-           
-        </div>
-        <div id="separator"></div>
-  
-        <div class="link-set">
-          <a class="link" href="tarefas-criterios2.html">
-            Tarefas e Critérios de usabilidade <span style="color: #ff5543">(melhorado)</span>
-          </a>
-           
-          <a class="link" href="relatorioTestes1.html">
-            Relatório da avaliação com utilizadores
-          </a>
-  
-          <a class="link" href="relatorioTestes2.html">
-            Relatório da avaliação com utilizadores <span style="color: #ff5543">(melhorado)</span>
-          </a>
-        </div>
+        <a class="link" href="mod-conceptual2.html">
+          Modelo Conceptual <span style="color: #ff5543">(melhorado)</span>
+        </a>
       </div>
+  
     </div>
   </div>
   
   <div id="C" class="category" style="visibility: hidden; opacity: 0;">
     <div class="content">
-      <h2 class="title">C</h2>
-      <div align="center">
-        <div class="link-set">
-          <a class="link" href="manual.html">
-            Manual do utilizador 
-          </a>
-        </div>
+      <h2 class="title">Protótipos</h2>
+
+      <div class="link-set">
+        <a class="link" href="pbf1.html">
+          PBF 
+        </a>
+
+        <a class="link" href="pbf2.html">
+          PBF <span style="color: #ff5543">(melhorado)</span>
+        </a>
       </div>
+
+      <div id="separator"></div>
+
+      <div class="link-set">
+        <a class="link" href="protFuncional1-beta.html">
+          Primeiro protótipo funcional
+        </a>
+
+        <a class="link" href="protFuncional1-completo.html">
+          Primeiro protótipo funcional <span style="color: #ff5543">(completo)</span>
+        </a>
+         
+        <a class="link" href="protFuncional2-beta.html">
+          Segundo protótipo funcional 
+        </a>
+
+        <a class="link" href="protFuncional2-completo.html">
+          Segundo protótipo funcional <span style="color: #ff5543">(completo)</span>
+        </a>
+      </div>
+
+      <div id="separator"></div>
+
+      <div class="link-set">
+        <a class="link" href="protFinal-beta.html">
+          Protótipo Final 
+        </a>
+         
+        <a class="link" href="protFinal-completo.html">
+          Protótipo Final <span style="color: #ff5543">(completo)</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="D" class="category" style="visibility: hidden; opacity: 0;">
+    <div class="content">
+      <h2 class="title">Avaliação com Utilizadores</h2>
+
+      <div class="link-set">
+        <a class="link" href="tarefas-criterios1.html">
+          Tarefas e Critérios de usabilidade
+        </a>
+        
+        <a class="link" href="tarefas-criterios2.html">
+          Tarefas e Critérios de usabilidade <span style="color: #ff5543">(melhorado)</span>
+        </a>
+      </div>
+
+      <div id="separator"></div>
+
+      <div class="link-set">   
+        <a class="link" href="relatorioTestes1.html">
+          Relatório da avaliação com utilizadores
+        </a>
+
+        <a class="link" href="relatorioTestes2.html">
+          Relatório da avaliação com utilizadores <span style="color: #ff5543">(melhorado)</span>
+        </a>
+      </div>
+
+      <div id="separator"></div>
+
+      <div class="link-set">
+        <a class="link" href="manual.html">
+          Manual do utilizador 
+        </a>
+      </div>
+
     </div>
   </div>
   

@@ -19,6 +19,7 @@ body {
 
 .title {
   color: var(--fg-light);
+  margin: 20px;
 }
 
 .accent {
@@ -42,10 +43,7 @@ body {
 
 
 .btn-group {
-  position: absolute;
-  top: 70px;
-  padding-top: 30px;
-  padding-bottom: 40px;
+
   background-color: var(--bg);
 }
 
@@ -66,12 +64,10 @@ body {
   left: 350px;
   padding-top: 0px;
   padding-bottom: 0px;
-  border: none;
+  border: solid;
   width: 40px !important;
   height:40px;
   z-index: 11 !important;
-  background-color: var(--bg);
-  color:var(--fg);
 }
 
 .btn-show-side {
@@ -95,6 +91,7 @@ body {
 }
 
 .content {
+  /*margin: auto;*/
   margin-left:60px;
   margin-right:20px;
   opacity: 1;
@@ -113,7 +110,7 @@ body {
   width:80%;
   height: 3px;
   background-color:var(--accent);
-  margin: 35px;
+  margin: 55px;
 }
 
 .link-set {
@@ -135,12 +132,12 @@ body {
   color: var(--bg);
   display: inline-block;
   width: 220px;
-  margin:20px;
-  padding: 30px;
+  margin:2.5px;
+  padding: 10px;
   vertical-align: middle;
   text-align: center;
   border-style: dashed;
-  border-width: 4px;
+  border-width: 2px;
   border-color: var(--accent);
 }
 

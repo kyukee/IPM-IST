@@ -126,7 +126,7 @@ body {
 }
 
 .link-set:hover {
-  background-color: #ed7d71;
+  background-color: #f99286;
   
 }
 
@@ -146,6 +146,10 @@ body {
   border-style: dashed;
   border-width: 3px;
   border-color: var(--accent);
+}
+
+.hidden-link {
+  opacity:0.2;
 }
 
 .link:hover {

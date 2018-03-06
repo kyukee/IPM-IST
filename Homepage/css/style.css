@@ -162,7 +162,8 @@ body {
 
 #bg {
   position: fixed; top: 0; left: 0;
-  background:url(https://c1.staticflickr.com/3/2470/3744243464_10d1a16b5f_b.jpg);
+  /*background:url(https://c1.staticflickr.com/3/2470/3744243464_10d1a16b5f_b.jpg);*/
+  background:url("../img/bg-img.jpg");
   background-repeat:no-repeat;
   background-size: cover;
   z-index:-20;
@@ -170,8 +171,3 @@ body {
   height:100%;
   filter: blur(3px);
 }
-
-/*
-    background:url(../images/House-03.png);
-*/
-

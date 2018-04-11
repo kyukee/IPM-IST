@@ -3,8 +3,8 @@
 
 	<head>
 		<title>Protótipo iRave</title>
-  		<meta charset="UTF-8">
-  		<link rel="stylesheet" href="css/style.css">
+  	<meta charset="UTF-8">
+  	<link rel="stylesheet" href="css/style.css">
 		<script src="js/btn-layout.js"></script>
 		<script src="js/main.js"></script>
 	</head>
@@ -27,7 +27,17 @@
 					<div id="clock"></div>
 
 					<div>
-						<img class="main-screen-slide slide" onclick="currentMenu('menu-alert')" src="https://png.icons8.com/metro/1600/google-alerts.png">
+					
+						<div class="slide">
+							<img class="main-screen-slide-side-left" src="https://cdn2.iconfinder.com/data/icons/eldorado-multimedia/40/478114-options-512.png">	
+							<img class="main-screen-slide" onclick="currentMenu('menu-alert-art');showMenuSlide(1);alertChangeTab('art');" src="https://png.icons8.com/metro/1600/google-alerts.png">
+							<img class="main-screen-slide-side-right" src="http://www.myiconfinder.com/uploads/iconsets/256-256-7666a6bccd29cfe47a347af93f9ce990.png">
+						</div>
+					
+						
+						
+						
+						
 						<img class="main-screen-slide slide" onclick="currentMenu('menu-meteo')" src="http://www.myiconfinder.com/uploads/iconsets/256-256-7666a6bccd29cfe47a347af93f9ce990.png">
 						<img class="main-screen-slide slide" onclick="currentMenu('menu-wc')" src="https://user-images.githubusercontent.com/30325749/29003028-7145dace-7aaf-11e7-9ce3-fe8e409b1896.png">
 						<img class="main-screen-slide slide" onclick="currentMenu('menu-def')" src="https://cdn2.iconfinder.com/data/icons/eldorado-multimedia/40/478114-options-512.png">
@@ -46,9 +56,204 @@
 				</div>
 				
 				
-				<div id="menu-alert" class="global-menu">
-					<span>menu alertas</span>
+				<div id="menu-alert-art" class="global-menu">
+				
+					<img class="navigation-arrow-alert" onclick="changeMenuSlide(left)" style="left:0" src="https://icon-icons.com/icons2/1144/PNG/512/scrollarrow_80992.png">
+
+					<img class="navigation-arrow-alert" onclick="changeMenuSlide(right)" style="right:0" src="https://icon-icons.com/icons2/1144/PNG/512/rightnavigationbutton_81014.png">
+				
+				
+					<div style="display:inline-block;width:60%">
+						<div class="menu-alert-art-slide-subtitle subtitle">artista 1 texto grande</div>
+						<div class="menu-alert-art-slide-subtitle subtitle">artista 2</div>
+						<div class="menu-alert-art-slide-subtitle subtitle">artista 3</div>
+					</div>
+					
+					
+					<div class="menu-alert-art-slide slide" >
+						<div class="alert-checkbox" onclick="toggleCheckmark(this)"> </div>
+						
+						<div class="menu-alert-art-slide-image" style='background-image: url("http://www.adagio.com/images5/flavor_thumbnail/mango.jpg");'>
+						</div>
+					</div>
+					
+					<div class="menu-alert-art-slide slide" >
+						<div class="alert-checkbox" onclick="toggleCheckmark(this)"> </div>
+						<div class="menu-alert-art-slide-image" style='background-image: url("http://i.stack.imgur.com/2OrtT.jpg");'>
+						</div>
+					</div>
+
+					<div class="menu-alert-art-slide slide" >
+						<div class="alert-checkbox" onclick="toggleCheckmark(this)"> </div>
+						<div class="menu-alert-art-slide-image" style='background-image: url("https://www.doctormahers.com/wp-content/uploads/2016/07/RASBERRYBLOGpic1.jpg");'>
+						</div>
+					</div>
+					
+					<div id="menu-alert-tab-container">
+						<div class="menu-alert-tab gen">gen</div> 
+  					<div class="menu-alert-tab art">art</div> 
+  					<div class="menu-alert-tab hour">hour</div>
+					</div>
+					
 				</div>
+				
+				<div id="menu-alert-gen" class="global-menu">
+					
+					<img class="navigation-arrow-alert" onclick="changeSlideMenuSlideLevel(left)" style="left:0" src="https://icon-icons.com/icons2/1144/PNG/512/scrollarrow_80992.png">
+
+					<img class="navigation-arrow-alert" onclick="changeSlideMenuSlideLevel(right)" style="right:0" src="https://icon-icons.com/icons2/1144/PNG/512/rightnavigationbutton_81014.png">
+				
+				
+					<div style="display:inline-block;width:60%;font-size:14pt">
+						<div class="menu-alert-gen-level-subtitle level-subtitle">gen 1</div>
+						<div class="menu-alert-gen-level-subtitle level-subtitle">gen 2</div>
+					</div>
+				
+				
+					<div style="display:inline-block;width:60%;font-size:14pt">
+						<div class="menu-alert-gen-slide-subtitle subtitle level-1">artista 1</div>
+						<div class="menu-alert-gen-slide-subtitle subtitle level-1">artista 2 nome longo</div>
+						<div class="menu-alert-gen-slide-subtitle subtitle level-1">artista 3</div>
+					</div>
+					
+					
+					
+					
+					<div class="menu-alert-art-slide slide level-1" >
+						<div class="alert-checkbox" onclick="toggleCheckmark(this)"> </div>
+						
+						<div class="menu-alert-art-slide-image" style='background-image: url("http://www.adagio.com/images5/flavor_thumbnail/mango.jpg");'>
+						</div>
+					</div>
+					
+					<div class="menu-alert-art-slide slide level-1" >
+						<div class="alert-checkbox" onclick="toggleCheckmark(this)"> </div>
+						<div class="menu-alert-art-slide-image" style='background-image: url("http://i.stack.imgur.com/2OrtT.jpg");'>
+						</div>
+					</div>
+
+					<div class="menu-alert-art-slide slide level-1" >
+						<div class="alert-checkbox" onclick="toggleCheckmark(this)"> </div>
+						<div class="menu-alert-art-slide-image" style='background-image: url("https://www.doctormahers.com/wp-content/uploads/2016/07/RASBERRYBLOGpic1.jpg");'>
+						</div>
+					</div>
+					
+					
+					
+					
+					<div style="display:inline-block;width:60%;font-size:14pt">
+						<div class="menu-alert-gen-slide-subtitle subtitle level-2">level 2</div>
+						<div class="menu-alert-gen-slide-subtitle subtitle level-2">level 2 (2)</div>
+					</div>
+					
+					
+					
+					
+					<div class="menu-alert-art-slide slide level-2" >
+						<div class="alert-checkbox" onclick="toggleCheckmark(this)"> </div>
+						
+						<div class="menu-alert-art-slide-image" style='background-image: url("https://cdn1.medicalnewstoday.com/content/images/articles/275/275517/a-papaya-cut-in-half.jpg");'>
+						</div>
+					</div>
+					
+					<div class="menu-alert-art-slide slide level-2" >
+						<div class="alert-checkbox" onclick="toggleCheckmark(this)"> </div>
+						<div class="menu-alert-art-slide-image" style='background-image: url("https://5.imimg.com/data5/CU/PW/MY-5137401/purple-grapes-500x500.jpg");'>
+						</div>
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					<div id="menu-alert-tab-container">
+						<div class="menu-alert-tab gen">gen</div> 
+  					<div class="menu-alert-tab art">art</div> 
+  					<div class="menu-alert-tab hour">hour</div>
+					</div>
+				</div>
+				
+				<div id="menu-alert-hour" class="global-menu">
+				
+					<img class="navigation-arrow-alert nav-arrow-alert-hour" onclick="changeLevelMenuWithLevels(-1)" style="left:0" src="https://icon-icons.com/icons2/1144/PNG/512/scrollarrow_80992.png">
+
+					<img class="navigation-arrow-alert nav-arrow-alert-hour" onclick="changeLevelMenuWithLevels(1)" style="right:0" src="https://icon-icons.com/icons2/1144/PNG/512/rightnavigationbutton_81014.png">
+				
+				
+					<div style="display:inline-block;width:60%;font-size:14pt">
+						<div class="menu-alert-hour-level-subtitle level-subtitle">dia 1</div>
+						<div class="menu-alert-hour-level-subtitle level-subtitle">dia 2</div>
+					</div>
+				
+				
+					<div style="display:inline-block;width:60%;font-size:14pt">
+						<div class="menu-alert-hour-slide-subtitle subtitle level-1">
+							<div class="menu-alert-hour-list-entry" onclick="toggleSelectedEntry(this)">09h-artista 1</div>
+							<div class="menu-alert-hour-list-entry" onclick="toggleSelectedEntry(this)">10h-palavras</div>
+							<div class="menu-alert-hour-list-entry" onclick="toggleSelectedEntry(this)">10h30-aaa</div>
+						</div>
+						
+						<div class="menu-alert-hour-slide-subtitle subtitle level-1">
+							<div class="menu-alert-hour-list-entry" onclick="toggleSelectedEntry(this)">11h-artista 1</div>
+							<div class="menu-alert-hour-list-entry" onclick="toggleSelectedEntry(this)">12h-palavras grandes</div>
+							<div class="menu-alert-hour-list-entry" onclick="toggleSelectedEntry(this)">14h-aaa</div>
+						</div>
+						
+						<div class="menu-alert-hour-slide-subtitle subtitle level-1">
+							<div class="menu-alert-hour-list-entry" onclick="toggleSelectedEntry(this)">17h-artista 1</div>
+							<div class="menu-alert-hour-list-entry" onclick="toggleSelectedEntry(this)">18h-palavras</div>
+							<div class="menu-alert-hour-list-entry" onclick="toggleSelectedEntry(this)">19h-aaa</div>
+						</div>
+					</div>
+					
+					
+					
+					
+					<div class="menu-alert-art-slide slide level-1"></div>
+					<div class="menu-alert-art-slide slide level-1"></div>
+					<div class="menu-alert-art-slide slide level-1"></div>
+					
+					
+					
+					
+					<div style="display:inline-block;width:60%;font-size:14pt">
+						<div class="menu-alert-hour-slide-subtitle subtitle level-2">
+							<div class="menu-alert-hour-list-entry" onclick="toggleSelectedEntry(this)">07h-artista 1</div>
+							<div class="menu-alert-hour-list-entry" onclick="toggleSelectedEntry(this)">08h-palavras</div>
+							<div class="menu-alert-hour-list-entry" onclick="toggleSelectedEntry(this)">09h-palavras</div>
+						</div>
+						
+						<div class="menu-alert-hour-slide-subtitle subtitle level-2">
+							<div class="menu-alert-hour-list-entry" onclick="toggleSelectedEntry(this)">14h-artista 1</div>
+							<div class="menu-alert-hour-list-entry" onclick="toggleSelectedEntry(this)">15h-palavras</div>
+						</div>
+					</div>
+					
+					
+					
+					
+					<div class="menu-alert-art-slide slide level-2"></div>
+					<div class="menu-alert-art-slide slide level-2"></div>
+					
+					<div id="menu-alert-hour-progress"></div>
+					<div id="menu-alert-hour-progress-bar"></div>
+					
+					<div id="menu-alert-tab-container">
+						<div class="menu-alert-tab gen">gen</div> 
+  					<div class="menu-alert-tab art">art</div> 
+  					<div class="menu-alert-tab hour">hour</div>
+					</div>
+				</div>
+				
+				
+				
 				
 				<div id="menu-meteo" class="global-menu">
 					<span>menu meteo</span>

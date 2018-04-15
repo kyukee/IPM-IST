@@ -18,9 +18,10 @@
       </div>
 
       <img id="phy-btn-left" class="physical-button" style="position:absolute; bottom:0; right:0 " src="img/botFisicos/leftArrow.jpg"/>
+
     </div>
 
-    <div class="separator" align=center>
+    <div class="separator separator-background" align=center>
       <div id="main-screen">
 			
 				<div id="menu-main" class="global-menu">
@@ -234,7 +235,6 @@
 					
 					
 					
-					
 					<div style="display:inline-block;width:60%;font-size:14pt">
 						<div class="menu-alert-hour-slide-subtitle subtitle level-2">
 							<div class="menu-alert-hour-list-entry" onclick="toggleSelectedEntry(this)">07h-artista 1</div>
@@ -272,7 +272,15 @@
 				</div>
 				
 				<div id="menu-wc" class="global-menu">
-					<span>menu wc</span>
+						<div style ="margin-top: 10%; font-size: 15px;" class="menu-wc-main-subtitle">5 disponíveis</div>
+						<button style ="margin-top: 12%;" class="menu-wc-main-subtitle menu-wc-main-button" onclick= "currentMenu('menu-reservar-aut');">Reservar aut.</button>
+						<button class="menu-wc-main-subtitle menu-wc-main-button">Ver Mapa</button>
+						<button style="border-bottom-right-radius: 15px; border-bottom-left-radius:15px;" class="menu-wc-main-subtitle menu-wc-main-button">Ver todas zonas</button>
+				</div>
+
+				<div id="menu-reservar-aut" class ="global-menu">
+						<button class="menu-wc-main-button menu-wc-reservar-aut aut-1">Por proximidade</button>
+						<button class="menu-wc-main-button menu-wc-reservar-aut aut-2">Por rapidez</button>
 				</div>
 				
 				<div id="menu-def" class="global-menu">

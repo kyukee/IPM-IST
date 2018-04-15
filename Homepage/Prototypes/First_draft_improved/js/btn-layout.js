@@ -43,6 +43,15 @@ var menuData = {
 		up:"changeSlideMenuSlideLevel(left);updateAlertHourScrollbar();rotateMango(right)",
 		down:"changeSlideMenuSlideLevel(right);updateAlertHourScrollbar();rotateMango(left)"
 	},
+
+	"menu-reservar-aut":
+	{
+		back:"currentMenu('menu-wc')",
+		left:"",
+		right:"",
+		up:"",
+		down:""
+	},
 	
 	"menu-meteo":
 	{

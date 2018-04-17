@@ -48,14 +48,15 @@ function showMenuSlide(n) {
 	if (n > x.length) {slideIndex = 1}
 	if (n < 1) {slideIndex = x.length}
 	for (i = 0; i < x.length; i++) {
-		 x[i].style.display = "none";  
+		 x[i].style.display = "none";
 	}
 	for (i = 0; i < subs.length; i++) {
-		 subs[i].style.display = "none";  
+		 subs[i].style.display = "none";
 	}
 	
 	x[slideIndex-1].style.display = "block";
 	subs[slideIndex-1].style.display = "block";
+
 	addMarqueeIfOverflowing(subs[slideIndex-1]);
 }
 
@@ -71,27 +72,27 @@ function alertChangeTab(n) {
 	
 	for (i = 0; i < tabs.length; i++) {
      tabs[i].className += " menu-alert-tab-selected";
-  }
-  
+  } 
 }
-
-
 
 var level = 1;
 var levelName = "level-" + level;
 
-
-
 function changeLevelMenuWithLevels(inc) {
 	level += inc;
-	
 	var l = document.getElementById(menuIndex).getElementsByClassName("level-subtitle").length;
 	
 	if (level > l) {level = 1}
 	if (level < 1) {level = l}
 	
 	hideAllLevelSlides(levelName);
-	
+	levelName = "level-" + level;
+	currentSlideMenuWithLevels(1);
+}
+
+function currentLevelMenuWithLevels(n) {
+	hideAllLevelSlides(levelName);
+	level = n;
 	levelName = "level-" + level;
 	currentSlideMenuWithLevels(1);
 }
@@ -110,9 +111,6 @@ function showMenuSlideWithLevels(n) {
 	var subs = document.getElementById(menuIndex).getElementsByClassName("subtitle " + levelName);
 	var l_subs = document.getElementById(menuIndex).getElementsByClassName("level-subtitle");
 	
-	//var ... "level-subtitle"
-	
-	
 	if (n > x.length) {slideIndex = 1}
 	if (n < 1) {slideIndex = x.length}
 	for (i = 0; i < x.length; i++) {
@@ -124,7 +122,6 @@ function showMenuSlideWithLevels(n) {
 	for (i = 0; i < l_subs.length; i++) {
 		 l_subs[i].style.display = "none";  
 	}
-	
 	
 	x[slideIndex-1].style.display = "block";
 	subs[slideIndex-1].style.display = "block";
@@ -149,8 +146,6 @@ function hideAllLevelSlides(level) {
 	}
 }
 
-
-
 /*
 function alertChangeTabAdd(n) {
 	showMenuSlide(tabIndex += n);
@@ -161,9 +156,32 @@ function startTime() {
 	var h = today.getHours();
 	var m = today.getMinutes();
 	m = checkTime(m);
-	document.getElementById('clock').innerHTML =
-	h + ":" + m;
+
+	var x = document.getElementsByClassName('clock');
+
+	for (i = 0; i < x.length; i++) {
+		 x[i].innerHTML = h + ":" + m;
+	}	
+
 	var t = setTimeout(startTime, 500);
+}
+
+function startDate() {
+	var objToday = new Date(),
+	weekday = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'),
+	dayOfWeek = weekday[objToday.getDay()],
+	domEnder = function() { var a = objToday; if (/1/.test(parseInt((a + "").charAt(0)))) return "th"; a = parseInt((a + "").charAt(1)); return 1 == a ? "st" : 2 == a ? "nd" : 3 == a ? "rd" : "th" }(),
+	dayOfMonth = today + ( objToday.getDate() < 10) ? '0' + objToday.getDate() + domEnder : objToday.getDate() + domEnder,
+	months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'),
+	curMonth = months[objToday.getMonth()];
+
+	var today = dayOfWeek + " " + curMonth + " " + dayOfMonth;
+	document.getElementById('date').innerHTML = today;
+}
+
+function checkTime(i) {
+	if (i < 10) {i = "0" + i}  // add zero in front of numbers < 10
+	return i;
 }
 
 function toggleCheckmark(box){
@@ -182,12 +200,6 @@ function toggleSelectedEntry(box){
 	}
 }
 
-
-function checkTime(i) {
-	if (i < 10) {i = "0" + i}  // add zero in front of numbers < 10
-	return i;
-}
-
 function isElementOverflowing(element) {
 	var overflowX = element.offsetWidth < element.scrollWidth;
 		//overflowY = element.offsetHeight < element.scrollHeight;
@@ -203,37 +215,20 @@ function wrapContentsInMarquee(element) {
 //behaviour= alternate ou scroll??
 
 
-
-
-/*
-function addMarqueeIfOverflowing() {
-	var strings = document.getElementsByClassName("subtitle");
-
-	for (i = 0; i < strings.length; i++) {
-		if (isElementOverflowing(strings[i])) {
-			wrapContentsInMarquee(strings[i]);
-		}
-	}
-}*/
-
-
 function addMarqueeIfOverflowing(element) {
-
 	var x = element.getElementsByClassName("menu-alert-hour-list-entry");
-	
+
 	if(x.length > 0) {
 		for (i = 0; i < x.length; i++) {
 		 if (isElementOverflowing(x[i])) {
 				wrapContentsInMarquee(x[i]);
 			}
 		}
-	
 	}else{
 		if (isElementOverflowing(element)) {
 			wrapContentsInMarquee(element);
 		}
 	}
-	
 }
 
 function updateAlertHourScrollbar() {
@@ -242,7 +237,9 @@ function updateAlertHourScrollbar() {
 	var slideNum = document.getElementById(menuIndex).getElementsByClassName("slide " + levelName).length;
 	
 	var section = container.clientHeight / slideNum;
+
 	
 	var y = container.offsetTop + section * (slideIndex-1) + ((section - box.clientHeight) / 2 * (slideIndex-1));
 	box.style.top= y + "px";
+	box.style.height= section + "px";
 }

@@ -267,12 +267,28 @@
 				<div id="menu-alert-hour-progress"></div>
 				<div id="menu-alert-hour-progress-bar"></div>
 			</div>
+				
+				
+				<div id="menu-meteo" class="global-menu">
+					<div style="display:inline-block;width:60%">
+						<img class="navigation-arrow-alert nav-arrow-alert-hour" onclick="currentMenu('menu-meteo-cal');" style="left:2%; top:2%" src="img/menu-meteo/calendar.png"/>
+						<div class="menu-meteo-curr-loc">Leiria</div>
+						<img class="navigation-arrow-alert nav-arrow-alert-hour" onclick="currentMenu('menu-meteo-loc');currentMenuSlide(1);" style="right:2%; top:2%" src="img/menu-meteo/plus-sign.png"/>
+					</div>
+					<div>
+						<img class="menu-meteo-curr-image" src="img/menu-meteo/rain.png">
+						<div class="menu-meteo-curr-temp">11ºC</div>
+					</div>
+				</div>
+				
+				<div id="menu-meteo-cal" class="global-menu">
+					<span>menu cal</span>
+				</div>
 
-
-
-			<div id="menu-meteo" class="global-menu">
-				<span>menu meteo</span>
-			</div>
+				<div id="menu-meteo-loc" class="global-menu">
+					<span>menu location</span>
+				</div>
+				
 			
 			<div id="menu-wc" class="global-menu">
 					<div style ="margin-top: 10%; font-size: 15px;" class="menu-wc-main-subtitle">5 disponíveis</div>
@@ -296,9 +312,9 @@
     <div class="separator separator-side">
       <div align=center style="position:absolute; top:0; left:0">
         <img id="phy-btn-up" class="physical-button physical-button-arrow" style="transform:rotate(90deg)" src="img/botFisicos/leftArrow.jpg"/>
-        <img id="mango" class="physical-button" src="img/botFisicos/rotativo.png" />
 
         <img id="mango-dots" src="img/botFisicos/rot-dots.png" />
+        <img id="mango" class="physical-button" src="img/botFisicos/rotativo.png" />
 
         <img id="phy-btn-down" class="physical-button physical-button-arrow" style="transform:rotate(90deg)" src="img/botFisicos/rightArrow.png" />
       </div>

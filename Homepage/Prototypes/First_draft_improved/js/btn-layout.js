@@ -60,5 +60,23 @@ var menuData = {
 		right:"",
 		up:"",
 		down:""
+	},
+
+	"menu-meteo-cal":
+	{
+		back:"currentMenu('menu-meteo')",
+		left:"",
+		right:"",
+		up:"",
+		down:""
+	},
+
+	"menu-meteo-loc":
+	{
+		back:"currentMenu('menu-meteo')",
+		left:"",
+		right:"",
+		up:"",
+		down:""
 	}
 };

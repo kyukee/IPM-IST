@@ -367,3 +367,35 @@
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;"
 }
+
+.menu-meteo-curr-loc {
+  font-size: 14pt;
+  position: absolute;
+  top: 2%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  height: 24px;
+  white-space:nowrap;
+}
+
+.menu-meteo-curr-image {
+  position: absolute;
+  margin: auto;
+  left: 4%;
+  top: calc(50% - 30px);
+  height: 40px;
+  width: 40px;
+}
+
+.menu-meteo-curr-temp {
+  font-size: 16pt;
+  position: absolute;
+  margin: auto;
+  right: 4%;
+  top: calc(50% - 30px);
+  vertical-align: middle;
+  height: 40px;
+  width: 40px;
+}

@@ -17,15 +17,6 @@ var menuData = {
 		down:""
 	},
 	
-	"menu-wc":
-	{
-		back: "currentMenu('menu-main');showMenuSlide(1)",
-		left: "changeMenuSlide(left)",
-		right: "changeMenuSlide(right)",
-		up:"",
-		down:""
-	},
-
 	"menu-alert-gen":
 	{
 		back:"hideAllLevelSlides(levelName);currentMenu('menu-main');currentMenuSlide(5)",
@@ -42,26 +33,6 @@ var menuData = {
 		right:"changeLevelMenuWithLevels(1);updateAlertHourScrollbar()",
 		up:"changeSlideMenuSlideLevel(left);updateAlertHourScrollbar();rotateMango(right)",
 		down:"changeSlideMenuSlideLevel(right);updateAlertHourScrollbar();rotateMango(left)"
-	},
-
-	"menu-reservar-aut":
-	{
-		back:"currentMenu('menu-wc')",
-		left:"",
-		right:"",
-		up:"",
-		down:""
-	},
-
-	/*Falar com o iulian sobre o hideAllLevelSlides*/
-
-	"menu-ver-1-mapa":
-	{
-		back:"currentMenu('menu-reservar-aut')",
-		left:"",
-		right:"",
-		up:"rotateMango(right)",
-		down:"rotateMango(left)"
 	},
 	
 	"menu-meteo":
@@ -89,5 +60,32 @@ var menuData = {
 		right:"",
 		up:"",
 		down:""
+	},
+
+	"menu-wc":
+	{
+		back: "currentMenu('menu-main');showMenuSlide(1)",
+		left: "changeMenuSlide(left)",
+		right: "changeMenuSlide(right)",
+		up:"",
+		down:""
+	},
+
+	"menu-reservar-aut":
+	{
+		back:"currentMenu('menu-wc')",
+		left:"",
+		right:"",
+		up:"",
+		down:""
+	},
+
+	"menu-ver-1-mapa":
+	{
+		back:"currentMenu('menu-reservar-aut')",
+		left:"",
+		right:"",
+		up:"rotateMango(right)",
+		down:"rotateMango(left)"
 	}
 };

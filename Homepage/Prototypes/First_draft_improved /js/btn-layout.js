@@ -87,5 +87,23 @@ var menuData = {
 		right:"",
 		up:"rotateMango(right)",
 		down:"rotateMango(left)"
+	},
+
+		"menu-reserva-confirmada":
+	{
+		back:"currentMenu('menu-ver-1-mapa')",
+		left:"",
+		right:"",
+		up:"",
+		down:""
+	},
+
+	"menu-reserva-cancelada":
+	{
+		back:"currentMenu('menu-ver-1-mapa')",
+		left:"",
+		right:"",
+		up:"",
+		down:""
 	}
 };

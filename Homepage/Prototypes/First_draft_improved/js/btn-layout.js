@@ -52,6 +52,17 @@ var menuData = {
 		up:"",
 		down:""
 	},
+
+	/*Falar com o iulian sobre o hideAllLevelSlides*/
+
+	"menu-ver-1-mapa":
+	{
+		back:"currentMenu('menu-reservar-aut')",
+		left:"",
+		right:"",
+		up:"rotateMango(right)",
+		down:"rotateMango(left)"
+	},
 	
 	"menu-meteo":
 	{

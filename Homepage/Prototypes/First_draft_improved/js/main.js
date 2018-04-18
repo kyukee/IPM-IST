@@ -209,14 +209,14 @@ function isElementOverflowing(element) {
 
 
 function wrapContentsInMarquee(element) {
-  content = element.innerHTML;
+  var content = element.innerHTML;
 	element.innerHTML = "<marquee behavior=\"scroll\" direction=\"left\" scrollamount=\"2\">" + content + "</marquee>";
 }
 //behaviour= alternate ou scroll??
 
 
 function addMarqueeIfOverflowing(element) {
-	var x = element.getElementsByClassName("menu-alert-hour-list-entry");
+	var x = element.getElementsByClassName("menu-alert-hour-art-name");
 
 	if(x.length > 0) {
 		for (i = 0; i < x.length; i++) {
@@ -242,4 +242,52 @@ function updateAlertHourScrollbar() {
 	var y = container.offsetTop + section * (slideIndex-1) + ((section - box.clientHeight) / 2 * (slideIndex-1));
 	box.style.top= y + "px";
 	box.style.height= section + "px";
+}
+
+// por isto no menu das defenicoes
+var alertDelay = 0;
+
+
+function showNotif(artist, day){
+	var div = document.getElementById("alert-notif").getElementsByClassName("subtitle")[0];
+	var info = lineupData[artist][day];
+
+	div.innerHTML = "" + artist + " no palco " + info.palco + " daqui a " + alertDelay + " minutos";
+	currentMenu("alert-notif");
+	showMenuSlide(1);
+	//lembrar de reverter o toggle depois
+}
+
+function createAlarm(artist, monthDay){
+	// hour is something like "01:10:30"
+
+	var hour = lineupData[artist][monthDay].hora;
+
+	var date = new Date();
+
+	if(monthDay < date.getDate()) 
+   	return;
+
+	date.setDate(monthDay);
+	date.setHours(hour.split(":")[0]);
+
+	var min = hour.split(":")[1];
+	date.setMinutes(min - alertDelay);
+	date.setSeconds(hour.split(":")[2]);
+
+	var t = date - new Date();
+
+	if(t > 0){
+		setTimeout(function() {showNotif(artist,monthDay); } ,t);
+	}
+}
+
+
+// ainda nao vi se funciona
+function activateAllArtistAlarm(artist) {
+	var hours = lineupData[artist]
+
+	hours.forEach(function(entry) {
+   	createAlarm(artist, entry);
+	});
 }

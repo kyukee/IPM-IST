@@ -6,6 +6,7 @@
   	<meta charset="UTF-8">
   	<link rel="stylesheet" href="css/style.css">
 		<script src="js/btn-layout.js"></script>
+		<script src="js/lineup.js"></script>
 		<script src="js/main.js"></script>
 	</head>
 
@@ -27,12 +28,18 @@
    		<div id="lockscreen" onclick='currentMenu("menu-main");currentMenuSlide(1)' class="global-menu">
 				<div class="slide">
 					<div class="clock" align="center" style="margin-top:5px;"></div>
-					<div id="date" align="left" style="margin-left: 5px; margin-top:10px"></div>
+					<div id="date" align="left" style="margin-left:5px;font-weight:bold"></div>
 					<div style="font-size:8pt;display:inline-block;">24ºC</div>
 					<div style="font-size:8pt;display:inline-block;">87&#x1f50b</div>
 				</div>
 
 				<span class="subtitle"></span>
+			</div>
+
+			<div id="alert-notif" onclick='currentMenu("menu-main");currentMenuSlide(1)' class="global-menu">
+				<div class="slide"></div>
+
+				<span class="subtitle" style="font-size:8pt;"></span>
 			</div>
 
 			<div id="menu-main" class="global-menu">
@@ -211,7 +218,6 @@
 					<div class="menu-alert-gen-slide-subtitle subtitle level-3">Ed Sheeran</div>
 					<div class="menu-alert-gen-slide-subtitle subtitle level-3">Mariah Carey</div>
 					<div class="menu-alert-gen-slide-subtitle subtitle level-3">Beyonce</div>
-
 				</div>
 				
 				<div class="menu-alert-gen-slide slide level-3" >
@@ -245,7 +251,6 @@
 					<div class="menu-alert-gen-slide-subtitle subtitle level-4">The Who</div>
 					<div class="menu-alert-gen-slide-subtitle subtitle level-4">Oasis</div>
 					<div class="menu-alert-gen-slide-subtitle subtitle level-4">The Killers</div>
-
 				</div>
 				
 				<div class="menu-alert-gen-slide slide level-4" >
@@ -283,16 +288,24 @@
 			
 			
 				<div style="display:inline-block;width:60%;font-size:14pt">
-					<div class="menu-alert-hour-level-subtitle level-subtitle">Dia 1</div>
-					<div class="menu-alert-hour-level-subtitle level-subtitle">Dia 2</div>
+					<div class="menu-alert-hour-level-subtitle level-subtitle">17 de Abril</div>
+					<div class="menu-alert-hour-level-subtitle level-subtitle">18 de Abril</div>
 				</div>
 			
 				<div style="display:inline-block;width:60%;font-size:10pt">
 					<div class="menu-alert-hour-slide-subtitle subtitle level-1">
-						<div class="menu-alert-hour-list-entry" onclick="toggleSelectedEntry(this)">09h-Fallout Boy</div>
-						<div class="menu-alert-hour-list-entry" onclick="toggleSelectedEntry(this)">10h-Alicia Keys</div>
-						<div class="menu-alert-hour-list-entry" onclick="toggleSelectedEntry(this)">10h30-Alesso</div>
-						<div class="menu-alert-hour-list-entry" onclick="toggleSelectedEntry(this)">11h-The Who</div>
+						<div class="menu-alert-hour-list-entry" onclick="toggleSelectedEntry(this);createAlarm('Fallout Boy', 18)">
+							<div class="menu-alert-hour-art-name">Fallout Boy</div>09h - palco 1
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="toggleSelectedEntry(this);createAlarm('Alicia Keys', 18)">
+							<div class="menu-alert-hour-art-name">Alicia Keys</div>10h - palco 3
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="toggleSelectedEntry(this);createAlarm('Alesso', 18)">
+							<div class="menu-alert-hour-art-name">Alesso</div>10h30 - palco 3
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="toggleSelectedEntry(this);createAlarm('The Who', 18)">
+							<div class="menu-alert-hour-art-name">The Who</div>11h - palco 2
+						</div>
 					</div>
 					
 					<div class="menu-alert-hour-slide-subtitle subtitle level-1">

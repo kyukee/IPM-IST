@@ -4,6 +4,16 @@ var menuData = {
 		back:"",
 		left:"currentMenu('menu-main');currentMenuSlide(1)",
 		right:"currentMenu('menu-main');currentMenuSlide(1)",
+		// up:"createAlarm('Alesso', 18);showMenuSlide(1)",
+		up:"",
+		down:""
+	},
+
+	"alert-notif":
+	{
+		back:"",
+		left:"",
+		right:"",
 		up:"",
 		down:""
 	},

@@ -112,7 +112,7 @@
 .main-screen-slide-subtitle {
   font-size: 22px;
   position: absolute;
-  bottom: 10px;
+  bottom: 6px;
   margin: auto;
   left: 0;
   right: 0;
@@ -300,6 +300,10 @@
   border-radius: 2px;
   margin: 2px;
   font-size: 8pt;
+}
+
+.menu-alert-hour-art-name{
+  color: inherit;
 }
 
 .alert-entry-selected {

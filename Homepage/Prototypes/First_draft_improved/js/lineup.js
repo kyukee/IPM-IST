@@ -3,19 +3,19 @@ var lineupData = {
 	"Alesso":
 	{
 		18:{
-			hora:"00:09:50",
-			palco:"prin"
+			hora:"14:21:54",
+			palco:"secundario"
 		},
 
 		19:{
-			hora:"",
+			hora:"00:09:50",
 			palco:"sec"
 		}
 	},
 
 	"Alicia Keys":
 	{
-		19:{
+		18:{
 			hora:"",
 			palco:"prin"
 		},
@@ -23,6 +23,19 @@ var lineupData = {
 		20:{
 			hora:"",
 			palco:"tri"
+		}
+	},
+
+	"Fallout Boy":
+	{
+		18:{
+			hora:"",
+			palco:"prin"
+		},
+
+		19:{
+			hora:"",
+			palco:"sec"
 		}
 	}
 };

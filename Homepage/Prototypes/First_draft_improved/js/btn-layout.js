@@ -4,7 +4,7 @@ var menuData = {
 		back:"",
 		left:"currentMenu('menu-main');currentMenuSlide(1)",
 		right:"currentMenu('menu-main');currentMenuSlide(1)",
-		// up:"createAlarm('Alesso', 18);showMenuSlide(1)",
+		// up:"createAlarm('Alesso', 18);currentMenuSlide(1)",
 		up:"",
 		down:""
 	},
@@ -26,10 +26,19 @@ var menuData = {
 		up:"",
 		down:""
 	},
+
+	"menu-alert":
+	{
+		back:"currentMenu('menu-main');currentMenuSlide(1)",
+		left:"",
+		right:"",
+		up:"",
+		down:""
+	},
 	
 	"menu-alert-gen":
 	{
-		back:"hideAllLevelSlides(levelName);currentMenu('menu-main');currentMenuSlide(5)",
+		back:"hideAllLevelSlides(levelName);currentMenu('menu-alert');currentMenuSlide(1)",
 		left:"changeSlideMenuSlideLevel(left)",
 		right:"changeSlideMenuSlideLevel(right)",
 		up:"changeLevelMenuWithLevels(-1);rotateMango(right)",
@@ -38,7 +47,7 @@ var menuData = {
 	
 	"menu-cartaz":
 	{
-		back:"hideAllLevelSlides(levelName);currentMenu('menu-main');currentMenuSlide(1)",
+		back:"hideAllLevelSlides(levelName);currentMenu('menu-alert');currentMenuSlide(1)",
 		left:"changeLevelMenuWithLevels(-1);updateAlertHourScrollbar()",
 		right:"changeLevelMenuWithLevels(1);updateAlertHourScrollbar()",
 		up:"changeSlideMenuSlideLevel(left);updateAlertHourScrollbar();rotateMango(right)",

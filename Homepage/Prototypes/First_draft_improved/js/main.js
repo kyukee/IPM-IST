@@ -184,6 +184,17 @@ function checkTime(i) {
 	return i;
 }
 
+function toggleCheckmarks(name){
+	var allSubs = document.getElementById(menuIndex).getElementsByClassName("subtitle");
+	var allBox = document.getElementById(menuIndex).getElementsByClassName("alert-checkbox");
+
+	for (var i=0; i < allSubs.length; i++) {
+		if (allSubs[i].innerHTML == name) {
+			toggleCheckmark(allBox[i]);
+		}
+	}
+}
+
 function toggleCheckmark(box){
 	if(box.classList.contains("alert-checkbox-ticked")) {
 		box.className = box.className.replace(" alert-checkbox-ticked", "");
@@ -193,10 +204,16 @@ function toggleCheckmark(box){
 }
 
 function toggleSelectedEntry(box){
+	var content = box.innerHTML;
+	var check = " &#x2713;";
+	var last = box.getElementsByClassName("last-word")[0];
+
 	if(box.classList.contains("alert-entry-selected")) {
 		box.className = box.className.replace(" alert-entry-selected", "");
+		last.innerHTML = "";
 	}else{
 		box.className += " alert-entry-selected";
+		last.innerHTML = check;
 	}
 }
 
@@ -248,17 +265,20 @@ function updateAlertHourScrollbar() {
 var alertDelay = 0;
 
 
-function showNotif(artist, day){
-	var div = document.getElementById("alert-notif").getElementsByClassName("subtitle")[0];
+function showNotif(artist, day, elem){
+	var sub = document.getElementById("alert-notif").getElementsByClassName("subtitle")[0];
+	var slide = document.getElementById("alert-notif").getElementsByClassName("slide")[0];
 	var info = lineupData[artist][day];
 
-	div.innerHTML = "" + artist + " no palco " + info.palco + " daqui a " + alertDelay + " minutos";
+	slide.innerHTML = "Alerta de evento";
+	sub.innerHTML = "" + artist + " no palco " + info.palco + " daqui a " + alertDelay + " minutos";
 	currentMenu("alert-notif");
 	showMenuSlide(1);
-	//lembrar de reverter o toggle depois
+	
+	toggleSelectedEntry(elem);
 }
 
-function createAlarm(artist, monthDay){
+function createAlarm(elem, artist, monthDay){
 	// hour is something like "01:10:30"
 
 	var hour = lineupData[artist][monthDay].hora;
@@ -277,17 +297,23 @@ function createAlarm(artist, monthDay){
 
 	var t = date - new Date();
 
+	console.log(t/1000 + " sec until alarm");
+
 	if(t > 0){
-		setTimeout(function() {showNotif(artist,monthDay); } ,t);
+		if (elem!=0) {	toggleSelectedEntry(elem);}
+		setTimeout(function() {showNotif(artist,monthDay,elem); } ,t);
 	}
+
+	// myVar = setTimeout(function(){ alert("Hello"); }, 3000);
+	// function myStopFunction() {
+	// 	clearTimeout(myVar);
+	// }
 }
 
-
-// ainda nao vi se funciona
 function activateAllArtistAlarm(artist) {
-	var hours = lineupData[artist]
+	var hours = lineupData[artist];
 
-	hours.forEach(function(entry) {
-   	createAlarm(artist, entry);
-	});
+	for (var hour in hours){
+   	createAlarm(0, artist, hour);
+	}	
 }

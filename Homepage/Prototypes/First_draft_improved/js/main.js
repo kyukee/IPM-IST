@@ -189,7 +189,7 @@ function toggleCheckmarks(name){
 	var allBox = document.getElementById(menuIndex).getElementsByClassName("alert-checkbox");
 
 	for (var i=0; i < allSubs.length; i++) {
-		if (allSubs[i].innerHTML == name) {
+		if (allSubs[i].innerHTML.includes(name)) {
 			toggleCheckmark(allBox[i]);
 		}
 	}
@@ -215,6 +215,22 @@ function toggleSelectedEntry(box){
 		box.className += " alert-entry-selected";
 		last.innerHTML = check;
 	}
+}
+
+function selectedEntryError(box){
+	var content = box.innerHTML;
+	var check = " &#x274c;";
+	var last = box.getElementsByClassName("last-word")[0];
+
+	box.className += " alert-entry-error";
+	last.innerHTML = check;
+	last.style.color="red";
+
+	setTimeout(function() {
+		box.className = box.className.replace(" alert-entry-error", "");
+		last.innerHTML = "";
+		last.style.color="green";
+	} ,2000);
 }
 
 function isElementOverflowing(element) {
@@ -302,6 +318,8 @@ function createAlarm(elem, artist, monthDay){
 	if(t > 0){
 		if (elem!=0) {	toggleSelectedEntry(elem);}
 		setTimeout(function() {showNotif(artist,monthDay,elem); } ,t);
+	}else{
+		if (elem!=0) {	selectedEntryError(elem);}
 	}
 
 	// myVar = setTimeout(function(){ alert("Hello"); }, 3000);

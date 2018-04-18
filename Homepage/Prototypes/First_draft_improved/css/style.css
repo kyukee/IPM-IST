@@ -173,7 +173,7 @@
 }
 
 .alert-notif-button {
-  margin: 1px 40px;
+  margin: 1px 40;
   padding: 3px 0;
   font-size: 9pt;
   width:30%;
@@ -329,6 +329,7 @@
   margin: 2px;
   padding: 1px 3px; 
   font-size: 8pt;
+  transition: 0.2s;
 }
 
 .menu-alert-hour-art-name{
@@ -338,6 +339,11 @@
 .alert-entry-selected {
   color: black;
   background-color: pink;
+}
+
+.alert-entry-error {
+  color: white;
+  background-color: red;
 }
 
 .alert-entry-selected > .menu-alert-hour-art-name {

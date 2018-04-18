@@ -278,7 +278,7 @@ function updateAlertHourScrollbar() {
 }
 
 // por isto no menu das defenicoes
-var alertDelay = 0;
+var alertDelay = 0; //em minutos
 
 
 function showNotif(artist, day, elem){

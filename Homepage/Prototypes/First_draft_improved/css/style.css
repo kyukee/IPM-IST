@@ -173,7 +173,7 @@
 }
 
 .alert-notif-button {
-  margin: 1px 40;
+  margin: 7px 40px;
   padding: 3px 0;
   font-size: 9pt;
   width:30%;
@@ -333,6 +333,10 @@
 }
 
 .menu-alert-hour-art-name{
+  color: white;
+}
+
+.menu-alert-hour-art-name > marquee {
   color: white;
 }
 

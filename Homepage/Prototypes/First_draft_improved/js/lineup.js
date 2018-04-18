@@ -3,7 +3,7 @@ var lineupData = {
 	"Alesso":
 	{
 		18:{
-			hora:"15:32:34",
+			hora:"16:44:50",
 			palco:"Secundario"
 		},
 

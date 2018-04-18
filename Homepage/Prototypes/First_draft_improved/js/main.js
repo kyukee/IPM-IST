@@ -286,7 +286,7 @@ function showNotif(artist, day, elem){
 	var slide = document.getElementById("alert-notif").getElementsByClassName("slide")[0];
 	var info = lineupData[artist][day];
 
-	slide.innerHTML = "Alerta de evento";
+	slide.innerHTML = "Alerta";
 	sub.innerHTML = "" + artist + " no palco " + info.palco + " daqui a " + alertDelay + " minutos";
 	currentMenu("alert-notif");
 	showMenuSlide(1);

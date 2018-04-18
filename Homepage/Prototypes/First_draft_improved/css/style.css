@@ -463,20 +463,33 @@
 }
 
 .menu-meteo-curr-temp {
-  font-size: 16pt;
+  font-size: 20pt;
   position: absolute;
   margin: auto;
   right: 24%;
-  top: calc(50% - 20px);
+  top: 23%;
   vertical-align: middle;
   height: 40px;
   width: 40px;
 }
 
 .menu-meteo-minmax {
-  font-size: 6pt;
+  font-size: 8pt;
+  position: absolute;
+  margin: 0;
+  text-align: center;
+}
+
+.menu-meteo-bottom {
   position: absolute;
   margin: auto;
   width: 100%;
-  text-align: center;
+  top: 75%;
+}
+
+.menu-meteo-bott-image {
+  position: absolute;
+  margin: auto;
+  height: 20px;
+  width: 20px;
 }

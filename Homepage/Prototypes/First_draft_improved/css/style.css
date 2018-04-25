@@ -551,6 +551,14 @@
 }
 
 .calEntrySel {
-  background-color: lightyellow;
+  background-color: #e376bd;
   color: black;
+}
+
+.meteo-table-wrapper{
+  position:relative;
+  height:70px;
+  overflow:auto;
+  top:18px;
+  width:110%;
 }

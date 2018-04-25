@@ -8,18 +8,33 @@
 }
 
 .physical-button {
-  width: 45px;
+  width: 36px;
   margin: 8px;
 }
 
+#phy-btn-home {
+  width: 22px;
+  margin-bottom: 8px;
+  padding:8px;
+}
+
+.use-btn {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #e376bd;
+  border-radius:4px;
+}
+
 #mango {
-  width: 65px;
+  width: 28px;
   transition: transform .3s ease-in-out;
+  top:72%;
+  margin: 0px;
 }
 
 #mango-dots {
-  width:65px;
-  margin:8px;
+  width:28px;
+  margin-left:4px;
   position:absolute;
   left:0;
 }
@@ -53,6 +68,7 @@
   background-repeat: no-repeat;
   background-position: 48% 52%;
   z-index: 100;
+  width:160px;
 }
 
 .separator-side {

@@ -13,13 +13,15 @@
   <body onload="startTime();startDate();currentMenu('lockscreen');showMenuSlide(1)">
 
    <div class="separator separator-side">
-      <div style="position:absolute; right:0">
-        <img id="phy-btn-home" class="physical-button" onclick='currentMenu("lockscreen"); currentMenuSlide(1)' src="img/botFisicos/home.jpg" />
-        <img id="phy-btn-back" class="physical-button" src="img/botFisicos/back.jpg" />
+
+   	<img class="physical-button" style="position:absolute; right:6px;top:25%;width:26px" src="img/botFisicos/back.jpg" />
+
+      <div style="position:absolute; right:0;top:36%">
+        <img id="phy-btn-home" class="physical-button use-btn" onclick='currentMenu("lockscreen"); currentMenuSlide(1)' src="img/botFisicos/home.jpg" />
+        <img id="phy-btn-back" class="physical-button use-btn" style="transform:rotate(270deg)" src="https://cdn4.iconfinder.com/data/icons/buttons-icons/100/9-512.png" />
       </div>
 
-      <img id="phy-btn-left" class="physical-button" style="position:absolute; bottom:0; right:0 " src="img/botFisicos/leftArrow.jpg"/>
-      <!-- https://www.google.com/search?tbm=isch&q=button+icon#imgdii=_gDjEq_NKsWZGM:&imgrc=A-hyf44LrwtRlM: -->
+      <img id="phy-btn-left" class="physical-button use-btn" style="position:absolute; bottom:35%; right:0;transform:rotate(270deg) " src="https://cdn4.iconfinder.com/data/icons/buttons-icons/100/9-512.png"/>
 
    </div>
 
@@ -546,18 +548,20 @@
       </div>
    </div>
 
-    <div class="separator separator-side">
-      <div align=center style="position:absolute; top:0; left:0">
-        <img id="phy-btn-up" class="physical-button physical-button-arrow" style="transform:rotate(90deg)" src="img/botFisicos/leftArrow.jpg"/>
+   <div class="separator separator-side">
+      <div align=center style="position:absolute; top:25%; left:24%">
+        <img id="phy-btn-up" class="physical-button physical-button-arrow use-btn" style="transform:rotate(90deg);width:20px;margin-bottom:5px;padding:8px" src="img/botFisicos/leftArrow.jpg"/>
 
-        <img id="mango-dots" src="img/botFisicos/rot-dots.png" />
+        <!-- <img id="mango-dots" src="img/botFisicos/rot-dots.png" /> -->
         <img id="mango" class="physical-button" src="img/botFisicos/rotativo.png" />
 
-        <img id="phy-btn-down" class="physical-button physical-button-arrow" style="transform:rotate(90deg)" src="img/botFisicos/rightArrow.png" />
+        <img id="phy-btn-down" class="physical-button physical-button-arrow use-btn" style="transform:rotate(90deg);width:20px;margin-top:0px;padding:8px" src="img/botFisicos/rightArrow.png" />
       </div>
 
-      <img id="phy-btn-right" class="physical-button" style="position:absolute;bottom:0" src="img/botFisicos/rightArrow.png" />
-    </div>
+      <img class="physical-button" style="position:absolute;top:40%;width:25px;transform:rotate(90deg);margin:0;left:0;margin-left:8px" src="https://d30y9cdsu7xlg0.cloudfront.net/png/24052-200.png" />
+
+      <img id="phy-btn-right" class="physical-button use-btn" style="position:absolute;bottom:35%;transform:rotate(90deg)" src="https://cdn4.iconfinder.com/data/icons/buttons-icons/100/9-512.png" />
+   </div>
 
   </body>
 

@@ -366,7 +366,7 @@
 				
 			<div id="menu-meteo" class="global-menu">
 				<div style="display:inline-block;width:60%">
-					<img class="navigation-arrow-alert nav-arrow-alert-hour" onclick="currentMenu('menu-meteo-cal');" style="left:2%; top:2%" src="img/menu-meteo/calendar.png"/>
+					<img class="navigation-arrow-alert nav-arrow-alert-hour" onclick="setHighlightedNumCal();currentMenu('menu-meteo-cal');" style="left:2%; top:2%" src="img/menu-meteo/calendar.png"/>
 					<div class="menu-meteo-curr-loc">Leiria</div>
 					<img class="navigation-arrow-alert nav-arrow-alert-hour" onclick="currentMenu('menu-meteo-loc');currentMenuSlide(1);" style="right:2%; top:2%" src="img/menu-meteo/plus-sign.png"/>
 				</div>
@@ -382,12 +382,74 @@
 					<img class="menu-meteo-bott-image" style="left:10%" src="img/menu-meteo/cloud.png">
 					<img class="menu-meteo-bott-image" style="left:calc(50% - 10px)" src="img/menu-meteo/rain.png">
 					<img class="menu-meteo-bott-image" style="right:10%" src="img/menu-meteo/sun.png">
-					<div>aaaaaaaaaaaaa</div>
+					<div class="menu-meteo-bott-text" style="left:10%">Seg</div>
+					<div class="menu-meteo-bott-text" style="left:calc(50% - 10px)">Ter</div>
+					<div class="menu-meteo-bott-text" style="right:10%">Qua</div>
 				</div>
 			</div>
 			
 			<div id="menu-meteo-cal" class="global-menu">
-				<span>menu cal</span>
+				<table class="menu-meteo-cal-table">
+					<thead>
+						April
+					</thead>
+					<tbody>
+						<tr>
+							<th>D</th>
+							<th>S</th>
+							<th>T</th>
+							<th>Q</th>
+							<th>Q</th>
+							<th>S</th>
+							<th>S</th>
+						</tr>
+						<tr>
+							<td id="td00">1</td>
+							<td id="td01">2</td>
+							<td id="td02">3</td>
+							<td id="td03">4</td>
+							<td id="td04">5</td>
+							<td id="td05">6</td>
+							<td id="td06">7</td>
+						</tr>
+						<tr>
+							<td id="td10">8</td>
+							<td id="td11">9</td>
+							<td id="td12">10</td>
+							<td id="td13">11</td>
+							<td id="td14">12</td>
+							<td id="td15">13</td>
+							<td id="td16">14</td>
+						</tr>
+						<tr>
+							<td id="td20">15</td>
+							<td id="td21">16</td>
+							<td id="td22">17</td>
+							<td id="td23">18</td>
+							<td id="td24">19</td>
+							<td id="td25">20</td>
+							<td id="td26">21</td>
+						</tr>
+						<tr>
+							<td id="td30">22</td>
+							<td id="td31">23</td>
+							<td id="td32">24</td>
+							<td id="td33">25</td>
+							<td id="td34">26</td>
+							<td id="td35">27</td>
+							<td id="td36">28</td>
+						</tr>
+						<tr>
+							<td id="td40">29</td>
+							<td id="td41">30</td>
+							<td id="td42"></td>
+							<td id="td43"></td>
+							<td id="td44"></td>
+							<td id="td45"></td>
+							<td id="td46"></td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 			
 			<div id="menu-meteo-loc" class="global-menu">

@@ -335,3 +335,42 @@ function activateAllArtistAlarm(artist) {
    	createAlarm(0, artist, hour);
 	}	
 }
+
+var currentCalHigh = 34;
+
+function setHighlightedNumCal() {
+	document.getElementById("td"+currentCalHigh.toLocaleString(undefined, {minimumIntegerDigits: 2})).className = "calEntrySel";
+}
+
+function changeHighlightedNumCal(direction) {
+	//direction: 1 if right; -1 if left; 10 if down; -10 if up
+	document.getElementById("td"+currentCalHigh.toLocaleString(undefined, {minimumIntegerDigits: 2})).className = "";
+
+	if (direction == "left") {
+		if (currentCalHigh%10 == 0)
+			currentCalHigh +=6;
+		else
+			currentCalHigh -=1;
+	}
+	if (direction == "right") {
+		if (currentCalHigh%10 == 6)
+			currentCalHigh -=6;
+		else
+			currentCalHigh +=1;
+	}
+	if (direction == "up") {
+		if (Math.floor(currentCalHigh/10) == 0)
+			currentCalHigh +=40;
+		else
+			currentCalHigh -=10;
+	}
+	if (direction == "down") {
+		if (Math.floor(currentCalHigh/10) == 4)
+			currentCalHigh -=40;
+		else
+			currentCalHigh +=10;
+	}
+
+	document.getElementById("td"+currentCalHigh.toLocaleString(undefined, {minimumIntegerDigits: 2})).className = "calEntrySel";
+
+}

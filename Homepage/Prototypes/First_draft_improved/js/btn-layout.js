@@ -66,10 +66,10 @@ var menuData = {
 	"menu-meteo-cal":
 	{
 		back:"currentMenu('menu-meteo')",
-		left:"",
-		right:"",
-		up:"",
-		down:""
+		left:"changeHighlightedNumCal('left')",
+		right:"changeHighlightedNumCal('right')",
+		up:"changeHighlightedNumCal('up')",
+		down:"changeHighlightedNumCal('down')"
 	},
 
 	"menu-meteo-loc":

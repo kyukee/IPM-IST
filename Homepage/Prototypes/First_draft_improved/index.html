@@ -86,7 +86,7 @@
 
 			<div id="menu-alert" class="global-menu">
 				<div class="slide" align="center" style="font-size:15px;top:4px">Browse by:
-					<div class="button alert-button" onclick="currentMenu('menu-alert-gen');currentLevelMenuWithLevels(1);">Artist</div>
+					<div class="button alert-button" onclick="currentMenu('menu-alert-gen');currentLevelMenuWithLevels(1);" style="margin-top:10%;">Artist</div>
 					<div class="button alert-button" onclick="currentMenu('menu-cartaz');currentLevelMenuWithLevels(1);updateAlertHourScrollbar();">Lineup</div>
 
 				</div>
@@ -396,37 +396,37 @@
 				
 			
 			<div id="menu-wc" class="global-menu">
-						<div style ="margin-top: 10%; font-size: 15px;" class="menu-wc-main-subtitle">5 disponíveis</div>
-						<button style ="margin-top: 12%;" class="menu-wc-main-subtitle menu-wc-main-button" onclick= "currentMenu('menu-reservar-aut');">Reservar aut.</button>
-						<button class="menu-wc-main-subtitle menu-wc-main-button">Ver Mapa</button>
-						<button style="border-bottom-right-radius: 15px; border-bottom-left-radius:15px;" class="menu-wc-main-subtitle menu-wc-main-button">Ver todas zonas</button>
+						<div style ="margin-top: 10%; font-size: 14px;" class="menu-wc-main-subtitle">5 disponíveis</div>
+						<div style ="margin-top: 6%;" class="button wc-button" onclick= "currentMenu('menu-reservar-aut');">Reservar aut.</div>
+						<div class="button wc-button">Ver Mapa</div>
+						<div class="button wc-button">Ver todas zonas</div>
 				</div>
 
 			<div id="menu-reservar-aut" class ="global-menu">
-				<button class="menu-wc-main-button menu-wc-reservar-aut aut-1" onclick="currentMenu('menu-ver-1-mapa');currentMenuSlide(1);">Por proximidade</button>
-				<button class="menu-wc-main-button menu-wc-reservar-aut aut-2" onclick="currentMenu('menu-ver-1-mapa');currentMenuSlide(2);">Por rapidez</button>
+				<div class="button wc-aut-button" onclick="currentMenu('menu-ver-1-mapa');currentMenuSlide(1);">Por proximidade</div>
+				<div class="button wc-aut-button" onclick="currentMenu('menu-ver-1-mapa');currentMenuSlide(2);">Por rapidez</div>
 			</div>
 
 			<div id="menu-ver-1-mapa" class= "global-menu">
 				<div class="slide">
 					<div class= "menu-wc-map-slide">
-						<div class="menu-wc-map-subtitle subtitle" style="color: black;">Zona 23</div>	
-						<button class="menu-wc-main-button menu-wc-map-button" onclick="currentMenu('menu-confirmar-reserva');">Reservar?</button>	
+						<div class="menu-wc-map-subtitle subtitle">Zona 23</div>	
+						<button class="button menu-wc-map-button" onclick="currentMenu('menu-confirmar-reserva');">Reservar?</button>	
 					</div>	
 				</div>		
 
 				<div class="slide">
 					<div class= "menu-wc-map-slide" style="background-image:'../img/menu-wc/BabyMap2.png';">
 						<div class="menu-wc-map-subtitle subtitle" style="color: black;">Zona 2</div>	
-						<button class="menu-wc-main-button menu-wc-map-button" onclick="currentMenu('menu-confirmar-reserva');">Reservar?</button>	
+						<button class="button menu-wc-map-button" onclick="currentMenu('menu-confirmar-reserva');">Reservar?</button>	
 					</div>	
 				</div>
 			</div>
 
 			<div id="menu-confirmar-reserva" class="global-menu">
 				<div id="menu-wc-map-subtitle subtitle" style="margin-top: 30px;">Quer confirmar a sua reserva?</div>
-				<button class = "menu-wc-main-button menu-wc-map-button" style="left: 0px; border-bottom-left-radius: 15px; border-bottom-right-radius: 0px; width:70px; height:30%; top:2.2cm" onclick="currentMenu('menu-reserva-confirmada');">Sim</button>
-				<button class ="menu-wc-main-button menu-wc-map-button" style= "height: 30%; top: 2.2cm;" onclick="currentMenu('menu-reserva-cancelada');">Não</button>
+				<button class = "button menu-wc-map-button" style="left: 0px; border-bottom-left-radius: 15px; border-bottom-right-radius: 0px; width:70px; height:30%; top:2.2cm" onclick="currentMenu('menu-reserva-confirmada');">Sim</button>
+				<button class ="button menu-wc-map-button" style= "height: 30%; top: 2.2cm;" onclick="currentMenu('menu-reserva-cancelada');">Não</button>
 			</div>
 
 			<div id="menu-reserva-confirmada" class="global-menu">

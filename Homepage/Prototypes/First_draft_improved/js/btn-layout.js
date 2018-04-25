@@ -36,16 +36,25 @@ var menuData = {
 		down:""
 	},
 	
-	"menu-alert-gen":
+	"menu-alert-cartaz":
 	{
 		back:"hideAllLevelSlides(levelName);currentMenu('menu-alert');currentMenuSlide(1)",
-		left:"changeSlideMenuSlideLevel(left)",
-		right:"changeSlideMenuSlideLevel(right)",
-		up:"changeLevelMenuWithLevels(-1);rotateMango(right)",
-		down:"changeLevelMenuWithLevels(1);rotateMango(left)"
+		left:"changeLevelMenuWithLevels(-1);updateAlertHourScrollbar()",
+		right:"changeLevelMenuWithLevels(1);updateAlertHourScrollbar()",
+		up:"changeSlideMenuSlideLevel(left);updateAlertHourScrollbar();rotateMango(right)",
+		down:"changeSlideMenuSlideLevel(right);updateAlertHourScrollbar();rotateMango(left)"
 	},
 	
-	"menu-cartaz":
+	"menu-alert-palco":
+	{
+		back:"hideAllLevelSlides(levelName);currentMenu('menu-alert');currentMenuSlide(1)",
+		left:"changeLevelMenuWithLevels(-1);updateAlertHourScrollbar()",
+		right:"changeLevelMenuWithLevels(1);updateAlertHourScrollbar()",
+		up:"changeSlideMenuSlideLevel(left);updateAlertHourScrollbar();rotateMango(right)",
+		down:"changeSlideMenuSlideLevel(right);updateAlertHourScrollbar();rotateMango(left)"
+	},
+	
+	"menu-alert-gen":
 	{
 		back:"hideAllLevelSlides(levelName);currentMenu('menu-alert');currentMenuSlide(1)",
 		left:"changeLevelMenuWithLevels(-1);updateAlertHourScrollbar()",

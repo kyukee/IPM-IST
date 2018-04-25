@@ -181,7 +181,7 @@
 
 .alert-button { 
   margin: 5px 0;
-  padding: 7px 0;
+  padding: 2px 0;
   font-size: 12pt;
   width:80%;
 }
@@ -328,11 +328,19 @@
   border-radius: 2px;
   margin: 2px;
   padding: 1px 3px; 
-  font-size: 8pt;
+  font-size: 7pt;
   transition: 0.2s;
 }
 
+.menu-alert-hour-error{
+  font-size: 16px;
+  text-align: center;
+  white-space: pre-line;
+  position: absolute;
+  top: 22px;
+}
 .menu-alert-hour-art-name{
+  font-size: 9pt;
   color: white;
 }
 
@@ -345,6 +353,10 @@
   background-color: pink;
 }
 
+.alert-entry-selected > marquee{
+  color: black;
+}
+
 .alert-entry-error {
   color: white;
   background-color: red;
@@ -354,7 +366,7 @@
   color: black;
 }
 
-#menu-alert-hour-progress {
+.menu-alert-hour-progress {
   position: absolute;
   height: 85px;
   width: 6px;
@@ -366,7 +378,7 @@
   border-radius:5px;
 }
 
-#menu-alert-hour-progress-bar {
+.menu-alert-hour-progress-bar {
   position: absolute;
   width: 6px;
   margin: auto;

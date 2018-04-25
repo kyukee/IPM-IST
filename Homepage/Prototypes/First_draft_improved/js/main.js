@@ -265,14 +265,14 @@ function addMarqueeIfOverflowing(element) {
 }
 
 function updateAlertHourScrollbar() {
-	var container =  document.getElementById("menu-alert-hour-progress");
-	var box = document.getElementById("menu-alert-hour-progress-bar");
+	var container =  document.getElementById(menuIndex).getElementsByClassName("menu-alert-hour-progress")[0];
+	var box = document.getElementById(menuIndex).getElementsByClassName("menu-alert-hour-progress-bar")[0];
 	var slideNum = document.getElementById(menuIndex).getElementsByClassName("slide " + levelName).length;
-	
-	var section = container.clientHeight / slideNum;
 
-	
+	var section = container.clientHeight / slideNum;
 	var y = container.offsetTop + section * (slideIndex-1) + ((section - box.clientHeight) / 2 * (slideIndex-1));
+
+
 	box.style.top= y + "px";
 	box.style.height= section + "px";
 }
@@ -301,25 +301,31 @@ function createAlarm(elem, artist, monthDay){
 
 	var date = new Date();
 
-	if(monthDay < date.getDate()) 
+	// if(monthDay < date.getDate()) 
+	if(monthDay < 0) 
    	return;
 
 	date.setDate(monthDay);
 	date.setHours(hour.split(":")[0]);
-
 	var min = hour.split(":")[1];
 	date.setMinutes(min - alertDelay);
 	date.setSeconds(hour.split(":")[2]);
-
 	var t = date - new Date();
-
 	console.log(t/1000 + " sec until alarm");
 
-	if(t > 0){
-		if (elem!=0) {	toggleSelectedEntry(elem);}
-		setTimeout(function() {showNotif(artist,monthDay,elem); } ,t);
-	}else{
-		if (elem!=0) {	selectedEntryError(elem);}
+	// if(t > 0){
+	// 	if (elem!=0) {	toggleSelectedEntry(elem);}
+	// 		setTimeout(function() {showNotif(artist,monthDay,elem); } ,t);
+	// }else{
+	// 	if (elem!=0) {	selectedEntryError(elem);}
+	// }
+
+	var allmenu = document.getElementsByClassName("menu-alert-hour-list-entry");
+
+	for (var i=0 ; i < allmenu.length ; i++){
+   	if (allmenu[i].getElementsByClassName("menu-alert-hour-art-name")[0].textContent == artist){
+   		toggleSelectedEntry(allmenu[i]);
+   	}
 	}
 
 	// myVar = setTimeout(function(){ alert("Hello"); }, 3000);
@@ -333,5 +339,5 @@ function activateAllArtistAlarm(artist) {
 
 	for (var hour in hours){
    	createAlarm(0, artist, hour);
-	}	
+	}
 }

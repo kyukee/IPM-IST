@@ -26,7 +26,7 @@ function showMenu(name) {
 
 	if(name === 'menu-ver-mapa'){ aux = 1;}
 	else if(name === 'menu-ver-todas-zonas') {aux = 2;}
-	else if(name === 'menu-permissao-negada') {permissionDenied();}
+	else if(name === 'menu-permissao-negada' || name === 'menu-permissao-negada2') {permissionDenied(name);}
 }
 
 var deg = 0;
@@ -389,8 +389,13 @@ function changeHighlightedNumCal(direction) {
 
 }
 
-function permissionDenied(){
-	setTimeout(function(){ currentMenu('menu-ver-todas-zonas'); }, 1500)
+function permissionDenied(name){
+	if(name === 'menu-permissao-negada'){
+		setTimeout(function(){ currentMenu('menu-ver-todas-zonas'); }, 1500)
+	}
+	else{
+		setTimeout(function(){ currentMenu('menu-wc'); }, 1500)		
+	}
 }
 
 function resTimeOut(name){

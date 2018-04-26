@@ -113,8 +113,8 @@ var menuData = {
 		back:"currentMenu('menu-reservar-aut')",
 		left:"",
 		right:"",
-		up:"rotateMango(right)",
-		down:"rotateMango(left)"
+		up:"",
+		down:""
 	},
 
 	"menu-confirmar-reserva":
@@ -175,6 +175,15 @@ var menuData = {
 	"menu-permissao-negada":
 	{
 		back:"currentMenu('menu-ver-todas-zonas')",
+		left:"",
+		right:"",
+		up:"",
+		down:""
+	},
+
+	"menu-permissao-negada2":
+	{
+		back:"currentMenu('menu-wc')",
 		left:"",
 		right:"",
 		up:"",

@@ -559,7 +559,7 @@
 
 .menu-meteo-cal-table {
   position: absolute;
-  font-size: 8pt;
+  font-size: 7pt;
   width:100%
 }
 
@@ -570,8 +570,5 @@
 
 .meteo-table-wrapper{
   position:relative;
-  height:70px;
-  overflow:auto;
   top:18px;
-  width:110%;
 }

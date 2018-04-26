@@ -45,7 +45,7 @@
   height: 3.1cm;
   top: calc(50% - (3.1cm / 2));
   background: linear-gradient(to bottom right, #5a6587, #2f3856);
-  margin: auto;
+  margin-left: 21.6px;
   left: 0;
   right: 0;
   border-style: solid;
@@ -428,14 +428,14 @@
 }
 
 .aut-1{
-  border-top-right-radius: 15px;
-  border-top-left-radius: 15px;
+  border-top-right-radius: 13px;
+  border-top-left-radius: 13px;
 }
 
 .aut-2{
   margin-top:1%;
-  border-bottom-right-radius: 15px;
-  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 13px;
+  border-bottom-left-radius: 13px;
 }
 
 .menu-wc-map-slide{
@@ -457,7 +457,7 @@
 
 .wc-button{
   margin-top:5%;
-  font-size: 13px;
+  font-size: 14px;
   width:80%;
 }
 
@@ -476,7 +476,7 @@
   position: absolute;
   top: 2.6cm;
   font-size: 10px;
-  border-bottom-right-radius: 15px;
+  border-bottom-right-radius: 13px;
   right: 0px;
   width: 50%;
   height: 20px;
@@ -494,6 +494,22 @@
   margin-top: 30px;
   left: 10px;
 }
+
+#greenIndicator{
+  height: 10px;
+  top: 65px;
+  left: 10px;
+  position: absolute;
+}
+
+
+#redIndicator{
+  height: 10px;
+  top: 65px;
+  left: 10px;
+  position: absolute;
+}
+
 .menu-meteo-curr-loc {
   font-size: 14pt;
   position: absolute;

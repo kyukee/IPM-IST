@@ -119,17 +119,17 @@ var menuData = {
 
 	"menu-confirmar-reserva":
 	{
-		back:"currentMenu('menu-ver-1-mapa')",
+		back:"currentMenu('menu-wc')",
 		left:"",
 		right:"",
-		up:"rotateMango(right)",
-		down:"rotateMango(left)"
+		up:"",
+		down:""
 	},
 
 
 	"menu-reserva-confirmada":
 	{
-		back:"currentMenu('menu-ver-1-mapa')",
+		back:"",
 		left:"",
 		right:"",
 		up:"",
@@ -138,7 +138,7 @@ var menuData = {
 
 	"menu-reserva-cancelada":
 	{
-		back:"currentMenu('menu-ver-1-mapa')",
+		back:"",
 		left:"",
 		right:"",
 		up:"",
@@ -161,6 +161,24 @@ var menuData = {
 		right:"",
 		up:"changeMenuSlide(left)",
 		down:"changeMenuSlide(right)"
-	}
+	},
+
+	"menu-wc-filtro":
+	{
+		back:"currentMenu('menu-ver-todas-zonas')",
+		left:"",
+		right:"",
+		up:"",
+		down:""
+	},
+
+	"menu-permissao-negada":
+	{
+		back:"currentMenu('menu-ver-todas-zonas')",
+		left:"",
+		right:"",
+		up:"",
+		down:""
+	}	
 
 };

@@ -274,7 +274,7 @@
 				<img class="nav-arrow-alert-hour" onclick="changeLevelMenuWithLevels(1);updateAlertHourScrollbar()" style="right:0" src="img/botFisicos/scrollRightWhite.png">
 			
 				<div style="display:inline-block;width:60%">
-					<div class="menu-alert-hour-level-subtitle level-subtitle">Todos Generos</div>
+					<div class="menu-alert-hour-level-subtitle level-subtitle">Todos Géneros</div>
 					<div class="menu-alert-hour-level-subtitle level-subtitle">Electronic</div>
 					<div class="menu-alert-hour-level-subtitle level-subtitle">Pop</div>
 					<div class="menu-alert-hour-level-subtitle level-subtitle">Rock</div>
@@ -506,7 +506,7 @@
 				
 			
 			<div id="menu-wc" class="global-menu">
-						<div style ="margin-top: 10%; font-size: 14px;" class="menu-wc-main-subtitle">5 disponíveis</div>
+						<div style ="margin-top: 10%; font-size: 14px;" class="menu-wc-main-subtitle">31 disponíveis</div>
 						<div style ="margin-top: 6%;" class="button wc-button" onclick= "currentMenu('menu-reservar-aut');">Reservar aut.</div>
 						<div class="button wc-button" onclick ="currentMenu('menu-ver-mapa');currentMenuSlide(1)">Ver Mapa</div>
 						<div class="button wc-button" onclick="currentMenu('menu-ver-todas-zonas');currentMenuSlide(1);">Ver todas zonas</div>
@@ -533,14 +533,7 @@
 				</div>
 
 				<div class="slide">
-					<div class= "menu-wc-map-slide" style="background-image: url('../First_draft_improved/img/menu-wc/BabyMap2.png');">
-						<div class="menu-wc-map-subtitle subtitle">Zona 3</div>	
-						<button class="button menu-wc-map-button" onclick="currentMenu('menu-confirmar-reserva');">Reservar?</button>	
-					</div>	
-				</div>
-
-				<div class="slide">
-					<div class= "menu-wc-map-slide" style="background-image: url('../First_draft_improved/img/menu-wc/BabyMap2.png');">
+					<div class= "menu-wc-map-slide" style="background-image: url('../First_draft_improved/img/menu-wc/BabyMap4.png');">
 						<div class="menu-wc-map-subtitle subtitle">Zona 4</div>	
 						<button class="button menu-wc-map-button" onclick="currentMenu('menu-confirmar-reserva');">Reservar?</button>	
 					</div>	
@@ -549,7 +542,7 @@
 
 			<div id="menu-confirmar-reserva" class="global-menu">
 				<div id="menu-wc-map-subtitle subtitle" style="margin-top: 30px;">Quer confirmar a sua reserva?</div>
-				<button class = "button menu-wc-map-button" style="left: 0px; border-bottom-left-radius: 15px; border-bottom-right-radius: 0px; width:70px; height:30%; top:2.2cm" onclick="currentMenu('menu-reserva-confirmada');">Sim</button>
+				<button class = "button menu-wc-map-button" style="left: 0px; border-bottom-left-radius: 13px; border-bottom-right-radius: 0px; width:70px; height:30%; top:2.2cm" onclick="currentMenu('menu-reserva-confirmada');">Sim</button>
 				<button class ="button menu-wc-map-button" style= "height: 30%; top: 2.2cm;" onclick="currentMenu('menu-reserva-cancelada');">Não</button>
 			</div>
 
@@ -578,14 +571,7 @@
 				</div>
 
 				<div class="slide">
-					<div class= "menu-wc-map-slide" style="background-image: url('../First_draft_improved/img/menu-wc/BabyMap2.png');">
-						<div class="menu-wc-map-subtitle subtitle">Zona 3</div>	
-						<button class="button menu-wc-map-button" onclick="currentMenu('menu-confirmar-reserva');">Reservar?</button>	
-					</div>	
-				</div>
-
-				<div class="slide">
-					<div class= "menu-wc-map-slide" style="background-image: url('../First_draft_improved/img/menu-wc/BabyMap2.png');">
+					<div class= "menu-wc-map-slide" style="background-image: url('../First_draft_improved/img/menu-wc/BabyMap4.png');">
 						<div class="menu-wc-map-subtitle subtitle">Zona 4</div>	
 						<button class="button menu-wc-map-button" onclick="currentMenu('menu-confirmar-reserva');">Reservar?</button>	
 					</div>	
@@ -601,31 +587,55 @@
 				<div class="slide">
 					<div class="menu-wc-todas-subtitle ">Zona 1</div>
 					<div class="menu-wc-todas-subtitle " style="margin-top: 45px;">12 disponíveis</div>
-					<button class="button menu-wc-map-button" style ="width:35%;" onclick="currentMenu('menu-confirmar-reserva');">Res.?</button>	
+					<button class="button menu-wc-map-button" style ="width:35%; left:0;border-bottom-left-radius: 13px; border-bottom-right-radius: 0px;" onclick="currentMenu('menu-ver-1-mapa');currentMenuSlide(1);">Mapa</button>	
+					<button class="button menu-wc-map-button" style ="width:35%;" onclick="currentMenu('menu-confirmar-reserva');">Res.?</button>						
+					<img id="greenIndicator" src="img/menu-wc/green.png">
 				</div>
 
 				<div class="slide">
 					<div class="menu-wc-todas-subtitle ">Zona 2</div>
 					<div class="menu-wc-todas-subtitle " style="margin-top: 45px;">10 disponíveis</div>
-					<button class="button menu-wc-map-button" style ="width:35%;" onclick="currentMenu('menu-confirmar-reserva');">Res.?</button>	
+					<button class="button menu-wc-map-button" style ="width:35%; left:0;border-bottom-left-radius: 13px; border-bottom-right-radius: 0px;" onclick="currentMenu('menu-ver-1-mapa');currentMenuSlide(2);">Mapa</button>	
+					<button class="button menu-wc-map-button" style ="width:35%;" onclick="currentMenu('menu-confirmar-reserva');">Res.?</button>							
+					<img id="greenIndicator" src="img/menu-wc/green.png">
+
 				</div>
 
 				<div class="slide">
-					<div class="menu-wc-todas-subtitle " >Zona 3</div>
-					<div class="menu-wc-todas-subtitle " style="margin-top: 45px;">5 disponíveis</div>
-					<button class="button menu-wc-map-button" style ="width:35%;" onclick="currentMenu('menu-confirmar-reserva');">Res.?</button>	
+					<div class="menu-wc-todas-subtitle ">Zona 3</div>
+					<div class="menu-wc-todas-subtitle " style="margin-top: 45px;">0 disponíveis</div>
+					<button class="button menu-wc-map-button" style ="width:35%; left:0; border-bottom-left-radius: 13px; border-bottom-right-radius: 0px;" onclick="currentMenu('menu-ver-1-mapa');currentMenuSlide(3);">Mapa</button>			
+					<button class="button menu-wc-map-button" style ="width:35%;" onclick="currentMenu('menu-permissao-negada');">Res.?</button>	
+
+					<img id="redIndicator" src="img/menu-wc/red.png">
+
 				</div>
 
 				<div class="slide">
 					<div class="menu-wc-todas-subtitle ">Zona 4</div>		
 					<div class="menu-wc-todas-subtitle " style="margin-top: 45px;">9 disponíveis</div>
+					<button class="button menu-wc-map-button" style ="width:35%; left:0;border-bottom-left-radius: 13px; border-bottom-right-radius: 0px;" onclick="currentMenu('menu-ver-1-mapa');currentMenuSlide(4);">Mapa</button>	
 					<button class="button menu-wc-map-button" style ="width:35%;" onclick="currentMenu('menu-confirmar-reserva');">Res.?</button>	
+					<img id="greenIndicator" src="img/menu-wc/green.png">
+
 				</div>
+
+				<button class="button menu-wc-map-button" style ="width:35%; top: 0; border-top-right-radius: 13px; border-bottom-right-radius: 0px;" onclick="currentMenu('menu-wc-filtro');">Filtro</button>
+
 
 				<img class="navigation-arrow arrow-wc" onclick="changeMenuSlide(left);" style="left: 52px;transform:rotate(90deg);margin-bottom: 95px;" src="img/botFisicos/scrollLeftWhite.png">
 
 				<img class="navigation-arrow arrow-wc" onclick="changeMenuSlide(right);" style="left:52px;transform:rotate(90deg); margin-bottom: -7px;" src="img/botFisicos/scrollRightWhite.png">
 
+			</div>
+
+			<div id="menu-wc-filtro" class="global-menu">
+					<div class="button wc-aut-button" style = "font-size:10.5px;"onclick="currentMenu('menu-ver-todas-zonas');currentMenuSlide(2);">Por proximidade</div>
+					<div class="button wc-aut-button" style = "font-size:10.5px;" onclick="currentMenu('menu-ver-todas-zonas');currentMenuSlide(4);">Por pessoas na fila</div>					
+			</div>
+
+			<div id="menu-permissao-negada" class="global-menu">
+				<div id="menu-wc-map-subtitle subtitle" style="display: block; margin-top: 25px;font-weight: bold;">Não há casas de banho disponíveis nesta zona.</div>				
 			</div>
 
 			<div id="menu-def" class="global-menu">

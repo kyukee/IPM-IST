@@ -26,6 +26,7 @@ function showMenu(name) {
 
 	if(name === 'menu-ver-mapa'){ aux = 1;}
 	else if(name === 'menu-ver-todas-zonas') {aux = 2;}
+	else if(name === 'menu-permissao-negada') {permissionDenied();}
 }
 
 var deg = 0;
@@ -388,8 +389,11 @@ function changeHighlightedNumCal(direction) {
 
 }
 
-function resTimeOut(name){
+function permissionDenied(){
+	setTimeout(function(){ currentMenu('menu-ver-todas-zonas'); }, 1500)
+}
 
+function resTimeOut(name){
 	if(name === 'menu-reserva-confirmada'){
 		setTimeout(function(){ currentMenu('menu-wc'); }, 1000);
 	}

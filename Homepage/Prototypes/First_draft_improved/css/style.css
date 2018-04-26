@@ -481,6 +481,19 @@
   width: 50%;
   height: 20px;
 }
+
+.arrow-wc{
+  margin-bottom:10px;
+  width:12px;
+}
+
+.menu-wc-todas-subtitle{
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  margin-top: 30px;
+  left: 10px;
+}
 .menu-meteo-curr-loc {
   font-size: 14pt;
   position: absolute;

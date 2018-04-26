@@ -117,7 +117,17 @@ var menuData = {
 		down:"rotateMango(left)"
 	},
 
-		"menu-reserva-confirmada":
+	"menu-confirmar-reserva":
+	{
+		back:"currentMenu('menu-ver-1-mapa')",
+		left:"",
+		right:"",
+		up:"rotateMango(right)",
+		down:"rotateMango(left)"
+	},
+
+
+	"menu-reserva-confirmada":
 	{
 		back:"currentMenu('menu-ver-1-mapa')",
 		left:"",
@@ -133,5 +143,24 @@ var menuData = {
 		right:"",
 		up:"",
 		down:""
+	},
+
+	"menu-ver-mapa":
+	{
+		back:"currentMenu('menu-wc')",
+		left:"changeMenuSlide(left)",
+		right:"changeMenuSlide(right)",
+		up:"",
+		down:""
+	},
+
+	"menu-ver-todas-zonas":
+	{
+		back:"currentMenu('menu-wc')",
+		left:"",
+		right:"",
+		up:"changeMenuSlide(left)",
+		down:"changeMenuSlide(right)"
 	}
+
 };

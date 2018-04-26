@@ -4,6 +4,8 @@ function currentMenu(name) {
 	showMenu(menuIndex = name);
 }
 
+var aux = 0;
+
 function showMenu(name) {
 	var i;
 	var x = document.getElementsByClassName("global-menu");
@@ -19,6 +21,11 @@ function showMenu(name) {
 	document.getElementById("phy-btn-right").setAttribute( "onClick", btn_layout.right );
 	document.getElementById("phy-btn-up").setAttribute( "onClick",  btn_layout.up );
 	document.getElementById("phy-btn-down").setAttribute( "onClick",  btn_layout.down );
+
+	resTimeOut(name);
+
+	if(name === 'menu-ver-mapa'){ aux = 1;}
+	else if(name === 'menu-ver-todas-zonas') {aux = 2;}
 }
 
 var deg = 0;
@@ -379,4 +386,26 @@ function changeHighlightedNumCal(direction) {
 
 	document.getElementById("td"+currentCalHigh.toLocaleString(undefined, {minimumIntegerDigits: 2})).className = "calEntrySel";
 
+}
+
+function resTimeOut(name){
+
+	if(name === 'menu-reserva-confirmada'){
+		setTimeout(function(){ currentMenu('menu-wc'); }, 1000);
+	}
+
+	else if(name === 'menu-reserva-cancelada'){
+		if(aux == 0){
+			setTimeout(function(){ currentMenu('menu-ver-1-mapa'); }, 1000);
+		}
+		else if (aux == 1){
+			setTimeout(function(){ currentMenu('menu-ver-mapa'); }, 1000);
+			aux = 0;			
+		}
+
+		else if(aux == 2){
+			setTimeout(function(){ currentMenu('menu-ver-todas-zonas'); }, 1000);
+			aux = 0;			
+		}
+	}
 }

@@ -185,7 +185,7 @@
 .button {
   color: white;
   background-color: #252f48;
-  border-radius: 1.5px;
+  border-radius: 1px;
 }
 
 .alert-notif-button {
@@ -417,7 +417,8 @@
   color: white;
   width: 100%;
   height: 23px;
-  border: 1px solid #5a6587;
+  border: 0.5px 
+  border-color: #5a6587;
   margin:20px;
 }
 
@@ -440,10 +441,12 @@
 
 .menu-wc-map-slide{
   background-image: url('../img/menu-wc/BabyMap1.png');
-  position: absolute;
+  position: fixed;
   width: 3.1cm;
   height: 3.1cm;
   border-radius: 15px;
+  z-index:0;
+  filter: brightness(70%) blur(1px);
 
 }
 
@@ -454,7 +457,7 @@
   left: 0.30cm;
   color: #2f3856;
   font-weight: bold;
-
+  z-index:1;
 }
 
 .wc-button{
@@ -487,11 +490,13 @@
   right: 0px;
   width: 50%;
   height: 20px;
+  z-index: 1;
 }
 
 .arrow-wc{
   margin-bottom:10px;
   width:12px;
+  z-index:1;
 }
 
 .menu-wc-todas-subtitle{
@@ -508,6 +513,7 @@
   left: 11.5px;
   position: absolute;
   margin-top: 18px;
+  z-index: 1;
 }
 
 
@@ -516,6 +522,7 @@
   top: 107px;
   left: 12px;
   position: absolute;
+  z-index:1;
 }
 
 .subtitle2{

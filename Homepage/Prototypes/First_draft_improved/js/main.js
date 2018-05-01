@@ -450,8 +450,8 @@ function reverteCancela(){
 	document.getElementById("cancelButton").style.opacity = 0.4;
 	document.getElementById("resButton").style.opacity = 1;
 	document.getElementById("mapButton").style.opacity = 1;
-	document.getElementById("resButton").onclick = function () { showMenu('menu-reservar-aut'); };
-	document.getElementById("mapButton").onclick = function () { showMenu('menu-ver-mapa'); };
+	document.getElementById("resButton").onclick = function () { currentMenu('menu-reservar-aut'); };
+	document.getElementById("mapButton").onclick = function () { currentMenu('menu-ver-mapa');currentMenuSlide(1); };
 	document.getElementById("cancelButton").onclick = function () { ""; };
 }
 

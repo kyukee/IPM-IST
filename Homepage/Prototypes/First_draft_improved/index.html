@@ -507,8 +507,9 @@
 			
 			<div id="menu-wc" class="global-menu">
 						<div style ="margin-top: 10%; font-size: 14px;" class="menu-wc-main-subtitle">31 disponíveis</div>
-						<div style ="margin-top: 6%;" class="button wc-button" onclick= "currentMenu('menu-reservar-aut');">Reservar aut.</div>
-						<div class="button wc-button" onclick ="currentMenu('menu-ver-mapa');currentMenuSlide(1)">Ver Mapas</div>
+						<div id="resButton" style ="margin-top: 6%; opacity:1" class="button wc-button" onclick= "currentMenu('menu-reservar-aut');">Reservar aut.</div>
+						<div id="mapButton" style="opacity:1;" class="button wc-button" onclick ="currentMenu('menu-ver-mapa');currentMenuSlide(1)">Ver Mapas</div>
+						<div id="cancelButton" class="button wc-button" style="opacity:0.4;" onclick ="">Cancelar reserva</div>
 				</div>
 
 			<div id="menu-reservar-aut" class ="global-menu">
@@ -558,7 +559,7 @@
 
 			<div id="menu-confirmar-reserva-1" class="global-menu">
 				<div class="menu-wc-main-subtitle subtitle" style="display: block; color:#d1d5e2; margin-top: 27px;font-weight: bold; font-size:13px;">Quer confirmar a sua reserva?</div>
-				<button class = "button menu-wc-map-button" style="left: 0px; border-bottom-left-radius: 13px; border-bottom-right-radius: 0px; width:70px; height:30%; top:2.2cm" onclick="currentMenu('menu-reserva-confirmada-1');">Sim</button>
+				<button class = "button menu-wc-map-button" style="left: 0px; border-bottom-left-radius: 13px; border-bottom-right-radius: 0px; width:70px; height:30%; top:2.2cm" onclick="currentMenu('menu-reserva-confirmada-1');alteraCancela();">Sim</button>
 				<button class ="button menu-wc-map-button" style= "height: 30%; top: 2.2cm;" onclick="currentMenu('menu-reserva-cancelada');">Não</button>
 			</div>
 
@@ -569,7 +570,7 @@
 
 			<div id="menu-confirmar-reserva-2" class="global-menu">
 				<div class="menu-wc-main-subtitle subtitle" style="display: block; color:#d1d5e2; margin-top: 27px;font-weight: bold; font-size:13px;">Quer confirmar a sua reserva?</div>
-				<button class = "button menu-wc-map-button" style="left: 0px; border-bottom-left-radius: 13px; border-bottom-right-radius: 0px; width:70px; height:30%; top:2.2cm" onclick="currentMenu('menu-reserva-confirmada-2');">Sim</button>
+				<button class = "button menu-wc-map-button" style="left: 0px; border-bottom-left-radius: 13px; border-bottom-right-radius: 0px; width:70px; height:30%; top:2.2cm" onclick="currentMenu('menu-reserva-confirmada-2');alteraCancela();">Sim</button>
 				<button class ="button menu-wc-map-button" style= "height: 30%; top: 2.2cm;" onclick="currentMenu('menu-reserva-cancelada');">Não</button>
 			</div>
 
@@ -580,7 +581,7 @@
 
 			<div id="menu-confirmar-reserva-4" class="global-menu">
 				<div class="menu-wc-main-subtitle subtitle" style="display: block; color:#d1d5e2; margin-top: 27px;font-weight: bold; font-size:13px;">Quer confirmar a sua reserva?</div>
-				<button class = "button menu-wc-map-button" style="left: 0px; border-bottom-left-radius: 13px; border-bottom-right-radius: 0px; width:70px; height:30%; top:2.2cm" onclick="currentMenu('menu-reserva-confirmada-4');">Sim</button>
+				<button class = "button menu-wc-map-button" style="left: 0px; border-bottom-left-radius: 13px; border-bottom-right-radius: 0px; width:70px; height:30%; top:2.2cm" onclick="currentMenu('menu-reserva-confirmada-4');alteraCancela();">Sim</button>
 				<button class ="button menu-wc-map-button" style= "height: 30%; top: 2.2cm;" onclick="currentMenu('menu-reserva-cancelada');">Não</button>
 			</div>
 
@@ -590,7 +591,7 @@
 			</div>
 
 			<div id="menu-reserva-cancelada" class="global-menu">
-				<div class="menu-wc-map-subtitle subtitle" style="display: block; color:#d1d5e2; left: 0px;margin-top: -40px;font-weight: bold; font-size:16px;">Reserva cancelada</div>					
+				<div id="canceled" class="menu-wc-map-subtitle subtitle" style="display: block; color:#d1d5e2; left: 0px;margin-top: -40px;font-weight: bold; font-size:16px;">Reserva cancelada</div>					
 			</div>
 
 			<div id="menu-ver-mapa" class="global-menu">
@@ -639,7 +640,7 @@
 
 			<div id="menu-permissao-negada" class="global-menu">
 				<div id="menu-wc-map-subtitle subtitle" style="display: block;margin-top: 14px;font-weight: bold;font-size: 12px;">Não há casas de banho disponíveis nesta zona. Deseja reservar na mesma?</div>	
-				<button class = "button menu-wc-map-button" style="left: 0px; border-bottom-left-radius: 13px; border-bottom-right-radius: 0px; width:70px; height:30%; top:2.2cm" onclick="currentMenu('menu-confirma-permissao-negada');">Sim</button>
+				<button class = "button menu-wc-map-button" style="left: 0px; border-bottom-left-radius: 13px; border-bottom-right-radius: 0px; width:70px; height:30%; top:2.2cm" onclick="currentMenu('menu-confirma-permissao-negada');alteraCancela();">Sim</button>
 				<button class ="button menu-wc-map-button" style= "height: 30%; top: 2.2cm;" onclick="currentMenu('menu-cancela-permissao-negada');">Não</button>
 			</div>
 
@@ -655,21 +656,36 @@
 			<div id="menu-ver-localizacao-1" class="global-menu">
 				<img class="location-pin" src="img/menu-wc/pin.png">
 				<img class="location" src="img/menu-wc/BabyMap1.png">
+				<button class="button menu-wc-map-button" onclick="currentMenu('menu-wc');" style="background-color:#483D8B; border-bottom-left-radius: 13px; border-bottom-right-radius:0px; left:0px">Voltar</button>
 			</div>
 
 			<div id="menu-ver-localizacao-2" class="global-menu">
 				<img  class="location" src="img/menu-wc/BabyMap2.png">
 				<img id="pin-2" class="location-pin" src="img/menu-wc/pin.png">
+				<button class="button menu-wc-map-button" onclick="currentMenu('menu-wc');" style="background-color:#483D8B; border-bottom-left-radius: 13px; border-bottom-right-radius:0px; left:0px">Voltar</button>
 			</div>
 
 			<div id="menu-ver-localizacao-3" class="global-menu">
 				<img class="location" src="img/menu-wc/BabyMap3.png">
 				<img id="pin-3"class="location-pin" src="img/menu-wc/pin.png">
+				<button class="button menu-wc-map-button" onclick="currentMenu('menu-wc');" style="background-color:#483D8B;border-bottom-left-radius: 13px; border-bottom-right-radius:0px; left:0px">Voltar</button>
 			</div>
 
 			<div id="menu-ver-localizacao-4" class="global-menu">
 				<img class="location" src="img/menu-wc/BabyMap4.png">
 				<img id="pin-4"class="location-pin" src="img/menu-wc/pin.png">
+				<button class="button menu-wc-map-button" onclick="currentMenu('menu-wc');" style="background-color:#483D8B; border-bottom-left-radius: 13px; border-bottom-right-radius:0px; left:0px">Voltar</button>
+			</div>
+
+			<div id="menu-cancela-reserva" class="global-menu">
+				<div class="menu-wc-map-subtitle subtitle" style="display: block; left:0px;color:#d1d5e2; margin-top: -55px;font-weight: bold; font-size:12px;">Tem a certeza que quer cancelar a sua reserva?</div>
+				<button class = "button menu-wc-map-button" style="left: 0px; border-bottom-left-radius: 13px; border-bottom-right-radius: 0px; width:70px; height:30%; top:2.2cm" onclick="currentMenu('menu-cancelamento');reverteCancela();">Sim</button>
+				<button class ="button menu-wc-map-button" style= "height: 30%; top: 2.2cm;" onclick="currentMenu('menu-reserva-cancelada');">Não</button>
+
+			</div>
+
+			<div id = "menu-cancelamento" class= "global-menu">
+				<div class="menu-wc-map-subtitle subtitle" style="display: block; color:#d1d5e2; left: 0px;margin-top: -40px;font-weight: bold; font-size:16px;">Cancelamento Efectuado</div>					
 			</div>
 
 			<div id="menu-def" class="global-menu">

@@ -25,8 +25,10 @@ function showMenu(name) {
 	if(name === 'menu-ver-mapa'){auxWc = 1;}
 	else if(name === 'menu-ver-1-mapa') {auxWc = 0;}
 	else if(name === 'menu-cancela-permissao-negada') {permissionDenied(name);}
+	else if(name === 'menu-cancelamento' || name === 'menu-cancela-reserva'){auxWc = 2;}
 	resTimeOut(name);
 	if(name === 'menu-reserva-confirmada-1' || name === 'menu-reserva-confirmada-2' || name === 'menu-reserva-confirmada-4') {confirmedRes(name);}
+	if(name === 'menu-cancela-reserva') {cancelDenied();}
 }
 
 var deg = 0;
@@ -419,5 +421,40 @@ function resTimeOut(name){
 			setTimeout(function(){ currentMenu('menu-ver-mapa'); }, 1000);
 			auxWc = 0;			
 		}
+
+		else if(auxWc == 2){
+			setTimeout(function(){ currentMenu('menu-wc'); }, 1000);
+			auxWc = 0;				
+		}
 	}
+
+	else if(name === 'menu-cancelamento'){
+		if(auxWc == 2){
+			setTimeout(function(){ currentMenu('menu-wc'); }, 1000);
+			auxWc = 0;
+		}
+
+	}
+}
+
+function alteraCancela(){
+	document.getElementById("cancelButton").style.opacity = 1;
+	document.getElementById("resButton").style.opacity = 0.4;
+	document.getElementById("mapButton").style.opacity = 0.4;
+	document.getElementById("resButton").onclick = function () { ""; };
+	document.getElementById("mapButton").onclick = function () { ""; };
+	document.getElementById("cancelButton").onclick = function () { showMenu('menu-cancela-reserva'); };
+}
+
+function reverteCancela(){
+	document.getElementById("cancelButton").style.opacity = 0.4;
+	document.getElementById("resButton").style.opacity = 1;
+	document.getElementById("mapButton").style.opacity = 1;
+	document.getElementById("resButton").onclick = function () { showMenu('menu-reservar-aut'); };
+	document.getElementById("mapButton").onclick = function () { showMenu('menu-ver-mapa'); };
+	document.getElementById("cancelButton").onclick = function () { ""; };
+}
+
+function cancelDenied(){
+	document.getElementById("canceled").innerHTML = "Operação cancelada";
 }

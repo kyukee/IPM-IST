@@ -245,7 +245,27 @@ var menuData = {
 		down:""
 	},
 
+
 	"menu-ver-localizacao-4":
+	{
+		back:"currentMenu('menu-wc')",
+		left:"",
+		right:"",
+		up:"",
+		down:""
+	},
+
+	"menu-cancela-reserva":
+	{
+		back:"currentMenu('menu-wc')",
+		left:"",
+		right:"",
+		up:"",
+		down:""
+	},
+
+
+	"menu-cancelamento":
 	{
 		back:"currentMenu('menu-wc')",
 		left:"",

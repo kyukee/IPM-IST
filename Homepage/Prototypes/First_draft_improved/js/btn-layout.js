@@ -117,7 +117,25 @@ var menuData = {
 		down:""
 	},
 
-	"menu-confirmar-reserva":
+	"menu-confirmar-reserva-1":
+	{
+		back:"currentMenu('menu-wc')",
+		left:"",
+		right:"",
+		up:"",
+		down:""
+	},
+
+	"menu-confirmar-reserva-2":
+	{
+		back:"currentMenu('menu-wc')",
+		left:"",
+		right:"",
+		up:"",
+		down:""
+	},
+
+	"menu-confirmar-reserva-4":
 	{
 		back:"currentMenu('menu-wc')",
 		left:"",
@@ -127,9 +145,28 @@ var menuData = {
 	},
 
 
-	"menu-reserva-confirmada":
+	"menu-reserva-confirmada-1":
 	{
-		back:"",
+		back:"currentMenu('menu-wc')",
+		left:"",
+		right:"",
+		up:"",
+		down:""
+	},
+
+	"menu-reserva-confirmada-2":
+	{
+		back:"currentMenu('menu-wc')",
+		left:"",
+		right:"",
+		up:"",
+		down:""
+	},
+
+
+	"menu-reserva-confirmada-4":
+	{
+		back:"currentMenu('menu-wc')",
 		left:"",
 		right:"",
 		up:"",
@@ -154,40 +191,67 @@ var menuData = {
 		down:""
 	},
 
-	"menu-ver-todas-zonas":
-	{
-		back:"currentMenu('menu-wc')",
-		left:"",
-		right:"",
-		up:"changeMenuSlide(left)",
-		down:"changeMenuSlide(right)"
-	},
-
-	"menu-wc-filtro":
-	{
-		back:"currentMenu('menu-ver-todas-zonas')",
-		left:"",
-		right:"",
-		up:"",
-		down:""
-	},
-
 	"menu-permissao-negada":
 	{
-		back:"currentMenu('menu-ver-todas-zonas')",
+		back:"currentMenu('menu-wc')",
 		left:"",
 		right:"",
 		up:"",
 		down:""
 	},
 
-	"menu-permissao-negada2":
+	"menu-confirma-permissao-negada":
 	{
 		back:"currentMenu('menu-wc')",
 		left:"",
 		right:"",
 		up:"",
 		down:""
-	}	
+	},
+
+	"menu-cancela-permissao-negada":
+	{
+		back:"currentMenu('menu-ver-mapa')",
+		left:"",
+		right:"",
+		up:"",
+		down:""
+	},
+
+	"menu-ver-localizacao-1":
+	{
+		back:"currentMenu('menu-wc')",
+		left:"",
+		right:"",
+		up:"",
+		down:""
+	},
+
+	"menu-ver-localizacao-2":
+	{
+		back:"currentMenu('menu-wc')",
+		left:"",
+		right:"",
+		up:"",
+		down:""
+	},
+
+	"menu-ver-localizacao-3":
+	{
+		back:"currentMenu('menu-wc')",
+		left:"",
+		right:"",
+		up:"",
+		down:""
+	},
+
+	"menu-ver-localizacao-4":
+	{
+		back:"currentMenu('menu-wc')",
+		left:"",
+		right:"",
+		up:"",
+		down:""
+	}
 
 };

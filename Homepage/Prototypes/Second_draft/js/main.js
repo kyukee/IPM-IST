@@ -4,7 +4,7 @@ function currentMenu(name) {
 	showMenu(menuIndex = name);
 }
 
-var aux = 0;
+var auxWc = 0;
 
 function showMenu(name) {
 	var i;
@@ -22,11 +22,13 @@ function showMenu(name) {
 	document.getElementById("phy-btn-up").setAttribute( "onClick",  btn_layout.up );
 	document.getElementById("phy-btn-down").setAttribute( "onClick",  btn_layout.down );
 
+	if(name === 'menu-ver-mapa'){auxWc = 1;}
+	else if(name === 'menu-ver-1-mapa') {auxWc = 0;}
+	else if(name === 'menu-cancela-permissao-negada') {permissionDenied(name);}
+	else if(name === 'menu-cancelamento' || name === 'menu-cancela-reserva'){auxWc = 2;}
 	resTimeOut(name);
-
-	if(name === 'menu-ver-mapa'){ aux = 1;}
-	else if(name === 'menu-ver-todas-zonas') {aux = 2;}
-	else if(name === 'menu-permissao-negada' || name === 'menu-permissao-negada2') {permissionDenied(name);}
+	if(name === 'menu-reserva-confirmada-1' || name === 'menu-reserva-confirmada-2' || name === 'menu-reserva-confirmada-4') {confirmedRes(name);}
+	if(name === 'menu-cancela-reserva') {cancelDenied();}
 }
 
 var deg = 0;
@@ -389,32 +391,70 @@ function changeHighlightedNumCal(direction) {
 
 }
 
-function permissionDenied(name){
-	if(name === 'menu-permissao-negada'){
-		setTimeout(function(){ currentMenu('menu-ver-todas-zonas'); }, 1500)
-	}
-	else{
-		setTimeout(function(){ currentMenu('menu-wc'); }, 1500)		
-	}
+function confirmedRes(name){
+	var slide = slideIndex.toString();
+	var number = Math.floor((Math.random() * 12) + 1);
+	var Snumber = number.toString();
+	var res = "Reserva confirmada para a zona ".concat(slide);
+	var final = res.concat(", nº");
+	var final1 = final.concat(Snumber).concat(".");
+
+	if(name === 'menu-reserva-confirmada-1')
+    	document.getElementById("confirmedReservation1").innerHTML = final1;
+    else if(name === 'menu-reserva-confirmada-2')
+    	document.getElementById("confirmedReservation2").innerHTML = final1;
+    else if (name === 'menu-reserva-confirmada-4')
+    	document.getElementById("confirmedReservation4").innerHTML = final1;
+	//setTimeout(function(){ currentMenu('menu-wc'); }, 3300);
+}
+
+function permissionDenied(){
+	setTimeout(function(){ currentMenu('menu-wc'); }, 1500);		
 }
 
 function resTimeOut(name){
-	if(name === 'menu-reserva-confirmada'){
-		setTimeout(function(){ currentMenu('menu-wc'); }, 1000);
-	}
-
-	else if(name === 'menu-reserva-cancelada'){
-		if(aux == 0){
+	if(name === 'menu-reserva-cancelada'){
+		if(auxWc == 0){
 			setTimeout(function(){ currentMenu('menu-ver-1-mapa'); }, 1000);
 		}
-		else if (aux == 1){
+		else if (auxWc == 1){
 			setTimeout(function(){ currentMenu('menu-ver-mapa'); }, 1000);
-			aux = 0;			
+			auxWc = 0;			
 		}
 
-		else if(aux == 2){
-			setTimeout(function(){ currentMenu('menu-ver-todas-zonas'); }, 1000);
-			aux = 0;			
+		else if(auxWc == 2){
+			setTimeout(function(){ currentMenu('menu-wc'); }, 1000);
+			auxWc = 0;				
 		}
 	}
+
+	else if(name === 'menu-cancelamento'){
+		if(auxWc == 2){
+			setTimeout(function(){ currentMenu('menu-wc'); }, 1000);
+			auxWc = 0;
+		}
+
+	}
+}
+
+function alteraCancela(){
+	document.getElementById("cancelButton").style.opacity = 1;
+	document.getElementById("resButton").style.opacity = 0.4;
+	document.getElementById("mapButton").style.opacity = 0.4;
+	document.getElementById("resButton").onclick = function () { ""; };
+	document.getElementById("mapButton").onclick = function () { ""; };
+	document.getElementById("cancelButton").onclick = function () { showMenu('menu-cancela-reserva'); };
+}
+
+function reverteCancela(){
+	document.getElementById("cancelButton").style.opacity = 0.4;
+	document.getElementById("resButton").style.opacity = 1;
+	document.getElementById("mapButton").style.opacity = 1;
+	document.getElementById("resButton").onclick = function () { currentMenu('menu-reservar-aut'); };
+	document.getElementById("mapButton").onclick = function () { currentMenu('menu-ver-mapa');currentMenuSlide(1); };
+	document.getElementById("cancelButton").onclick = function () { ""; };
+}
+
+function cancelDenied(){
+	document.getElementById("canceled").innerHTML = "Operação cancelada";
 }

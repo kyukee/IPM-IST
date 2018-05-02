@@ -441,7 +441,7 @@
 
 .menu-wc-map-slide{
   background-image: url('../img/menu-wc/BabyMap1.png');
-  position: fixed;
+  position: absolute;
   width: 3.1cm;
   height: 3.1cm;
   border-radius: 15px;
@@ -450,7 +450,7 @@
 }
 
 .menu-wc-map-subtitle{
-  font-size: 11px;
+  font-size: 9px;
   top: 85px;
   left: 0.30cm;
   color: #2f3856;
@@ -539,7 +539,7 @@
   position: relative;
   z-index: 1;
   height: 8px;
-  top: -10px;
+  top: -5px;
 }
 
 
@@ -547,7 +547,7 @@
   position: relative;
   z-index: 1;
   height: 8px;
-  top: -10px;
+  top: -5px;
 }
 
 .subtitle2{

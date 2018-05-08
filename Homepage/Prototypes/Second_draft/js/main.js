@@ -27,7 +27,7 @@ function showMenu(name) {
 	else if(name === 'menu-cancela-permissao-negada') {permissionDenied(name);}
 	else if(name === 'menu-cancelamento' || name === 'menu-cancela-reserva'){auxWc = 2;}
 	resTimeOut(name);
-	if(name === 'menu-reserva-confirmada-1' || name === 'menu-reserva-confirmada-2' || name === 'menu-reserva-confirmada-4') {confirmedRes(name);}
+	if(name === 'menu-reserva-confirmada-1' || name === 'menu-reserva-confirmada-2' || name === 'menu-reserva-confirmada-4' || name === 'menu-confirma-permissao-negada') {confirmedRes(name);}
 	if(name === 'menu-cancela-reserva') {cancelDenied();}
 }
 
@@ -391,20 +391,36 @@ function changeHighlightedNumCal(direction) {
 
 }
 
+var number = Math.floor((Math.random() * 12) + 1);
+var slideIndexCurrent = 1;
+
 function confirmedRes(name){
 	var slide = slideIndex.toString();
-	var number = Math.floor((Math.random() * 12) + 1);
 	var Snumber = number.toString();
-	var res = "Reserva confirmada para a zona ".concat(slide);
+	var res = "Zona ".concat(slide);
 	var final = res.concat(", nº");
 	var final1 = final.concat(Snumber).concat(".");
 
-	if(name === 'menu-reserva-confirmada-1')
+	if(name === 'menu-reserva-confirmada-1'){
     	document.getElementById("confirmedReservation1").innerHTML = final1;
-    else if(name === 'menu-reserva-confirmada-2')
+		 slideIndexCurrent = 1;
+	}
+
+    else if(name === 'menu-reserva-confirmada-2'){
     	document.getElementById("confirmedReservation2").innerHTML = final1;
-    else if (name === 'menu-reserva-confirmada-4')
+        slideIndexCurrent = 2;
+    }
+
+    else  if (name === 'menu-confirma-permissao-negada'){
+    	slideIndexCurrent = 3;
+    }
+
+    else if (name === 'menu-reserva-confirmada-4'){
     	document.getElementById("confirmedReservation4").innerHTML = final1;
+        slideIndexCurrent = 4;
+    }
+
+
 	//setTimeout(function(){ currentMenu('menu-wc'); }, 3300);
 }
 
@@ -433,28 +449,50 @@ function resTimeOut(name){
 			setTimeout(function(){ currentMenu('menu-wc'); }, 1000);
 			auxWc = 0;
 		}
-
 	}
 }
 
 function alteraCancela(){
 	document.getElementById("cancelButton").style.opacity = 1;
-	document.getElementById("resButton").style.opacity = 0.4;
-	document.getElementById("mapButton").style.opacity = 0.4;
+	document.getElementById("resButton").style.opacity = 0;
+	document.getElementById("mapButton").style.opacity = 0;
+	document.getElementById("disponiveis").style.opacity = 0;
 	document.getElementById("resButton").onclick = function () { ""; };
 	document.getElementById("mapButton").onclick = function () { ""; };
 	document.getElementById("cancelButton").onclick = function () { showMenu('menu-cancela-reserva'); };
+	document.getElementById("informacoes").innerHTML = "Tem uma reserva para a zona ".concat(slideIndex.toString()).concat(", nº").concat(number.toString().concat("."));
+	document.getElementById("botaoConfirma").style.zIndex = 1;	
+	document.getElementById("botaoConfirma").style.opacity = 1;
+	document.getElementById("mapButton").style.zIndex = 0;	
+	document.getElementById("resButton").style.zIndex = 0;	
+	document.getElementById("cancelButton").style.zIndex = 1;	
+
 }
 
 function reverteCancela(){
+
 	document.getElementById("cancelButton").style.opacity = 0.4;
+	document.getElementById("disponiveis").style.opacity = 1;
 	document.getElementById("resButton").style.opacity = 1;
 	document.getElementById("mapButton").style.opacity = 1;
+	document.getElementById("informacoes").innerHTML = "";
 	document.getElementById("resButton").onclick = function () { currentMenu('menu-reservar-aut'); };
 	document.getElementById("mapButton").onclick = function () { currentMenu('menu-ver-mapa');currentMenuSlide(1); };
 	document.getElementById("cancelButton").onclick = function () { ""; };
+	document.getElementById("botaoConfirma").style.opacity = 0;
+	document.getElementById("botaoConfirma").style.zIndex = 0;	
+	document.getElementById("cancelButton").style.zIndex = 0;	
+	document.getElementById("mapButton").style.zIndex = 1;	
+	document.getElementById("resButton").style.zIndex = 1;	
+
+
 }
 
 function cancelDenied(){
 	document.getElementById("canceled").innerHTML = "Operação cancelada";
+}
+
+function currentMenuCancela(){
+	var string = ('menu-ver-localizacao'.concat('-')).concat(slideIndexCurrent.toString()); 
+	currentMenu(string);
 }

@@ -27,7 +27,7 @@ function showMenu(name) {
 	else if(name === 'menu-cancela-permissao-negada') {permissionDenied(name);}
 	else if(name === 'menu-cancelamento' || name === 'menu-cancela-reserva'){auxWc = 2;}
 	resTimeOut(name);
-	if(name === 'menu-reserva-confirmada-1' || name === 'menu-reserva-confirmada-2' || name === 'menu-reserva-confirmada-4') {confirmedRes(name);} 
+	if(name === 'menu-reserva-confirmada-1' || name === 'menu-reserva-confirmada-2' || name === 'menu-reserva-confirmada-4' || name === 'menu-confirma-permissao-negada') {confirmedRes(name);}
 	if(name === 'menu-cancela-reserva') {cancelDenied();}
 }
 
@@ -391,20 +391,202 @@ function changeHighlightedNumCal(direction) {
 
 }
 
+function changeKeyboardLetter(n) {
+	/*65 -- 90 // 175*/
+	var l = ['','',''];
+	l[0] = document.getElementById('letter-1').innerHTML.charCodeAt(0);
+	l[1] = document.getElementById('letter-2').innerHTML.charCodeAt(0);
+	l[2] = document.getElementById('letter-3').innerHTML.charCodeAt(0);
+	l[0]+=n;
+	l[1]+=n;
+	l[2]+=n;
+	for (let i = 0; i<3; i++) {
+		if (l[i]<65) l[i]=187;
+		if (l[i] == 91) l[i]=187;
+		if (l[i] == 186) l[i] = 90;
+		if (l[i] == 188) l[i] = 65; 
+	}
+
+
+	document.getElementById('letter-1').innerHTML = String.fromCharCode(l[0]);
+	document.getElementById('letter-2').innerHTML = String.fromCharCode(l[1]);
+	document.getElementById('letter-3').innerHTML = String.fromCharCode(l[2]);
+}
+
+function selectKeyboardLetter(n) {
+	var contBox = document.getElementById('keyboard-letter-box').innerHTML;
+	var letter = document.getElementById('letter-2').innerHTML;
+
+	if (letter === '»') {
+		initSearchPlaces(contBox.slice(0, -1));
+		currentMenu('menu-meteo-results');
+	}
+
+
+	if (n == 1 && contBox.length == 9 && contBox[contBox.length-1] === '_') {
+		contBox = contBox.slice(0, -1) + letter;
+	}
+	else if (n == 1 && contBox.length == 9) {
+		return;
+	} else if (n==1) {
+		contBox = contBox.slice(0, -1) + letter + '_';
+	} else {
+		contBox = contBox.slice(0, -2) + '_';
+	}
+	document.getElementById('keyboard-letter-box').innerHTML = contBox;
+
+}
+
+function resetKeyboard() {
+	document.getElementById('keyboard-letter-box').innerHTML = '_';
+	document.getElementById('letter-1').innerHTML = '»';
+	document.getElementById('letter-2').innerHTML = 'A';
+	document.getElementById('letter-3').innerHTML = 'B';
+}
+
+var favPlaces = ["+", "Abrantes", "Faro", "Coimbra"];
+var favIndex = 0;
+
+var searchPlacesA = ["Amadora", "Alverca", "Alfornelos", "Alijó"];
+var searchPlacesE = ["Évora", "Entroncamento"];
+var searchIndex = 0;
+
+function addFavPlaces(place) {
+	placeStr = place.innerHTML;
+	favPlaces.push(placeStr);
+	if (favPlaces.length > 3) {
+		document.getElementsByClassName('fav-places-arrow')[0].style.display = "block";
+		document.getElementsByClassName('fav-places-arrow')[1].style.display = "block";
+	}
+	currentMenu('menu-meteo-loc');
+	currentMenuSlide(2);
+}
+
+function initFavPlaces() {
+	favIndex = 0;
+	document.getElementsByClassName('fav-place')[0].innerHTML = favPlaces[favIndex++];
+	if (favPlaces.length > 1)
+		document.getElementsByClassName('fav-place')[1].innerHTML = favPlaces[favIndex++];
+	if (favPlaces.length > 2)
+		document.getElementsByClassName('fav-place')[2].innerHTML = favPlaces[favIndex++];
+	favIndex = favIndex%favPlaces.length;
+	if (favPlaces.length < 3) {
+		document.getElementsByClassName('fav-places-arrow')[0].style.display = "none";
+		document.getElementsByClassName('fav-places-arrow')[1].style.display = "none";
+	}
+}
+
+function scrollPlaces(className, listInd, n) {
+	if (className === "fav-place") {
+		if (favPlaces.length < 3) return;
+		favIndex+=n;
+		if (favIndex < 0) favIndex = favPlaces.length-1;
+		favIndex = favIndex%favPlaces.length;
+		document.getElementsByClassName(className)[0].innerHTML = favPlaces[favIndex];
+		favIndex+=n;
+		if (favIndex < 0) favIndex = favPlaces.length-1;
+		favIndex = favIndex%favPlaces.length;
+		document.getElementsByClassName(className)[1].innerHTML = favPlaces[favIndex];
+		favIndex+=n;
+		if (favIndex < 0) favIndex = favPlaces.length-1;
+		favIndex = favIndex%favPlaces.length;
+		document.getElementsByClassName(className)[2].innerHTML = favPlaces[favIndex];
+	}
+	if (className === "search-place") {
+		if (listInd == 0) {
+			if (searchPlacesE.length < 3) return;
+			document.getElementsByClassName(className)[0].innerHTML = searchPlacesE[(searchIndex+=n)%searchPlacesE.length];
+			if (searchIndex < 0) searchIndex = searchPlacesE.length;
+			document.getElementsByClassName(className)[1].innerHTML = searchPlacesE[(searchIndex+=n)%searchPlacesE.length];
+			if (searchIndex < 0) searchIndex = searchPlacesE.length;
+			document.getElementsByClassName(className)[2].innerHTML = searchPlacesE[(searchIndex+=n)%searchPlacesE.length];
+			if (searchIndex < 0) searchIndex = searchPlacesE.length;
+		}
+		else {
+			if (searchPlacesA.length < 3) return;
+			document.getElementsByClassName(className)[0].innerHTML = searchPlacesA[(searchIndex+=n)%searchPlacesA.length];
+			if (searchIndex < 0) searchIndex = searchPlacesA.length;
+			document.getElementsByClassName(className)[1].innerHTML = searchPlacesA[(searchIndex+=n)%searchPlacesA.length];
+			if (searchIndex < 0) searchIndex = searchPlacesA.length;
+			document.getElementsByClassName(className)[2].innerHTML = searchPlacesA[(searchIndex+=n)%searchPlacesA.length];
+			if (searchIndex < 0) searchIndex = searchPlacesA.length;
+		}
+	}
+}
+
+function initSearchPlaces(str) {
+	searchIndex = 0;
+	document.getElementsByClassName('search-place')[0].innerHTML = '';
+	document.getElementsByClassName('search-place')[1].innerHTML = '';
+	document.getElementsByClassName('search-place')[2].innerHTML = '';
+	if (str === 'E') {
+		document.getElementsByClassName('search-place')[0].innerHTML = searchPlacesE[searchIndex++];
+		if (searchPlacesE.length > 1)
+			document.getElementsByClassName('search-place')[1].innerHTML = searchPlacesE[searchIndex++];
+		if (searchPlacesE.length > 2)
+			document.getElementsByClassName('search-place')[2].innerHTML = searchPlacesE[searchIndex++];
+		searchIndex = searchIndex%searchPlacesE.length;
+		if (searchPlacesE.length < 3) {
+			document.getElementsByClassName('result-places-arrow')[0].style.display = "none";
+			document.getElementsByClassName('result-places-arrow')[1].style.display = "none";
+		}
+	}
+	else {
+		document.getElementsByClassName('search-place')[0].innerHTML = searchPlacesA[searchIndex++];
+		if (searchPlacesA.length > 1)
+			document.getElementsByClassName('search-place')[1].innerHTML = searchPlacesA[searchIndex++];
+		if (searchPlacesA.length > 2)
+			document.getElementsByClassName('search-place')[2].innerHTML = searchPlacesA[searchIndex++];
+		searchIndex = searchIndex%searchPlacesA.length;
+		if (searchPlacesA.length < 3) {
+			document.getElementsByClassName('result-places-arrow')[0].style.display = "none";
+			document.getElementsByClassName('result-places-arrow')[1].style.display = "none";
+		}
+	}
+}
+
+function showPlace(container) {
+	var place = container.innerHTML;
+	if (place === '+') {
+		resetKeyboard(); 
+		currentMenu('menu-keyboard');
+	}
+	else {
+		document.getElementById('meteo-loc').innerHTML = place;
+		currentMenu("menu-meteo");
+	}
+}
+
+var number = Math.floor((Math.random() * 12) + 1);
+var slideIndexCurrent = 1;
+
 function confirmedRes(name){
 	var slide = slideIndex.toString();
-	var number = Math.floor((Math.random() * 12) + 1); 
 	var Snumber = number.toString();
-	var res = "Reserva confirmada para a zona ".concat(slide); 
+	var res = "Zona ".concat(slide);
 	var final = res.concat(", nº");
 	var final1 = final.concat(Snumber).concat(".");
 
-	if(name === 'menu-reserva-confirmada-1')
+	if(name === 'menu-reserva-confirmada-1'){
     	document.getElementById("confirmedReservation1").innerHTML = final1;
-	else if(name === 'menu-reserva-confirmada-2') 
+		 slideIndexCurrent = 1;
+	}
+
+    else if(name === 'menu-reserva-confirmada-2'){
     	document.getElementById("confirmedReservation2").innerHTML = final1;
-	else if (name === 'menu-reserva-confirmada-4') 
+        slideIndexCurrent = 2;
+    }
+
+    else  if (name === 'menu-confirma-permissao-negada'){
+    	slideIndexCurrent = 3;
+    }
+
+    else if (name === 'menu-reserva-confirmada-4'){
     	document.getElementById("confirmedReservation4").innerHTML = final1;
+        slideIndexCurrent = 4;
+    }
+
+
 	//setTimeout(function(){ currentMenu('menu-wc'); }, 3300);
 }
 
@@ -438,24 +620,45 @@ function resTimeOut(name){
 
 function alteraCancela(){
 	document.getElementById("cancelButton").style.opacity = 1;
-	document.getElementById("resButton").style.opacity = 0.4; 
-	document.getElementById("mapButton").style.opacity = 0.4; 
+	document.getElementById("resButton").style.opacity = 0;
+	document.getElementById("mapButton").style.opacity = 0;
+	document.getElementById("disponiveis").style.opacity = 0;
 	document.getElementById("resButton").onclick = function () { ""; };
 	document.getElementById("mapButton").onclick = function () { ""; };
 	document.getElementById("cancelButton").onclick = function () { showMenu('menu-cancela-reserva'); };
+	document.getElementById("informacoes").innerHTML = "Tem uma reserva para a zona ".concat(slideIndex.toString()).concat(", nº").concat(number.toString().concat("."));
+	document.getElementById("botaoConfirma").style.zIndex = 1;	
+	document.getElementById("botaoConfirma").style.opacity = 1;
+	document.getElementById("mapButton").style.zIndex = 0;	
+	document.getElementById("resButton").style.zIndex = 0;	
+	document.getElementById("cancelButton").style.zIndex = 1;	
+
 }
 
 function reverteCancela(){
 
 	document.getElementById("cancelButton").style.opacity = 0.4;
+	document.getElementById("disponiveis").style.opacity = 1;
 	document.getElementById("resButton").style.opacity = 1;
 	document.getElementById("mapButton").style.opacity = 1;
+	document.getElementById("informacoes").innerHTML = "";
 	document.getElementById("resButton").onclick = function () { currentMenu('menu-reservar-aut'); };
 	document.getElementById("mapButton").onclick = function () { currentMenu('menu-ver-mapa');currentMenuSlide(1); };
 	document.getElementById("cancelButton").onclick = function () { ""; };
+	document.getElementById("botaoConfirma").style.opacity = 0;
+	document.getElementById("botaoConfirma").style.zIndex = 0;	
+	document.getElementById("cancelButton").style.zIndex = 0;	
+	document.getElementById("mapButton").style.zIndex = 1;	
+	document.getElementById("resButton").style.zIndex = 1;	
+
+
 }
 
 function cancelDenied(){
 	document.getElementById("canceled").innerHTML = "Operação cancelada";
 }
 
+function currentMenuCancela(){
+	var string = ('menu-ver-localizacao'.concat('-')).concat(slideIndexCurrent.toString()); 
+	currentMenu(string);
+}

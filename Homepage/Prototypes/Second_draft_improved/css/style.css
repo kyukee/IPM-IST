@@ -574,24 +574,24 @@
 }
 
 .location-pin{
-  height: 20px;
+  height: 25px;
   z-index: 1;
   position: absolute;
   top: 60px;
   left: -20px;
   border: 3px solid #f22626;
-  border-radius: 50px;
+  border-radius: 20px;
   padding: 5px;
 }
 
 .you-pin{
-  height: 28px;
+  height: 25px;
   z-index: 1;
   position: relative;
   top: 70px;
   left: 25px;
   border: 3px solid #3131c6;
-  border-radius: 50px;
+  border-radius: 20px;
   padding: 5px;
 }
 

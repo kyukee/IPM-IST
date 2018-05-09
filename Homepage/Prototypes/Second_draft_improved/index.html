@@ -508,8 +508,9 @@
 						<div id="resButton" style ="z-index:1; position:absolute;margin-top: 6%; opacity:1 ;left: 6px;" class="button wc-button" onclick= "currentMenu('menu-reservar-aut');">Reservar aut.</div>
 						<div id="mapButton" style="z-index:1; position:absolute; opacity:1; margin-top:30%; left: 6px;" class="button wc-button" onclick ="currentMenu('menu-ver-mapa');currentMenuSlide(1)">Ver Mapas</div>
 						<div id="cancelButton" class="button wc-button" style="opacity:0.4;position:absolute; z-index:0; margin-top:54%; left: 6px;" onclick ="">Cancelar reserva</div>
-						<div id="informacoes" class="menu-wc-map-subtitle subtitle" style="left:0px;color:#d1d5e2; margin-top: -7%;font-weight: bold; font-size:13px;"></div>
-						<div id="botaoConfirma" class ="button wc-button" style= "opacity: 0; position:absolute; z-index:0;top: 52%;left: 6px;" onclick="currentMenuCancela();">Ver Local</div>
+						<div id="informacoes" class="menu-wc-map-subtitle subtitle" style="left:0px;color:#d1d5e2; margin-top: -19%;font-weight: bold; font-size:13px;"></div>
+						<div id="informacoes2" class="menu-wc-map-subtitle" style="display:table-cell; left:0px;color:#d1d5e2; margin-top: -19%; font-size:11px;font-weight: normal; "></div>
+						<div id="botaoConfirma" class ="button wc-button" style= "opacity: 0; position:absolute; z-index:0;top: 52%;left: 6px;" onclick="currentMenuCancela();">Ver Rota</div>
 			</div>
 
 			<div id="menu-reservar-aut" class ="global-menu">
@@ -546,7 +547,7 @@
 					<div class= "menu-wc-map-slide" style="background-image: url('../First_draft_improved/img/menu-wc/BabyMap3.png');"></div>
 
 					<div class="menu-wc-map-text-container">
-						<div class="menu-wc-map-subtitle subtitle">Zona de Restauração</div>	
+						<div class="menu-wc-map-subtitle subtitle">Zona Campismo</div>	
 						<div class="menu-wc-map-subtitle subtitle2">0 livres</div>	
 						<img id="redIndicator" src="img/menu-wc/red.png">						
 					</div>
@@ -574,10 +575,10 @@
 			</div>
 
 			<div id="menu-reserva-confirmada-1" class="global-menu">
-				<div id="confirmedReservation1" class="menu-wc-map-subtitle subtitle" style="display: block; left:0px;color:#d1d5e2; margin-top: 30px;font-weight: bold; font-size:13px;"></div>
+				<div id="confirmedReservation1" class="menu-wc-map-subtitle subtitle" style="display: block; left:0px;color:#d1d5e2; margin-top: 20px;font-weight: bold; font-size:13px;"></div>
 
 				<div class = "button menu-wc-map-button-confirm" style="left: 5px" onclick='currentMenu("menu-main"); currentMenuSlide(3)'>Sair</div>
-				<div class ="button menu-wc-map-button-confirm" style= "right: 5px;" onclick="currentMenu('menu-ver-localizacao-1');">Ver Local</div>
+				<div class ="button menu-wc-map-button-confirm" style= "right: 5px;" onclick="currentMenu('menu-ver-localizacao-1');">Ver Rota</div>
 			</div>
 
 			<div id="menu-confirmar-reserva-2" class="global-menu">
@@ -587,9 +588,9 @@
 			</div>
 
 			<div id="menu-reserva-confirmada-2" class="global-menu">
-				<div id="confirmedReservation2" class="menu-wc-map-subtitle subtitle" style="display: block; left:0px;color:#d1d5e2; margin-top: 30px;font-weight: bold; font-size:13px;"></div>		
+				<div id="confirmedReservation2" class="menu-wc-map-subtitle subtitle" style="display: block; left:0px;color:#d1d5e2; margin-top: 20px;font-weight: bold; font-size:13px;"></div>		
 				<div class = "button menu-wc-map-button-confirm" style="left: 5px" onclick='currentMenu("menu-main"); currentMenuSlide(3)'>Sair</div>
-				<div class ="button menu-wc-map-button-confirm" style= "right: 5px;" onclick="currentMenu('menu-ver-localizacao-2');">Ver Local</div>
+				<div class ="button menu-wc-map-button-confirm" style= "right: 5px;" onclick="currentMenu('menu-ver-localizacao-2');">Ver Rota</div>
 			</div>
 
 			<div id="menu-confirmar-reserva-4" class="global-menu">
@@ -599,19 +600,33 @@
 			</div>
 
 			<div id="menu-reserva-confirmada-4" class="global-menu">
-				<div id="confirmedReservation4" class="menu-wc-map-subtitle subtitle" style="display: block; left:0px;color:#d1d5e2; margin-top: 30px;font-weight: bold; font-size:13px;"></div>		
+				<div id="confirmedReservation4" class="menu-wc-map-subtitle subtitle" style="display: block; left:0px;color:#d1d5e2; margin-top: 20px;font-weight: bold; font-size:13px;"></div>		
 				<div class = "button menu-wc-map-button-confirm" style="left: 5px" onclick='currentMenu("menu-main"); currentMenuSlide(3)'>Sair</div>
-				<div class ="button menu-wc-map-button-confirm" style= "right: 5px;" onclick="currentMenu('menu-ver-localizacao-4');">Ver Local</div>
+				<div class ="button menu-wc-map-button-confirm" style= "right: 5px;" onclick="currentMenu('menu-ver-localizacao-4');">Ver Rota</div>
 			</div>
 
 			<div id="menu-reserva-cancelada" class="global-menu">
-				<div id="canceled" class="menu-wc-map-subtitle subtitle" style="display: block; color:#d1d5e2; left: 0px;margin-top: 40px;font-weight: bold; font-size:16px;">Reserva cancelada</div>					
+				<div id="canceled" class="menu-wc-map-subtitle subtitle" style="display: block; color:#d1d5e2; left: 0px;margin-top: 40px;font-weight: bold; font-size:16px;">Reserva não efetuada</div>					
 			</div>
 
 			<div id="menu-ver-mapa" class="global-menu">
 
 				<div class="slide">
+					<div class= "menu-wc-map-slide" style="background-image: url('../First_draft_improved/img/menu-wc/BabyMap3.png');"></div>
+					<img id="pin-3" class="location-pin" src="img/menu-wc/pin.png">
+
+					<div class="menu-wc-map-text-container">
+						<div class="menu-wc-map-subtitle subtitle">Zona Campismo</div>	
+						<div class="menu-wc-map-subtitle subtitle2">5 na fila</div>	
+						<img id="redIndicator" src="img/menu-wc/red.png">
+					</div>
+
+					<div class="button menu-wc-map-button" onclick="currentMenu('menu-permissao-negada');">Reservar?</div>	
+				</div>
+
+				<div class="slide">
 					<div class= "menu-wc-map-slide"></div>
+					<img id="pin-1" class="location-pin" src="img/menu-wc/pin.png">
 
 					<div class="menu-wc-map-text-container">
 						<div class="menu-wc-map-subtitle subtitle">Palco Principal</div>	
@@ -624,6 +639,7 @@
 
 				<div class="slide">
 					<div class= "menu-wc-map-slide" style="background-image: url('../First_draft_improved/img/menu-wc/BabyMap2.png');background-size: 120px;"></div>
+					<img id="pin-2" class="location-pin" src="img/menu-wc/pin.png">
 
 					<div class="menu-wc-map-text-container">
 						<div class="menu-wc-map-subtitle subtitle">Palco Secundário</div>	
@@ -635,19 +651,8 @@
 				</div>
 
 				<div class="slide">
-					<div class= "menu-wc-map-slide" style="background-image: url('../First_draft_improved/img/menu-wc/BabyMap3.png');"></div>
-
-					<div class="menu-wc-map-text-container">
-						<div class="menu-wc-map-subtitle subtitle">Zona de Restauração</div>	
-						<div class="menu-wc-map-subtitle subtitle2">0 livres</div>	
-						<img id="redIndicator" src="img/menu-wc/red.png">						
-					</div>
-
-					<div class="button menu-wc-map-button" onclick="currentMenu('menu-permissao-negada');">Reservar?</div>	
-				</div>
-
-				<div class="slide">
 					<div class= "menu-wc-map-slide" style="background-image: url('../First_draft_improved/img/menu-wc/BabyMap4.png');"></div>
+					<img id="pin-4" class="location-pin" src="img/menu-wc/pin.png">
 
 					<div class="menu-wc-map-text-container">
 						<div class="menu-wc-map-subtitle subtitle">Zona Multibancos</div>	
@@ -664,49 +669,49 @@
 			</div>
 
 			<div id="menu-permissao-negada" class="global-menu">
-				<div id="menu-wc-map-subtitle subtitle" style="display: block;margin-top: 14px;font-weight: bold;font-size: 12px;">Não há casas de banho disponíveis nesta zona. Deseja reservar?</div>
+				<div id="menu-wc-map-subtitle subtitle" style="display: block;margin-top: 14px;font-weight: bold;font-size: 12px;">Há 5 pessoas na fila. Confirmar reserva?</div>
 
 				<div class = "button menu-wc-map-button-confirm" style="left: 5px" onclick="currentMenu('menu-confirma-permissao-negada');alteraCancela();">Sim</div>
 				<div class ="button menu-wc-map-button-confirm" style= "right: 5px;" onclick="currentMenu('menu-cancela-permissao-negada');">Não</div>
 			</div>
 
 			<div id="menu-confirma-permissao-negada"  class="global-menu">
-				<div class="menu-wc-map-subtitle subtitle" style="display: block; left:0px;color:#d1d5e2; margin-top: 18px;font-weight: bold; font-size:10px;" >Reserva confirmada para a Zona de Restauração, nº5. Tem 5 pessoas à sua frente.</div>
+				<div class="menu-wc-map-subtitle subtitle" style="display: block; left:0px;color:#d1d5e2; margin-top: 18px;font-weight: bold; font-size:13px;" >Reserva: Zona Campismo, wc nº5.</div>
 
 				<div class = "button menu-wc-map-button-confirm" style="left: 5px" onclick='currentMenu("menu-main"); currentMenuSlide(3)'>Sair</div>
-				<div class ="button menu-wc-map-button-confirm" style= "right: 5px;" onclick="currentMenu('menu-ver-localizacao-3');">Ver Local</div>
+				<div class ="button menu-wc-map-button-confirm" style= "right: 5px;" onclick="currentMenu('menu-ver-localizacao-3');">Ver Rota</div>
 			</div>
 
 			<div id="menu-cancela-permissao-negada" class="global-menu">
-				<div class="menu-wc-map-subtitle subtitle" style="display: block; color:#d1d5e2; left: 0px;margin-top: 40px;font-weight: bold; font-size:16px;">Reserva Cancelada</div>
+				<div class="menu-wc-map-subtitle subtitle" style="display: block; color:#d1d5e2; left: 0px;margin-top: 40px;font-weight: bold; font-size:16px;">Reserva não efetuada</div>
 			</div>
 
 			<div id="menu-ver-localizacao-1" class="global-menu">
-				<img class="location-pin" src="img/menu-wc/pin.png">
+				<img id="pin-1" class="location-pin" src="img/menu-wc/pin.png">
 				<img class="you-pin" src="img/menu-wc/blue-pin.png">
 				<img class="location" src="img/menu-wc/BabyMap1.png">
-				<div class="button menu-wc-map-button" onclick="currentMenu('menu-main'); currentMenuSlide(3);" style="left:5px; top:5px">Sair</div>
+				<div class="button menu-wc-map-button" onclick="currentMenu('menu-wc');" style="left:5px; top:5px">Menu WC</div>
 			</div>
 
 			<div id="menu-ver-localizacao-2" class="global-menu">
 				<img  class="location" src="img/menu-wc/BabyMap2.png">
 				<img class="you-pin" src="img/menu-wc/blue-pin.png">
 				<img id="pin-2" class="location-pin" src="img/menu-wc/pin.png">
-				<div class="button menu-wc-map-button" onclick="currentMenu('menu-main'); currentMenuSlide(3);" style="left:5px; top:5px">Sair</div>
+				<div class="button menu-wc-map-button" onclick="currentMenu('menu-wc');" style="left:5px; top:5px">Menu WC</div>
 			</div>
 
 			<div id="menu-ver-localizacao-3" class="global-menu">
 				<img class="location" src="img/menu-wc/BabyMap3.png">
 				<img class="you-pin" src="img/menu-wc/blue-pin.png">
-				<img id="pin-3"class="location-pin" src="img/menu-wc/pin.png">
-				<div class="button menu-wc-map-button" onclick="currentMenu('menu-main'); currentMenuSlide(3);" style="left:5px; top:5px">Sair</div>
+				<img id="pin-3" class="location-pin" src="img/menu-wc/pin.png">
+				<div class="button menu-wc-map-button" onclick="currentMenu('menu-wc');" style="left:5px; top:5px">Menu WC</div>
 			</div>
 
 			<div id="menu-ver-localizacao-4" class="global-menu">
 				<img class="location" src="img/menu-wc/BabyMap4.png">
 				<img class="you-pin" src="img/menu-wc/blue-pin.png">
-				<img id="pin-4"class="location-pin" src="img/menu-wc/pin.png">
-				<div class="button menu-wc-map-button" onclick="currentMenu('menu-main'); currentMenuSlide(3);" style="left:5px; top:5px">Sair</div>
+				<img id="pin-4" class="location-pin" src="img/menu-wc/pin.png">
+				<div class="button menu-wc-map-button" onclick="currentMenu('menu-wc');" style="left:5px; top:5px">Menu WC</div>
 			</div>
 
 			<div id="menu-cancela-reserva" class="global-menu">
@@ -717,7 +722,7 @@
 			</div>
 
 			<div id = "menu-cancelamento" class= "global-menu">
-				<div class="menu-wc-map-subtitle subtitle" style="display: block; color:#d1d5e2; left: 0px;margin-top: 40px;font-weight: bold; font-size:16px;">Cancelamento Efectuado</div>					
+				<div class="menu-wc-map-subtitle subtitle" style="display: block; color:#d1d5e2; left: 0px;margin-top: 40px;font-weight: bold; font-size:16px;">Reserva Cancelada</div>					
 			</div>
 
 			<div id="menu-def" class="global-menu">

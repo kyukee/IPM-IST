@@ -530,7 +530,7 @@
   height:37px;
   right:6px;
   top:16px;
-  width: 55px;
+  width: 60px;
   padding-right: 5px;
   text-align: right;
 }
@@ -539,7 +539,8 @@
   position: relative;
   z-index: 1;
   height: 8px;
-  top: -5px;
+  top: -20px;
+  right:45px;
 }
 
 
@@ -547,12 +548,13 @@
   position: relative;
   z-index: 1;
   height: 8px;
-  top: -5px;
+  top: -20px;
+  right:45px;
 }
 
 .subtitle2{
-    font-size: 9px;
-    font-weight: normal;
+  font-size: 9px;
+  font-weight: normal;
 }
 
 .subtitle-confirmada{
@@ -574,33 +576,38 @@
 .location-pin{
   height: 20px;
   z-index: 1;
-  position: relative;
+  position: absolute;
   top: 60px;
   left: -20px;
 }
 
 .you-pin{
-    height: 28px;
-    z-index: 1;
-    position: relative;
-    top: 70px;
-    left: 25px;
+  height: 28px;
+  z-index: 1;
+  position: relative;
+  top: 70px;
+  left: 25px;
+}
+
+#pin-1{
+  top: 60px;
+  left: 25px;
 }
 
 #pin-2{
   top: 60px;
-  left: -20px;
+  left: 45px;
 }
 
 #pin-3{
- top: 80px;
- left: 20px;
+ top: 50px;
+ left: 8px;
 
 }
 
 #pin-4{
   top: 70px;
-  left: -30px;
+  left: 30px;
 }
 
 .menu-meteo-curr-loc {

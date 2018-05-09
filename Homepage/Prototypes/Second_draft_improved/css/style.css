@@ -579,6 +579,9 @@
   position: absolute;
   top: 60px;
   left: -20px;
+  border: 3px solid #f22626;
+  border-radius: 50px;
+  padding: 5px;
 }
 
 .you-pin{
@@ -587,6 +590,9 @@
   position: relative;
   top: 70px;
   left: 25px;
+  border: 3px solid #3131c6;
+  border-radius: 50px;
+  padding: 5px;
 }
 
 #pin-1{

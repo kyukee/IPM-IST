@@ -561,10 +561,13 @@ var number = Math.floor((Math.random() * 12) + 1);
 var slideIndexCurrent = 1;
 
 function confirmedRes(name){
-	var slide = slideIndex.toString();
+
+	var subs = document.getElementById("menu-ver-mapa").getElementsByClassName("subtitle ");
+	var text = subs[slideIndex - 1].innerHTML;
+
 	var Snumber = number.toString();
-	var res = "Zona ".concat(slide);
-	var final = res.concat(", nº");
+	var res = "Reserva: ".concat(text);
+	var final = res.concat(", wc nº");
 	var final1 = final.concat(Snumber).concat(".");
 
 	if(name === 'menu-reserva-confirmada-1'){
@@ -619,6 +622,9 @@ function resTimeOut(name){
 }
 
 function alteraCancela(){
+
+	var filas = ["5", "0", "0", "0"];
+
 	document.getElementById("cancelButton").style.opacity = 1;
 	document.getElementById("resButton").style.opacity = 0;
 	document.getElementById("mapButton").style.opacity = 0;
@@ -626,7 +632,8 @@ function alteraCancela(){
 	document.getElementById("resButton").onclick = function () { ""; };
 	document.getElementById("mapButton").onclick = function () { ""; };
 	document.getElementById("cancelButton").onclick = function () { showMenu('menu-cancela-reserva'); };
-	document.getElementById("informacoes").innerHTML = "Tem uma reserva para a zona ".concat(slideIndex.toString()).concat(", nº").concat(number.toString().concat("."));
+	document.getElementById("informacoes").innerHTML = "Reservado: ".concat(document.getElementById("menu-ver-mapa").getElementsByClassName("subtitle ")[slideIndex - 1].innerHTML).concat(", wc nº").concat(number.toString());
+	document.getElementById("informacoes2").innerHTML = "fila: " + filas[slideIndex-1] + " pessoas";
 	document.getElementById("botaoConfirma").style.zIndex = 1;	
 	document.getElementById("botaoConfirma").style.opacity = 1;
 	document.getElementById("mapButton").style.zIndex = 0;	
@@ -635,6 +642,7 @@ function alteraCancela(){
 
 }
 
+
 function reverteCancela(){
 
 	document.getElementById("cancelButton").style.opacity = 0.4;
@@ -642,6 +650,7 @@ function reverteCancela(){
 	document.getElementById("resButton").style.opacity = 1;
 	document.getElementById("mapButton").style.opacity = 1;
 	document.getElementById("informacoes").innerHTML = "";
+	document.getElementById("informacoes2").innerHTML = "";
 	document.getElementById("resButton").onclick = function () { currentMenu('menu-reservar-aut'); };
 	document.getElementById("mapButton").onclick = function () { currentMenu('menu-ver-mapa');currentMenuSlide(1); };
 	document.getElementById("cancelButton").onclick = function () { ""; };
@@ -655,7 +664,7 @@ function reverteCancela(){
 }
 
 function cancelDenied(){
-	document.getElementById("canceled").innerHTML = "Operação cancelada";
+	document.getElementById("canceled").innerHTML = "Reserva não cancelada";
 }
 
 function currentMenuCancela(){

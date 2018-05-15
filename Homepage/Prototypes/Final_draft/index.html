@@ -5,6 +5,7 @@
 		<title>Protótipo iRave</title>
   	<meta charset="UTF-8">
   	<link rel="stylesheet" href="css/style.css">
+  		<script src="js/meteo-days.js"></script>
 		<script src="js/btn-layout.js"></script>
 		<script src="js/lineup.js"></script>
 		<script src="js/main.js"></script>
@@ -26,7 +27,7 @@
 	<div class="separator separator-background" align=center>
       <div id="main-screen">
 		
-   		<div id="lockscreen" onclick='currentMenu("menu-main");currentMenuSlide(1)' class="global-menu">
+   		<div id="lockscreen" onclick='currentMenu("menu-main");currentMenuSlide(1);showAlertRain()' class="global-menu">
 				<div class="slide">
 					<div class="clock" align="center" style="margin-top:5px;font-size:18pt"></div>
 					<div id="date" align="left" style="margin-left:5px;font-weight:bold;font-size:14pt"></div>
@@ -38,7 +39,7 @@
 			</div>
 
 			<div id="alert-notif" style="background-color:#e376bd;border-radius:15px;height:100%;" onclick='currentMenu("menu-main");currentMenuSlide(1)' class="global-menu">
-				<div class="slide" style="font-size:14pt;color:black""></div>
+				<div class="slide" style="font-size:14pt;color:black"></div>
 
 				<span class="subtitle" style="font-size:11pt;width:100%;color:black"></span>
 				<div class="button alert-notif-button">OK</div>
@@ -56,7 +57,7 @@
 					
 					<div class="slide"> 
 						<img class="main-screen-slide-side-left" onclick="changeMenuSlide(left)" src="https://png.icons8.com/metro/1600/music.png"> 
-						<img class="main-screen-slide" onclick="currentMenu('menu-meteo');" src="img/main-menu/cloud.png">
+						<img class="main-screen-slide" onclick="currentMenu('menu-meteo');showMeteoDay(0)" src="img/main-menu/cloud.png">
 						<img class="main-screen-slide-side-right" onclick="changeMenuSlide(right)" src="img/main-menu/wc.png"> 
 					</div>
 
@@ -406,149 +407,65 @@
 				
 				
 			<div id="menu-meteo" class="global-menu">
-				<div style="display:inline-block;width:60%">
-					<img class="navigation-arrow-alert nav-arrow-alert-hour" onclick="setHighlightedNumCal();currentMenu('menu-meteo-cal');" style="left:2%; top:2%" src="img/menu-meteo/calendar.png"/>
-					<div id="meteo-loc" class="menu-meteo-curr-loc">Leiria</div>
-					<img class="navigation-arrow-alert nav-arrow-alert-hour" onclick="initFavPlaces();currentMenu('menu-meteo-loc');currentMenuSlide(1);" style="right:2%; top:2%" src="img/menu-meteo/plus-sign.png"/>
+				<div style="display:inline-block;width:60%;align-items:center">
+					<div id="meteo-day" class="menu-meteo-curr-loc"></div>
+					<img class="navigation-arrow-alert nav-arrow-alert-hour" onclick="showHoursDay(0);currentMenu('menu-meteo-detail');" style="right:4%; top:3%" src="img/menu-meteo/plus-sign.png"/>
 				</div>
 				<div>
 					<img class="menu-meteo-curr-image" src="img/menu-meteo/rain.png">
-					<div class="menu-meteo-curr-temp">
-						<div>11ºC</div>
-						<div class="menu-meteo-minmax" style="top:65%">min:10</div>
-						<div class="menu-meteo-minmax" style="top:90%">max:20</div>
+					<div class="menu-meteo-curr-temp meteo-actual-day">
+						<div id="curr-temp"></div>
+						<div class="menu-meteo-minmax" style="top:65%"></div>
+						<div class="menu-meteo-minmax" style="top:90%"></div>
 					</div>
+					<div class="menu-meteo-curr-temp meteo-other-day">
+						<div class="menu-meteo-minmax-bigger"></div>
+						<div class="menu-meteo-minmax-bigger" style="top:50%"></div>
+					</div> 
 				</div>
 				<div class="menu-meteo-bottom">
-					<img class="menu-meteo-bott-image" style="left:10%" src="img/menu-meteo/cloud.png">
-					<img class="menu-meteo-bott-image" style="left:calc(50% - 10px)" src="img/menu-meteo/rain.png">
-					<img class="menu-meteo-bott-image" style="right:10%" src="img/menu-meteo/sun.png">
-					<div class="menu-meteo-bott-text" style="left:10%">Seg</div>
-					<div class="menu-meteo-bott-text" style="left:calc(50% - 10px)">Ter</div>
-					<div class="menu-meteo-bott-text" style="right:10%">Qua</div>
+					<img class="nav-arrow-meteo-lr" onclick="changeMeteoDay(-1)" style="left:0" src="img/botFisicos/scrollLeftWhite.png">
+
+					<img class="menu-meteo-bott-image" style="left:15%" src="">
+					<img class="menu-meteo-bott-image menu-meteo-bott-image-center" style="left:calc(50% - 10px)" src="">
+					<img class="menu-meteo-bott-image" style="right:15%" src="">
+					<div class="menu-meteo-bott-text" style="left:13%"></div>
+					<div class="menu-meteo-bott-text menu-meteo-bott-text-center" style="left:calc(50% - 10px)"></div>
+					<div class="menu-meteo-bott-text" style="right:13%"></div>
+        			<img class="nav-arrow-meteo-lr" onclick="changeMeteoDay(1)" style="right:0" src="img/botFisicos/scrollRightWhite.png">
 				</div>
 			</div>
 			
-			<div id="menu-meteo-cal" class="global-menu">
-				<table class="menu-meteo-cal-table">
-					<thead>
-						April
-					</thead>
-					<tr>
-						<th>D</th>
-						<th>S</th>
-						<th>T</th>
-						<th>Q</th>
-						<th>Q</th>
-						<th>S</th>
-						<th>S</th>
-					</tr>
-				</table>
+			<div id="menu-meteo-detail" class="global-menu">
+				<div class="menu-meteo-curr-loc menu-meteo-loc-center"></div>
 
-				<div class="meteo-table-wrapper">
-					<table class="menu-meteo-cal-table">
-						<tbody align="center">
-							<tr>
-								<td id="td00">1</td>
-								<td id="td01">2</td>
-								<td id="td02">3</td>
-								<td id="td03">4</td>
-								<td id="td04">5</td>
-								<td id="td05">6</td>
-								<td id="td06">7</td>
-							</tr>
-							<tr>
-								<td id="td10">8</td>
-								<td id="td11">9</td>
-								<td id="td12">10</td>
-								<td id="td13">11</td>
-								<td id="td14">12</td>
-								<td id="td15">13</td>
-								<td id="td16">14</td>
-							</tr>
-							<tr>
-								<td id="td20">15</td>
-								<td id="td21">16</td>
-								<td id="td22">17</td>
-								<td id="td23">18</td>
-								<td id="td24">19</td>
-								<td id="td25">20</td>
-								<td id="td26">21</td>
-							</tr>
-							<tr>
-								<td id="td30">22</td>
-								<td id="td31">23</td>
-								<td id="td32">24</td>
-								<td id="td33">25</td>
-								<td id="td34">26</td>
-								<td id="td35">27</td>
-								<td id="td36">28</td>
-							</tr>
-							<tr>
-								<td id="td40">29</td>
-								<td id="td41">30</td>
-								<td id="td42"></td>
-								<td id="td43"></td>
-								<td id="td44"></td>
-								<td id="td45"></td>
-								<td id="td46"></td>
-							</tr>
-						</tbody>
+				<div class="menu-meteo-temp-list">
+					<img class="nav-arrow-meteo-tb" onclick="changeHoursDay(1)" src="img/botFisicos/scrollLeftWhite.png">
+					<table class="meteo-table">
+						<tr class="linha-tabela-meteo">
+							<td class="meteo-table-hour"></td>
+							<td class="meteo-table-temp"></td>
+						</tr>
+						<tr class="linha-tabela-meteo">
+							<td class="meteo-table-hour"></td>
+							<td class="meteo-table-temp"></td>
+						</tr>
+						<tr class="linha-tabela-meteo">
+							<td class="meteo-table-hour"></td>
+							<td class="meteo-table-temp"></td>
+						</tr>
 					</table>
+					<img class="nav-arrow-meteo-tb" onclick="changeHoursDay(-1)" style="top:90%" src="img/botFisicos/scrollRightWhite.png">
 				</div>
-			</div>
-			
-			<div id="menu-meteo-loc" class="global-menu">
-				<div class="menu-meteo-loc-head">
-						Ad. Locais
-				</div>
-				<div class="slide"> 
-					<div class="menu-meteo-slide-ind menu-meteo-slide-ind-sel" style="left:10%">Actual</div>
-					<div class="menu-meteo-slide-ind" style="right:10%">Favor.</div>
-					<div class="menu-meteo-slide-list" style="top:50%">
-						<div class="menu-meteo-slide-loc-curr" onclick="showPlace(this)">Leiria</div>
-					</div>
-						
-				</div>
-				<div class="slide">
-					<div class="menu-meteo-slide-ind" style="left:10%">Actual</div>
-					<div class="menu-meteo-slide-ind menu-meteo-slide-ind-sel" style="right:10%">Favor.</div>
-					<div class="menu-meteo-slide-list">
-						<img class="nav-arrow-keyboard-tb fav-places-arrow" onclick="" src="img/botFisicos/scrollLeftWhite.png">
-						<div id="place1" class="menu-meteo-slide-loc fav-place" onclick="showPlace(this)"></div>
-						<div id="place2" class="menu-meteo-slide-loc fav-place" onclick="showPlace(this)"></div>
-						<div id="place3" class="menu-meteo-slide-loc fav-place" onclick="showPlace(this)"></div>
-						<img class="nav-arrow-keyboard-tb fav-places-arrow" onclick="" src="img/botFisicos/scrollRightWhite.png">
-					</div>
-				</div>
-			</div>
 				
-			<div id="menu-keyboard" class="global-menu">
-				<img class="nav-arrow-keyboard-lr" onclick="" style="left:0" src="img/botFisicos/scrollLeftWhite.png">
-				<img class="nav-arrow-keyboard-lr" onclick="" style="right:0" src="img/botFisicos/scrollRightWhite.png">
+			</div>
 
-				<div id="keyboard-letter-box" class="keyboard-box">_</div>
-				<div class="keyboard-letters-container">
-					<img class="nav-arrow-keyboard-tb" onclick="" style="top:0" src="img/botFisicos/scrollLeftWhite.png">
-					<div id="letter-1" class="keyboard-secondary-letter">»</div>
-					<div id="letter-2" class="keyboard-main-letter" onclick="selectKeyboardLetter(1)">A</div>
-					<div id="letter-3" class="keyboard-secondary-letter">B</div>
-					<img class="nav-arrow-keyboard-tb" onclick="" style="bottom:0" src="img/botFisicos/scrollRightWhite.png">
-				</div>
+			<div id="alert-meteo-rain" class="global-menu">
+				<div class="menu-meteo-curr-loc menu-meteo-loc-center">ALERTA</div>
+				<img class="menu-meteo-curr-image-center" src="img/menu-meteo/rain.png">
+				<div class="menu-meteo-curr-loc menu-meteo-rain-alert">Hoje irá chover!</div>
 			</div>
-			
-			<div id="menu-meteo-results" class="global-menu">
-				<div class="menu-meteo-curr-loc">Resultados</div>
-				<div class="menu-meteo-slide-list">
-					<img class="nav-arrow-keyboard-tb result-places-arrow" onclick="" src="img/botFisicos/scrollLeftWhite.png">
-					<div id="place1" class="menu-meteo-slide-loc search-place" onclick="addFavPlaces(this)"></div>
-					<div id="place2" class="menu-meteo-slide-loc search-place" onclick="addFavPlaces(this)"></div>
-					<div id="place3" class="menu-meteo-slide-loc search-place" onclick="addFavPlaces(this)"></div>
-					<img class="nav-arrow-keyboard-tb result-places-arrow" onclick="" src="img/botFisicos/scrollRightWhite.png">
-				</div>
-			</div>
-				
-			
+
 			<div id="menu-wc" class="global-menu">
 						<div id="disponiveis" style ="margin-top: 10%; font-size: 14px;" class="menu-wc-main-subtitle">31 disponíveis</div>
 						<div id="resButton" style ="z-index:1; position:absolute;margin-top: 6%; opacity:1 ;left: 6px;" class="button wc-button" onclick= "currentMenu('menu-reservar-aut');">Reservar aut.</div>

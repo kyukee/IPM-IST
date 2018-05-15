@@ -352,210 +352,100 @@ function activateAllArtistAlarm(artist) {
 	}	
 }
 
-var currentCalHigh = 34;
 
-function setHighlightedNumCal() {
-	document.getElementById("td"+currentCalHigh.toLocaleString(undefined, {minimumIntegerDigits: 2})).className = "calEntrySel";
-}
+var meteoDayShown = 0;
+var startHourShown = 0;
 
-function changeHighlightedNumCal(direction) {
-	//direction: 1 if right; -1 if left; 10 if down; -10 if up
-	document.getElementById("td"+currentCalHigh.toLocaleString(undefined, {minimumIntegerDigits: 2})).className = "";
+function showMeteoDay(dayNum) {
+	startHourShown = 0;
+	document.getElementsByClassName("nav-arrow-meteo-lr")[0].style.display = "block";
+	document.getElementsByClassName("nav-arrow-meteo-lr")[1].style.display = "block";
 
-	if (direction == "left") {
-		if (currentCalHigh%10 == 0)
-			currentCalHigh +=6;
-		else
-			currentCalHigh -=1;
+	document.getElementById("meteo-day").innerHTML = meteoDay[dayNum]["day"] + meteoDay[dayNum]["date"];
+	document.getElementsByClassName("menu-meteo-curr-image")[0].src = meteoDay[dayNum]["image"];
+
+	if (meteoDay[dayNum]["actual"] != "") {
+		document.getElementsByClassName("meteo-other-day")[0].style.display = "none";
+		document.getElementsByClassName("meteo-actual-day")[0].style.display = "block";
+		document.getElementById("curr-temp").innerHTML = meteoDay[dayNum]["actual"];
+		document.getElementsByClassName("menu-meteo-minmax")[0].innerHTML = "max:" + meteoDay[dayNum]["max"];
+		document.getElementsByClassName("menu-meteo-minmax")[1].innerHTML = "min:" + meteoDay[dayNum]["min"];
 	}
-	if (direction == "right") {
-		if (currentCalHigh%10 == 6)
-			currentCalHigh -=6;
-		else
-			currentCalHigh +=1;
-	}
-	if (direction == "up") {
-		if (Math.floor(currentCalHigh/10) == 0)
-			currentCalHigh +=40;
-		else
-			currentCalHigh -=10;
-	}
-	if (direction == "down") {
-		if (Math.floor(currentCalHigh/10) == 4)
-			currentCalHigh -=40;
-		else
-			currentCalHigh +=10;
+	else {
+		document.getElementsByClassName("meteo-actual-day")[0].style.display = "none";
+		document.getElementsByClassName("meteo-other-day")[0].style.display = "block";
+		document.getElementsByClassName("menu-meteo-minmax-bigger")[0].innerHTML = "max:" + meteoDay[dayNum]["max"];
+		document.getElementsByClassName("menu-meteo-minmax-bigger")[1].innerHTML = "min:" + meteoDay[dayNum]["min"];
 	}
 
-	document.getElementById("td"+currentCalHigh.toLocaleString(undefined, {minimumIntegerDigits: 2})).className = "calEntrySel";
-
-}
-
-function changeKeyboardLetter(n) {
-	/*65 -- 90 // 175*/
-	var l = ['','',''];
-	l[0] = document.getElementById('letter-1').innerHTML.charCodeAt(0);
-	l[1] = document.getElementById('letter-2').innerHTML.charCodeAt(0);
-	l[2] = document.getElementById('letter-3').innerHTML.charCodeAt(0);
-	l[0]+=n;
-	l[1]+=n;
-	l[2]+=n;
 	for (let i = 0; i<3; i++) {
-		if (l[i]<65) l[i]=187;
-		if (l[i] == 91) l[i]=187;
-		if (l[i] == 186) l[i] = 90;
-		if (l[i] == 188) l[i] = 65; 
-	}
-
-
-	document.getElementById('letter-1').innerHTML = String.fromCharCode(l[0]);
-	document.getElementById('letter-2').innerHTML = String.fromCharCode(l[1]);
-	document.getElementById('letter-3').innerHTML = String.fromCharCode(l[2]);
-}
-
-function selectKeyboardLetter(n) {
-	var contBox = document.getElementById('keyboard-letter-box').innerHTML;
-	var letter = document.getElementById('letter-2').innerHTML;
-
-	if (letter === '»') {
-		initSearchPlaces(contBox.slice(0, -1));
-		currentMenu('menu-meteo-results');
-	}
-
-
-	if (n == 1 && contBox.length == 9 && contBox[contBox.length-1] === '_') {
-		contBox = contBox.slice(0, -1) + letter;
-	}
-	else if (n == 1 && contBox.length == 9) {
-		return;
-	} else if (n==1) {
-		contBox = contBox.slice(0, -1) + letter + '_';
-	} else {
-		contBox = contBox.slice(0, -2) + '_';
-	}
-	document.getElementById('keyboard-letter-box').innerHTML = contBox;
-
-}
-
-function resetKeyboard() {
-	document.getElementById('keyboard-letter-box').innerHTML = '_';
-	document.getElementById('letter-1').innerHTML = '»';
-	document.getElementById('letter-2').innerHTML = 'A';
-	document.getElementById('letter-3').innerHTML = 'B';
-}
-
-var favPlaces = ["+", "Abrantes", "Faro", "Coimbra"];
-var favIndex = 0;
-
-var searchPlacesA = ["Amadora", "Alverca", "Alfornelos", "Alijó"];
-var searchPlacesE = ["Évora", "Entroncamento"];
-var searchIndex = 0;
-
-function addFavPlaces(place) {
-	placeStr = place.innerHTML;
-	favPlaces.push(placeStr);
-	if (favPlaces.length > 3) {
-		document.getElementsByClassName('fav-places-arrow')[0].style.display = "block";
-		document.getElementsByClassName('fav-places-arrow')[1].style.display = "block";
-	}
-	currentMenu('menu-meteo-loc');
-	currentMenuSlide(2);
-}
-
-function initFavPlaces() {
-	favIndex = 0;
-	document.getElementsByClassName('fav-place')[0].innerHTML = favPlaces[favIndex++];
-	if (favPlaces.length > 1)
-		document.getElementsByClassName('fav-place')[1].innerHTML = favPlaces[favIndex++];
-	if (favPlaces.length > 2)
-		document.getElementsByClassName('fav-place')[2].innerHTML = favPlaces[favIndex++];
-	favIndex = favIndex%favPlaces.length;
-	if (favPlaces.length < 3) {
-		document.getElementsByClassName('fav-places-arrow')[0].style.display = "none";
-		document.getElementsByClassName('fav-places-arrow')[1].style.display = "none";
-	}
-}
-
-function scrollPlaces(className, listInd, n) {
-	if (className === "fav-place") {
-		if (favPlaces.length < 3) return;
-		favIndex+=n;
-		if (favIndex < 0) favIndex = favPlaces.length-1;
-		favIndex = favIndex%favPlaces.length;
-		document.getElementsByClassName(className)[0].innerHTML = favPlaces[favIndex];
-		favIndex+=n;
-		if (favIndex < 0) favIndex = favPlaces.length-1;
-		favIndex = favIndex%favPlaces.length;
-		document.getElementsByClassName(className)[1].innerHTML = favPlaces[favIndex];
-		favIndex+=n;
-		if (favIndex < 0) favIndex = favPlaces.length-1;
-		favIndex = favIndex%favPlaces.length;
-		document.getElementsByClassName(className)[2].innerHTML = favPlaces[favIndex];
-	}
-	if (className === "search-place") {
-		if (listInd == 0) {
-			if (searchPlacesE.length < 3) return;
-			document.getElementsByClassName(className)[0].innerHTML = searchPlacesE[(searchIndex+=n)%searchPlacesE.length];
-			if (searchIndex < 0) searchIndex = searchPlacesE.length;
-			document.getElementsByClassName(className)[1].innerHTML = searchPlacesE[(searchIndex+=n)%searchPlacesE.length];
-			if (searchIndex < 0) searchIndex = searchPlacesE.length;
-			document.getElementsByClassName(className)[2].innerHTML = searchPlacesE[(searchIndex+=n)%searchPlacesE.length];
-			if (searchIndex < 0) searchIndex = searchPlacesE.length;
-		}
-		else {
-			if (searchPlacesA.length < 3) return;
-			document.getElementsByClassName(className)[0].innerHTML = searchPlacesA[(searchIndex+=n)%searchPlacesA.length];
-			if (searchIndex < 0) searchIndex = searchPlacesA.length;
-			document.getElementsByClassName(className)[1].innerHTML = searchPlacesA[(searchIndex+=n)%searchPlacesA.length];
-			if (searchIndex < 0) searchIndex = searchPlacesA.length;
-			document.getElementsByClassName(className)[2].innerHTML = searchPlacesA[(searchIndex+=n)%searchPlacesA.length];
-			if (searchIndex < 0) searchIndex = searchPlacesA.length;
+		if (dayNum-1+i >= 0 && dayNum-1+i < meteoDay.length) {
+			document.getElementsByClassName("menu-meteo-bott-image")[i].style.display = "block";
+			document.getElementsByClassName("menu-meteo-bott-image")[i].src = meteoDay[dayNum-1+i]["image"];
+			document.getElementsByClassName("menu-meteo-bott-text")[i].innerHTML = meteoDay[dayNum-1+i]["day"];
+		} else {
+			document.getElementsByClassName("menu-meteo-bott-image")[i].style.display = "none";
+			document.getElementsByClassName("menu-meteo-bott-text")[i].innerHTML = "";
+			if (dayNum-1+i < 0)
+				document.getElementsByClassName("nav-arrow-meteo-lr")[0].style.display = "none";
+			else
+				document.getElementsByClassName("nav-arrow-meteo-lr")[1].style.display = "none";
 		}
 	}
 }
 
-function initSearchPlaces(str) {
-	searchIndex = 0;
-	document.getElementsByClassName('search-place')[0].innerHTML = '';
-	document.getElementsByClassName('search-place')[1].innerHTML = '';
-	document.getElementsByClassName('search-place')[2].innerHTML = '';
-	if (str === 'E') {
-		document.getElementsByClassName('search-place')[0].innerHTML = searchPlacesE[searchIndex++];
-		if (searchPlacesE.length > 1)
-			document.getElementsByClassName('search-place')[1].innerHTML = searchPlacesE[searchIndex++];
-		if (searchPlacesE.length > 2)
-			document.getElementsByClassName('search-place')[2].innerHTML = searchPlacesE[searchIndex++];
-		searchIndex = searchIndex%searchPlacesE.length;
-		if (searchPlacesE.length < 3) {
-			document.getElementsByClassName('result-places-arrow')[0].style.display = "none";
-			document.getElementsByClassName('result-places-arrow')[1].style.display = "none";
-		}
+
+function changeMeteoDay(n) {
+	if (meteoDayShown + n >= 0 && meteoDayShown +n < meteoDay.length ) {
+		meteoDayShown+=n;
+		showMeteoDay(meteoDayShown);
+	}
+}
+
+
+function showHoursDay(startHour) {
+	startHourShown = startHour;
+	document.getElementsByClassName('menu-meteo-loc-center')[0].innerHTML = meteoDay[meteoDayShown]["day"] + meteoDay[meteoDayShown]["date"];
+	if (startHour == 0) {
+		console.log('amarelo');
+		document.getElementsByClassName("nav-arrow-meteo-tb")[0].style.visibility = "hidden";
+	}
+	else if (startHour == 6) {
+		document.getElementsByClassName("nav-arrow-meteo-tb")[1].style.display = "none";
 	}
 	else {
-		document.getElementsByClassName('search-place')[0].innerHTML = searchPlacesA[searchIndex++];
-		if (searchPlacesA.length > 1)
-			document.getElementsByClassName('search-place')[1].innerHTML = searchPlacesA[searchIndex++];
-		if (searchPlacesA.length > 2)
-			document.getElementsByClassName('search-place')[2].innerHTML = searchPlacesA[searchIndex++];
-		searchIndex = searchIndex%searchPlacesA.length;
-		if (searchPlacesA.length < 3) {
-			document.getElementsByClassName('result-places-arrow')[0].style.display = "none";
-			document.getElementsByClassName('result-places-arrow')[1].style.display = "none";
-		}
+		document.getElementsByClassName("nav-arrow-meteo-tb")[0].style.visibility = "visible";
+		document.getElementsByClassName("nav-arrow-meteo-tb")[1].style.display = "block";
+	}
+
+	var hours = document.getElementsByClassName("meteo-table-hour");
+	var temps = document.getElementsByClassName("meteo-table-temp");
+	var num = 0;
+
+	for (let i = 0; i<3; i++) {
+		num = 8+2*(i+startHour);
+		hours[i].innerHTML = num.toLocaleString(undefined, {minimumIntegerDigits: 2}) + 'h';
+		temps[i].innerHTML = meteoDay[meteoDayShown]['hour'][startHour+i];
 	}
 }
 
-function showPlace(container) {
-	var place = container.innerHTML;
-	if (place === '+') {
-		resetKeyboard(); 
-		currentMenu('menu-keyboard');
-	}
-	else {
-		document.getElementById('meteo-loc').innerHTML = place;
-		currentMenu("menu-meteo");
+function changeHoursDay(n) {
+	if (startHourShown+n >= 0 && startHourShown+n<7) {
+		startHourShown += n;
+		showHoursDay(startHourShown);
 	}
 }
+
+
+var lastMeteoAlert = 0;
+
+function showAlertRain() {
+	if (meteoDay[0]['image'] === 'img/menu-meteo/rain.png' && lastMeteoAlert == 0) {
+		lastMeteoAlert = 1;
+		currentMenu('alert-meteo-rain');
+	}
+}
+
 
 var number = Math.floor((Math.random() * 12) + 1);
 var slideIndexCurrent = 1;

@@ -2,8 +2,8 @@ var menuData = {
 	"lockscreen":
 	{
 		back:"",
-		left:"currentMenu('menu-main');currentMenuSlide(1)",
-		right:"currentMenu('menu-main');currentMenuSlide(1)",
+		left:"currentMenu('menu-main');currentMenuSlide(1);showAlertRain()",
+		right:"currentMenu('menu-main');currentMenuSlide(1);showAlertRain()",
 		// up:"createAlarm('Alesso', 18);currentMenuSlide(1)",
 		up:"",
 		down:""
@@ -66,46 +66,28 @@ var menuData = {
 	"menu-meteo":
 	{
 		back:"currentMenu('menu-main');currentMenuSlide(2)",
-		left:"",
-		right:"",
+		left:"changeMeteoDay(-1)",
+		right:"changeMeteoDay(1)",
 		up:"",
 		down:""
 	},
 
-	"menu-meteo-cal":
+	"menu-meteo-detail":
 	{
 		back:"currentMenu('menu-meteo')",
-		left:"changeHighlightedNumCal('left')",
-		right:"changeHighlightedNumCal('right')",
-		up:"changeHighlightedNumCal('up')",
-		down:"changeHighlightedNumCal('down')"
-	},
-
-	"menu-meteo-loc":
-	{
-		back:"currentMenu('menu-meteo');currentMenuSlide(1)",
-		left:"changeMenuSlide(left)",
-		right:"changeMenuSlide(right)",
-		up:"scrollPlaces('fav-place', 0, 1)", /*scroll up*/
-		down:"scrollPlaces('fav-place', 0, -1)" /*scroll down*/
-	},
-
-	"menu-keyboard":
-	{
-		back:"currentMenu('menu-meteo-loc');currentMenuSlide(2)",
-		left:"selectKeyboardLetter(-1)",
-		right:"selectKeyboardLetter(1)",
-		up:"changeKeyboardLetter(-1)",
-		down:"changeKeyboardLetter(1)"
-	},
-
-	"menu-meteo-results":
-	{
-		back:"resetKeyboard();currentMenu('menu-keyboard');currentMenuSlide(2)",
 		left:"",
 		right:"",
-		up:"", /*scroll up*/
-		down:"" /*scroll down*/
+		up:"changeHoursDay(-1)",
+		down:"changeHoursDay(1)"
+	},
+
+	"alert-meteo-rain":
+	{
+		back:"currentMenu('menu-main');showMenuSlide(1)",
+		left:"currentMenu('menu-main');showMenuSlide(1)",
+		right:"currentMenu('menu-main');showMenuSlide(1)",
+		up:"currentMenu('menu-main');showMenuSlide(1)",
+		down:"currentMenu('menu-main');showMenuSlide(1)"
 	},
 
 	"menu-wc":

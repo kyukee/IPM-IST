@@ -608,11 +608,16 @@
   position: absolute;
   top: 2%;
   margin: auto;
-  left: 0;
-  right: 0;
+  left: 5%;
+  right: 20%;
   z-index: 5;
   height: 24px;
   white-space:nowrap;
+}
+
+.menu-meteo-loc-center {
+  left: 5%;
+  right: 5%;
 }
 
 .menu-meteo-curr-image {
@@ -623,6 +628,16 @@
   height: 40px;
   width: 40px;
 }
+
+.menu-meteo-curr-image-center {
+  position: absolute;
+  margin: auto;
+  left: calc(50% - 25px);
+  top: calc(50% - 30px);
+  height: 50px;
+  width: 50px;
+}
+
 
 .menu-meteo-curr-temp {
   font-size: 20pt;
@@ -642,19 +657,33 @@
   text-align: center;
 }
 
+.menu-meteo-minmax-bigger {
+  font-size: 11pt;
+  position: absolute;
+  margin: 0;
+  text-align: center;
+}
+
 .menu-meteo-bottom {
   position: absolute;
   margin: auto;
   width: 100%;
   height: 100%;
-  top: 75%;
+  top: 70%;
 }
 
 .menu-meteo-bott-image {
   position: absolute;
   margin: auto;
-  height: 20px;
-  width: 20px;
+  height: 15px;
+  width: 15px;
+}
+
+.menu-meteo-bott-image-center {
+  position: absolute;
+  margin: auto;
+  height: 22px;
+  width: 22px;
 }
 
 .menu-meteo-bott-text {
@@ -666,98 +695,56 @@
   width: 20px;
 }
 
-.menu-meteo-cal-table {
-  position: absolute;
-  font-size: 7pt;
-  width:100%
-}
-
-.calEntrySel {
-  background-color: #e376bd;
-  color: black;
-}
-
-.meteo-table-wrapper{
-  position:relative;
-  top:18px;
-}
-
-.menu-meteo-loc-head {
-  font-size: 11pt;
-  position: absolute;
-  top: 5%;
-  margin: auto;
-  left: 0;
-  right: 0;
-  z-index: 5;
-  height: 24px;
-  white-space:nowrap;
-  font-weight: bold;
-}
-
-.menu-meteo-slide-ind {
-  top: 20%;
-  font-size: 11pt;
-  position: absolute;
-  margin: auto;
-}
-
-.menu-meteo-slide-ind-sel {
-  text-decoration: underline;
-}
-
-.menu-meteo-slide-loc {
+.menu-meteo-bott-text-center {
   font-size: 10pt;
-  text-align: center;
 }
 
-.menu-meteo-slide-loc-curr {
-  font-size: 15pt;
-  text-align: center;
-}
-
-.menu-meteo-slide-list {
-  position: absolute;
-  width: 100%;
-  top: 35%;
-}
-
-.keyboard-box {
-  position: absolute;
-  width: 100%;
-  top: 4%;
-  text-align: center;
-}
-
-.keyboard-letters-container {
-  position: absolute;
-  width: 100%;
-  top: 20%;
-}
-
-.keyboard-main-letter {
-  font-size: 20pt;
-  text-align: center;
-}
-
-.keyboard-secondary-letter {
-  font-size: 10pt;
-  text-align: center;
-}
-
-.nav-arrow-keyboard-lr {
+.nav-arrow-meteo-lr {
   display:inline-block;
-  width:12px;
+  width:11px;
   position: absolute;
   opacity: 1;
   z-index: 10;
-  top: 54%;
-  padding-top: 2px;
+  top: 5%;
 }
 
-.nav-arrow-keyboard-tb {
+.nav-arrow-meteo-tb {
   transform:rotate(90deg);
   width:12px;
   opacity: 1;
   z-index: 10;
+}
+
+.menu-meteo-temp-list {
+  position: absolute;
+  width: 100%;
+  top: 20%;
+}
+
+.meteo-table {
+  border-collapse: collapse;
+}
+
+
+.meteo-table-hour {
+  padding-right: 10%;
+}
+
+.meteo-table-temp {
+  padding-left: 10%;
+}
+
+
+.linha-tabela-meteo { 
+  border: solid;
+  border-width: 1px 0;
+}
+
+
+.menu-meteo-rain-alert {
+  left: 5%;
+  right: 5%;
+  top: 60%;
+  white-space:normal;
+  word-wrap: break-word;
 }

@@ -604,15 +604,16 @@
 }
 
 .menu-meteo-curr-loc {
-  font-size: 14pt;
+  font-size: 12pt;
   position: absolute;
   top: 2%;
   margin: auto;
   left: 5%;
-  right: 20%;
+  right: 5%;
   z-index: 5;
   height: 24px;
   white-space:nowrap;
+  font-weight: bold;
 }
 
 .menu-meteo-loc-center {
@@ -624,7 +625,7 @@
   position: absolute;
   margin: auto;
   left: 5%;
-  top: calc(50% - 30px);
+  top: calc(50% - 40px);
   height: 40px;
   width: 40px;
 }
@@ -644,7 +645,7 @@
   position: absolute;
   margin: auto;
   right: 24%;
-  top: 23%;
+  top: 14%;
   vertical-align: middle;
   height: 40px;
   width: 40px;
@@ -655,6 +656,7 @@
   position: absolute;
   margin: 0;
   text-align: center;
+  width:47px;
 }
 
 .menu-meteo-minmax-bigger {
@@ -662,6 +664,7 @@
   position: absolute;
   margin: 0;
   text-align: center;
+  width:65px;
 }
 
 .menu-meteo-bottom {

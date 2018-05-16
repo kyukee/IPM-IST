@@ -730,7 +730,7 @@
 .menu-meteo-temp-list {
   position: absolute;
   width: 100%;
-  top: 20%;
+  top: 15%;
 }
 
 .meteo-table {
@@ -739,11 +739,12 @@
 
 
 .meteo-table-hour {
-  padding-right: 10%;
+  padding-right: 5px;
 }
 
 .meteo-table-temp {
-  padding-left: 10%;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 
@@ -759,4 +760,10 @@
   top: 60%;
   white-space:normal;
   word-wrap: break-word;
+}
+
+.meteo-table-icon {
+  padding-left: 5px;
+  height: 15px;
+  width: 15px;
 }

@@ -369,7 +369,7 @@ function showMeteoDay(dayNum) {
 		document.getElementsByClassName("meteo-actual-day")[0].style.display = "block";
 		document.getElementById("curr-temp").innerHTML = meteoDay[dayNum]["actual"];
 		document.getElementsByClassName("menu-meteo-minmax")[0].innerHTML = "max:" + meteoDay[dayNum]["max"];
-		document.getElementsByClassName("menu-meteo-minmax")[1].innerHTML = "min: " + meteoDay[dayNum]["min"];
+		document.getElementsByClassName("menu-meteo-minmax")[1].innerHTML = "min:" + meteoDay[dayNum]["min"];
 	}
 	else {
 		document.getElementsByClassName("meteo-actual-day")[0].style.display = "none";
@@ -420,12 +420,14 @@ function showHoursDay(startHour) {
 
 	var hours = document.getElementsByClassName("meteo-table-hour");
 	var temps = document.getElementsByClassName("meteo-table-temp");
+	var icons = document.getElementsByClassName("meteo-table-icon");
 	var num = 0;
 
 	for (let i = 0; i<3; i++) {
 		num = 8+2*(i+startHour);
-		hours[i].innerHTML = num.toLocaleString(undefined, {minimumIntegerDigits: 2}) + 'h';
+		hours[i].innerHTML = num.toLocaleString(undefined, {minimumIntegerDigits: 2}) + 'h  ';
 		temps[i].innerHTML = meteoDay[meteoDayShown]['hour'][startHour+i];
+		icons[i].src = 'img/menu-meteo/' + meteoDay[meteoDayShown]['icon'][startHour+i] + '.png';
 	}
 }
 

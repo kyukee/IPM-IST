@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Protótipo iRave</title>
+  	<meta charset="UTF-8">
+  	<link rel="stylesheet" href="css/style.css">
+  		<script src="js/meteo-days.js"></script>
+		<script src="js/btn-layout.js"></script>
+		<script src="js/lineup.js"></script>
+		<script src="js/main.js"></script>
+	</head>
+
+  <body onload="startTime();startDate();currentMenu('lockscreen');showMenuSlide(1)">
+
+   <div class="separator separator-side">
+
+      <div style="position:absolute; right:0;top:36%">
+        <img id="phy-btn-home" class="physical-button use-btn" onclick='currentMenu("lockscreen"); currentMenuSlide(1)' src="img/botFisicos/home.jpg" />
+        <img id="phy-btn-back" class="physical-button use-btn" style="width:26px;padding:5px;" src="img/botFisicos/back.jpg" />
+      </div>
+
+      <img id="phy-btn-left" class="physical-button use-btn" style="position:absolute; bottom:35%; right:0;transform:rotate(270deg) " src="https://cdn4.iconfinder.com/data/icons/buttons-icons/100/9-512.png"/>
+
+   </div>
+
+	<div class="separator separator-background" align=center>
+      <div id="main-screen">
+		
+   		<div id="lockscreen" onclick='currentMenu("menu-main");currentMenuSlide(1);showAlertRain()' class="global-menu">
+				<div class="slide">
+					<div class="clock" align="center" style="margin-top:5px;font-size:18pt"></div>
+					<div id="date" align="left" style="margin-left:5px;font-weight:bold;font-size:14pt"></div>
+					<div style="font-size:10pt;display:inline-block;">24ºC</div>
+					<div style="font-size:10pt;display:inline-block;">87&#x1f50b</div>
+				</div>
+
+				<span class="subtitle"></span>
+			</div>
+
+			<div id="alert-notif" style="background-color:#e376bd;border-radius:15px;height:100%;" onclick='currentMenu("menu-main");currentMenuSlide(1)' class="global-menu">
+				<div class="slide" style="font-size:14pt;color:black"></div>
+
+				<span class="subtitle" style="font-size:11pt;width:100%;color:black"></span>
+				<div class="button alert-notif-button">OK</div>
+			</div>
+
+			<div id="menu-main" class="global-menu">
+				<div id="main-menu-clock" class="clock"></div>
+
+				<div>
+					<div class="slide">
+						<img class="main-screen-slide-side-left" onclick="changeMenuSlide(left)" src="img/main-menu/def.png">	
+						<img class="main-screen-slide" onclick="currentMenu('menu-alert');currentMenuSlide(1)" src="https://png.icons8.com/metro/1600/music.png">
+						<img class="main-screen-slide-side-right" onclick="changeMenuSlide(right)" src="img/main-menu/cloud.png">
+					</div>
+					
+					<div class="slide"> 
+						<img class="main-screen-slide-side-left" onclick="changeMenuSlide(left)" src="https://png.icons8.com/metro/1600/music.png"> 
+						<img class="main-screen-slide" onclick="currentMenu('menu-meteo');showMeteoDay(0)" src="img/main-menu/cloud.png">
+						<img class="main-screen-slide-side-right" onclick="changeMenuSlide(right)" src="img/main-menu/wc.png"> 
+					</div>
+
+					<div class="slide">
+						<img class="main-screen-slide-side-left" onclick="changeMenuSlide(left)" src="img/main-menu/cloud.png"> 
+						<img class="main-screen-slide" onclick="currentMenu('menu-wc');" src="img/main-menu/wc.png">
+						<img class="main-screen-slide-side-right" onclick="changeMenuSlide(right)" src="img/main-menu/def.png"> 
+					</div>
+
+					<div class="slide">
+						<img class="main-screen-slide-side-left" onclick="changeMenuSlide(left)" src="img/main-menu/wc.png">	
+						<img class="main-screen-slide" onclick="currentMenu('menu-def');" src="img/main-menu/def.png">
+						<img class="main-screen-slide-side-right" onclick="changeMenuSlide(right)" src="https://png.icons8.com/metro/1600/music.png"> 
+					</div>
+				</div>
+
+				<img class="navigation-arrow" onclick="changeMenuSlide(left)" style="left:0" src="img/botFisicos/scrollLeftWhite.png">
+
+				<div style="display:inline-block;width:60%">
+					<span class="main-screen-slide-subtitle subtitle">Cartaz</span>
+					<span class="main-screen-slide-subtitle subtitle">Meteo</span>
+					<span class="main-screen-slide-subtitle subtitle">Wc</span>
+					<span class="main-screen-slide-subtitle subtitle">Def</span>
+				</div>
+
+				<img class="navigation-arrow" onclick="changeMenuSlide(right)" style="right:0" src="img/botFisicos/scrollRightWhite.png">
+			</div>
+
+			<div id="menu-alert" class="global-menu">
+				<div class="slide" align="center" style="font-size:15px;top:4px">Browse by:
+					<div class="button alert-button" onclick="currentMenu('menu-alert-cartaz');currentLevelMenuWithLevels(1);updateAlertHourScrollbar();" style="margin-top:6%;">Dia</div>
+					<div class="button alert-button" onclick="currentMenu('menu-alert-palco');currentLevelMenuWithLevels(1);updateAlertHourScrollbar();">Palco</div>
+					<div class="button alert-button" onclick="currentMenu('menu-alert-gen');currentLevelMenuWithLevels(1);updateAlertHourScrollbar();">Género</div>
+				</div>
+				<span class="subtitle" style="font-size:8pt;"></span>
+			</div>
+			
+			<div id="menu-alert-cartaz" class="global-menu">
+			
+				<img class="nav-arrow-alert-hour" onclick="changeLevelMenuWithLevels(-1);updateAlertHourScrollbar()" style="left:0" src="img/botFisicos/scrollLeftWhite.png">
+
+				<img class="nav-arrow-alert-hour" onclick="changeLevelMenuWithLevels(1);updateAlertHourScrollbar()" style="right:0" src="img/botFisicos/scrollRightWhite.png">
+			
+			
+				<div style="display:inline-block;width:60%">
+					<div class="menu-alert-hour-level-subtitle level-subtitle">18 de Abril</div>
+					<div class="menu-alert-hour-level-subtitle level-subtitle">19 de Abril</div>
+					<div class="menu-alert-hour-level-subtitle level-subtitle">20 de Abril</div>
+				</div>
+
+				<div style="display:inline-block;width:60%;font-size:12pt">
+					<div class="menu-alert-hour-slide-subtitle subtitle level-1">
+						<div class="menu-alert-hour-error">Este dia já passou</div>
+					</div>
+				</div>
+				
+				<div class="menu-alert-gen-slide slide level-1"></div>
+			
+				<div style="display:inline-block;width:60%;font-size:12pt">
+					<div class="menu-alert-hour-slide-subtitle subtitle level-2">
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Fallout Boy', 18)">
+							<div class="menu-alert-hour-art-name">Fallout Boy</div>09h - palco 1<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Alicia Keys', 18)">
+							<div class="menu-alert-hour-art-name">Alicia Keys</div>10h - palco 3<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Alesso', 18)">
+							<div class="menu-alert-hour-art-name">Alesso</div>10h - palco 3<span class="last-word"></span>
+						</div>
+					</div>
+					
+					<div class="menu-alert-hour-slide-subtitle subtitle level-2">
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Red Hot Chili Peppers', 18)">
+							<div class="menu-alert-hour-art-name">Red Hot Chili Peppers</div>16h - palco 3<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Marshmello', 18)">
+							<div class="menu-alert-hour-art-name">Marshmello</div>17h - palco 2<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Hardwell', 18)">
+							<div class="menu-alert-hour-art-name">Hardwell</div>17h - palco 1<span class="last-word"></span>
+						</div>						
+					</div>
+					
+					<div class="menu-alert-hour-slide-subtitle subtitle level-2">
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Guns N Roses', 18)">
+							<div class="menu-alert-hour-art-name">Guns N Roses</div>18h - palco 2<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'The Who', 18)">
+							<div class="menu-alert-hour-art-name">The Who</div>19h - palco 3<span class="last-word"></span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="menu-alert-gen-slide slide level-2"></div>
+				<div class="menu-alert-gen-slide slide level-2"></div>
+				<div class="menu-alert-gen-slide slide level-2"></div>
+				
+				<div style="display:inline-block;width:60%;font-size:10pt">
+					<div class="menu-alert-hour-slide-subtitle subtitle level-3">
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Oasis', 19)">
+							<div class="menu-alert-hour-art-name">Oasis</div>14h - palco 2<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'The Killers', 19)">
+							<div class="menu-alert-hour-art-name">The Killers</div>15h - palco 3<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Ed Sheeran', 19)">
+							<div class="menu-alert-hour-art-name">Ed Sheeran</div>16h - palco 1<span class="last-word"></span>
+						</div>
+					</div>
+					
+					<div class="menu-alert-hour-slide-subtitle subtitle level-3">
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Mariah Carey', 19)">
+							<div class="menu-alert-hour-art-name">Mariah Carey</div>17h - palco 1<span class="last-word"></span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="menu-alert-gen-slide slide level-3"></div>
+				<div class="menu-alert-gen-slide slide level-3"></div>
+				
+				<div class="menu-alert-hour-progress"></div>
+				<div class="menu-alert-hour-progress-bar"></div>
+			</div>
+
+
+			<div id="menu-alert-palco" class="global-menu">
+			
+				<img class="nav-arrow-alert-hour" onclick="changeLevelMenuWithLevels(-1);updateAlertHourScrollbar()" style="left:0" src="img/botFisicos/scrollLeftWhite.png">
+
+				<img class="nav-arrow-alert-hour" onclick="changeLevelMenuWithLevels(1);updateAlertHourScrollbar()" style="right:0" src="img/botFisicos/scrollRightWhite.png">
+			
+			
+				<div style="display:inline-block;width:60%">
+					<div class="menu-alert-hour-level-subtitle level-subtitle">Palco 1</div>
+					<div class="menu-alert-hour-level-subtitle level-subtitle">Palco 2</div>
+					<div class="menu-alert-hour-level-subtitle level-subtitle">Palco 3</div>
+				</div>
+
+				<div style="display:inline-block;width:60%;font-size:12pt">
+					<div class="menu-alert-hour-slide-subtitle subtitle level-1">
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Fallout Boy', 18)">
+							<div class="menu-alert-hour-art-name">Fallout Boy</div>dia 2 - 09h<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Hardwell', 18)">
+							<div class="menu-alert-hour-art-name">Hardwell</div>dia 2 - 17h<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Ed Sheeran', 19)">
+							<div class="menu-alert-hour-art-name">Ed Sheeran</div>dia 3 - 16h<span class="last-word"></span>
+						</div>
+					</div>
+					
+					<div class="menu-alert-hour-slide-subtitle subtitle level-1">
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Mariah Carey', 19)">
+							<div class="menu-alert-hour-art-name">Mariah Carey</div>dia 3 - 17h<span class="last-word"></span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="menu-alert-gen-slide slide level-1"></div>
+				<div class="menu-alert-gen-slide slide level-1"></div>
+			
+				<div style="display:inline-block;width:60%;font-size:12pt">
+					<div class="menu-alert-hour-slide-subtitle subtitle level-2">
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Marshmello', 18)">
+							<div class="menu-alert-hour-art-name">Marshmello</div>dia 2 - 17h<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Guns N Roses', 18)">
+							<div class="menu-alert-hour-art-name">Guns N Roses</div>dia 2 - 18h<span class="last-word"></span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="menu-alert-gen-slide slide level-2"></div>
+				
+				<div style="display:inline-block;width:60%;font-size:10pt">
+					<div class="menu-alert-hour-slide-subtitle subtitle level-3">
+
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Alicia Keys', 18)">
+							<div class="menu-alert-hour-art-name">Alicia Keys</div>dia 2 - 10h<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Alesso', 18)">
+							<div class="menu-alert-hour-art-name">Alesso</div>dia 2 - 10h<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Red Hot Chili Peppers', 18)">
+							<div class="menu-alert-hour-art-name">Red Hot Chili Peppers</div>dia 2 - 16h<span class="last-word"></span>
+						</div>
+					</div>
+					
+					<div class="menu-alert-hour-slide-subtitle subtitle level-3">
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'The Who', 18)">
+							<div class="menu-alert-hour-art-name">The Who</div>dia 2 - 19h<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Oasis', 19)">
+							<div class="menu-alert-hour-art-name">Oasis</div>dia 3 - 14h<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'The Killers', 19)">
+							<div class="menu-alert-hour-art-name">The Killers</div>dia 3 - 15h<span class="last-word"></span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="menu-alert-gen-slide slide level-3"></div>
+				<div class="menu-alert-gen-slide slide level-3"></div>
+				
+				<div class="menu-alert-hour-progress"></div>
+				<div class="menu-alert-hour-progress-bar"></div>
+			</div>
+
+			<div id="menu-alert-gen" class="global-menu">
+			
+				<img class="nav-arrow-alert-hour" onclick="changeLevelMenuWithLevels(-1);updateAlertHourScrollbar()" style="left:0" src="img/botFisicos/scrollLeftWhite.png">
+
+				<img class="nav-arrow-alert-hour" onclick="changeLevelMenuWithLevels(1);updateAlertHourScrollbar()" style="right:0" src="img/botFisicos/scrollRightWhite.png">
+			
+				<div style="display:inline-block;width:60%">
+					<div class="menu-alert-hour-level-subtitle level-subtitle">Todos Géneros</div>
+					<div class="menu-alert-hour-level-subtitle level-subtitle">Electronic</div>
+					<div class="menu-alert-hour-level-subtitle level-subtitle">Pop</div>
+					<div class="menu-alert-hour-level-subtitle level-subtitle">Rock</div>
+				</div>
+
+
+				<div style="display:inline-block;width:60%;font-size:12pt">
+					<div class="menu-alert-hour-slide-subtitle subtitle level-1">
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Alesso', 18)">
+							<div class="menu-alert-hour-art-name">Alesso</div>dia 2 - 10h - palco 3<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Alicia Keys', 18)">
+							<div class="menu-alert-hour-art-name">Alicia Keys</div>dia 2 - 10h - palco 2<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Ed Sheeran', 19)">
+							<div class="menu-alert-hour-art-name">Ed Sheeran</div>dia 3 - 16h - palco 2<span class="last-word"></span>
+						</div>
+					</div>
+
+					<div class="menu-alert-hour-slide-subtitle subtitle level-1">
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Fallout Boy', 18)">
+							<div class="menu-alert-hour-art-name">Fallout Boy</div>dia 2 - 09h - palco 1<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Guns N Roses', 18)">
+							<div class="menu-alert-hour-art-name">Guns N Roses</div>dia 2 - 18h - palco 1<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Hardwell', 18)">
+							<div class="menu-alert-hour-art-name">Hardwell</div>dia 2 - 17h - palco 1<span class="last-word"></span>
+						</div>
+					</div>
+
+					<div class="menu-alert-hour-slide-subtitle subtitle level-1">
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Marshmello', 18)">
+							<div class="menu-alert-hour-art-name">Marshmello</div>dia 2 - 17h - palco 1<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Mariah Carey', 19)">
+							<div class="menu-alert-hour-art-name">Mariah Carey</div>dia 3 - 17h - palco 3<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Oasis', 19)">
+							<div class="menu-alert-hour-art-name">Oasis</div>dia 3 - 14h - palco 3<span class="last-word"></span>
+						</div>
+					</div>
+					
+					<div class="menu-alert-hour-slide-subtitle subtitle level-1">
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Red Hot Chili Peppers', 18)">
+							<div class="menu-alert-hour-art-name">Red Hot Chili Peppers</div>dia 2 - 16h - palco 1<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'The Killers', 19)">
+							<div class="menu-alert-hour-art-name">The Killers</div>dia 3 - 15h - palco 2<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'The Who', 18)">
+							<div class="menu-alert-hour-art-name">The Who</div>dia 2 - 19h - palco 2<span class="last-word"></span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="menu-alert-gen-slide slide level-1"></div>
+				<div class="menu-alert-gen-slide slide level-1"></div>
+				<div class="menu-alert-gen-slide slide level-1"></div>
+				<div class="menu-alert-gen-slide slide level-1"></div>
+
+
+				<div style="display:inline-block;width:60%;font-size:12pt">
+					<div class="menu-alert-hour-slide-subtitle subtitle level-2">
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Alesso', 18)">
+							<div class="menu-alert-hour-art-name">Alesso</div>dia 2 - 10h - palco 3<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Hardwell', 18)">
+							<div class="menu-alert-hour-art-name">Hardwell</div>dia 2 - 17h - palco 1<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Marshmello', 18)">
+							<div class="menu-alert-hour-art-name">Marshmello</div>dia 2 - 17h - palco 1<span class="last-word"></span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="menu-alert-gen-slide slide level-2"></div>
+			
+				<div style="display:inline-block;width:60%;font-size:12pt">
+					<div class="menu-alert-hour-slide-subtitle subtitle level-3">
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Alicia Keys', 18)">
+							<div class="menu-alert-hour-art-name">Alicia Keys</div>dia 2 - 10h - palco 1<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Fallout Boy', 18)">
+							<div class="menu-alert-hour-art-name">Fallout Boy</div>dia 2 - 09h - palco 3<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Ed Sheeran', 19)">
+							<div class="menu-alert-hour-art-name">Ed Sheeran</div>dia 3 - 16h - palco 1<span class="last-word"></span>
+						</div>
+					</div>
+
+					<div class="menu-alert-hour-slide-subtitle subtitle level-3">
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Mariah Carey', 19)">
+							<div class="menu-alert-hour-art-name">Mariah Carey</div>dia 3 - 17h - palco 1<span class="last-word"></span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="menu-alert-gen-slide slide level-3"></div>
+				<div class="menu-alert-gen-slide slide level-3"></div>
+				
+				<div style="display:inline-block;width:60%;font-size:10pt">
+					<div class="menu-alert-hour-slide-subtitle subtitle level-4">
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Guns N Roses', 18)">
+							<div class="menu-alert-hour-art-name">Guns N Roses</div>dia 2 - 18h - palco 2<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Red Hot Chili Peppers', 18)">
+							<div class="menu-alert-hour-art-name">Red Hot Chili Peppers</div>dia 2 - 16h - palco 1<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'The Who', 18)">
+							<div class="menu-alert-hour-art-name">The Who</div>dia 2 - 19h - palco 3<span class="last-word"></span>
+						</div>
+					</div>
+					
+					<div class="menu-alert-hour-slide-subtitle subtitle level-4">
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'Oasis', 19)">
+							<div class="menu-alert-hour-art-name">Oasis</div>dia 3 - 14h - palco 1<span class="last-word"></span>
+						</div>
+						<div class="menu-alert-hour-list-entry" onclick="createAlarm(this, 'The Killers', 19)">
+							<div class="menu-alert-hour-art-name">The Killers</div>dia 3 - 15h - palco 1<span class="last-word"></span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="menu-alert-gen-slide slide level-4"></div>
+				<div class="menu-alert-gen-slide slide level-4"></div>
+				
+				<div class="menu-alert-hour-progress"></div>
+				<div class="menu-alert-hour-progress-bar"></div>
+			</div>
+				
+				
+			<div id="menu-meteo" class="global-menu">
+				<div style="display:inline-block;width:60%;align-items:center">
+					<div id="meteo-day" class="menu-meteo-curr-loc"></div>
+
+					<div class="menu-meteo-graph-container" onclick="showHoursDay(0);currentMenu('menu-meteo-detail');">
+						<img class="navigation-arrow-alert nav-arrow-alert-hour" style="top:3px; margin-top:-5px; padding-bottom:0; position:relative" src="img/menu-meteo/graph.png"/>
+						<div style="font-size:9pt; display:inline-block; color:black;">detalhes</div>
+					</div>
+
+				</div>
+				<div>
+					<img class="menu-meteo-curr-image" src="img/menu-meteo/rain.png">
+					<div class="menu-meteo-curr-temp meteo-actual-day">
+						<div id="curr-temp"></div>
+						<div class="menu-meteo-minmax" style="top:65%"></div>
+						<div class="menu-meteo-minmax" style="top:90%"></div>
+					</div>
+					<div class="menu-meteo-curr-temp meteo-other-day">
+						<div class="menu-meteo-minmax-bigger"></div>
+						<div class="menu-meteo-minmax-bigger" style="top:50%"></div>
+					</div> 
+				</div>
+				<div class="menu-meteo-bottom">
+					<img class="nav-arrow-meteo-lr" onclick="changeMeteoDay(-1)" style="left:0" src="img/botFisicos/scrollLeftWhite.png">
+
+					<img class="menu-meteo-bott-image" style="left:15%" src="" onclick="changeMeteoDay(-1)">
+					<img class="menu-meteo-bott-image menu-meteo-bott-image-center" style="left:calc(50% - 10px)" src="">
+					<img class="menu-meteo-bott-image" style="right:15%" src="" onclick="changeMeteoDay(1)">
+					<div class="menu-meteo-bott-text" style="left:13%"></div>
+					<div class="menu-meteo-bott-text menu-meteo-bott-text-center" style="left:calc(50% - 10px)"></div>
+					<div class="menu-meteo-bott-text" style="right:13%"></div>
+        			<img class="nav-arrow-meteo-lr" onclick="changeMeteoDay(1)" style="right:0" src="img/botFisicos/scrollRightWhite.png">
+				</div>
+			</div>
+			
+			<div id="menu-meteo-detail" class="global-menu">
+				<div class="menu-meteo-curr-loc menu-meteo-loc-center"></div>
+
+				<div class="menu-meteo-temp-list">
+					<img class="nav-arrow-meteo-tb" onclick="changeHoursDay(1)" src="img/botFisicos/scrollLeftWhite.png">
+					<table class="meteo-table">
+						<tr class="linha-tabela-meteo">
+							<td class="meteo-table-hour"></td>
+							<td class="meteo-table-temp"></td>
+							<td>
+								<img class="meteo-table-icon">
+							</td>
+						</tr>
+						<tr class="linha-tabela-meteo">
+							<td class="meteo-table-hour"></td>
+							<td class="meteo-table-temp"></td>
+							<td>
+								<img class="meteo-table-icon">
+							</td>
+						</tr>
+						<tr class="linha-tabela-meteo">
+							<td class="meteo-table-hour"></td>
+							<td class="meteo-table-temp"></td>
+							<td>
+								<img class="meteo-table-icon">
+							</td>
+						</tr>
+					</table>
+					<img class="nav-arrow-meteo-tb" onclick="changeHoursDay(-1)" style="top:90%" src="img/botFisicos/scrollRightWhite.png">
+				</div>
+				
+			</div>
+
+			<div id="alert-meteo-rain" class="global-menu">
+				<div class="menu-meteo-curr-loc menu-meteo-loc-center">ALERTA</div>
+				<img class="menu-meteo-curr-image-center" src="img/menu-meteo/rain.png">
+				<div class="menu-meteo-curr-loc menu-meteo-rain-alert">Hoje irá chover!</div>
+			</div>
+
+			<div id="menu-wc" class="global-menu">
+						<div id="disponiveis" style ="margin-top: 10%; font-size: 14px;" class="menu-wc-main-subtitle">31 disponíveis</div>
+						<div id="resButton" style ="z-index:1; position:absolute;margin-top: 6%; opacity:1 ;left: 6px;" class="button wc-button" onclick= "currentMenu('menu-reservar-aut');">Reservar aut.</div>
+						<div id="mapButton" style="z-index:1; position:absolute; opacity:1; margin-top:30%; left: 6px;" class="button wc-button" onclick ="currentMenu('menu-ver-mapa');currentMenuSlide(1)">Ver Mapas</div>
+						<div id="cancelButton" class="button wc-button" style="opacity:0.4;position:absolute; z-index:0; margin-top:54%; left: 6px;" onclick ="">Cancelar reserva</div>
+						<div id="informacoes" class="menu-wc-map-subtitle subtitle" style="left:0px;color:#d1d5e2; margin-top: -19%;font-weight: bold; font-size:13px;"></div>
+						<div id="informacoes2" class="menu-wc-map-subtitle" style="display:table-cell; left:0px;color:#d1d5e2; margin-top: -19%; font-size:11px;font-weight: normal; "></div>
+						<div id="botaoConfirma" class ="button wc-button" style= "opacity: 0; position:absolute; z-index:0;top: 52%;left: 6px;" onclick="currentMenuCancela();">Ver Rota</div>
+			</div>
+
+			<div id="menu-reservar-aut" class ="global-menu">
+				<div class="button wc-aut-button" onclick="currentMenu('menu-ver-1-mapa');currentMenuSlide(1);">Por proximidade</div>
+				<div class="button wc-aut-button" onclick="currentMenu('menu-ver-1-mapa');currentMenuSlide(2);">Por rapidez</div>
+			</div>
+
+			<div id="menu-ver-1-mapa" class= "global-menu">
+				<div class="slide">
+					<div class= "menu-wc-map-slide"></div>
+					<img id="pin-1" class="location-pin" src="img/menu-wc/pin.png">
+
+					<div class="menu-wc-map-text-container">
+						<div class="menu-wc-map-subtitle subtitle">Palco Principal</div>	
+						<div class="menu-wc-map-subtitle subtitle2">9 livres</div>	
+						<img id="greenIndicator" src="img/menu-wc/green.png">	
+					</div>
+
+					<div class="button menu-wc-map-button" onclick="currentMenu('menu-confirmar-reserva-1');">Reservar?</div>
+				</div>
+
+				<div class="slide">
+					<div class= "menu-wc-map-slide" style="background-image: url('../First_draft_improved/img/menu-wc/BabyMap2.png');background-size: 120px;"></div>
+					<img id="pin-2" class="location-pin" src="img/menu-wc/pin.png">
+
+					<div class="menu-wc-map-text-container">
+						<div class="menu-wc-map-subtitle subtitle">Palco Secundário</div>	
+						<div class="menu-wc-map-subtitle subtitle2">12 livres</div>	
+						<img id="greenIndicator" src="img/menu-wc/green.png">	
+					</div>
+
+					<div class="button menu-wc-map-button" onclick="currentMenu('menu-confirmar-reserva-2');">Reservar?</div>
+				</div>
+
+				<div class="slide">
+					<div class= "menu-wc-map-slide" style="background-image: url('../First_draft_improved/img/menu-wc/BabyMap3.png');"></div>
+					<img id="pin-3" class="location-pin" src="img/menu-wc/pin.png">
+
+					<div class="menu-wc-map-text-container">
+						<div class="menu-wc-map-subtitle subtitle">Zona Campismo</div>	
+						<div class="menu-wc-map-subtitle subtitle2">0 livres</div>	
+						<img id="redIndicator" src="img/menu-wc/red.png">						
+					</div>
+
+					<div class="button menu-wc-map-button" onclick="currentMenu('menu-permissao-negada');">Reservar?</div>	
+				</div>
+
+				<div class="slide">
+					<div class= "menu-wc-map-slide" style="background-image: url('../First_draft_improved/img/menu-wc/BabyMap4.png');"></div>
+					<img id="pin-4" class="location-pin" src="img/menu-wc/pin.png">
+
+					<div class="menu-wc-map-text-container">
+						<div class="menu-wc-map-subtitle subtitle">Zona Multibancos</div>	
+						<div class="menu-wc-map-subtitle subtitle2">10 livres</div>	
+						<img id="greenIndicator" src="img/menu-wc/green.png">	
+					</div>
+
+					<div class="button menu-wc-map-button" onclick="currentMenu('menu-confirmar-reserva-4');">Reservar?</div>
+				</div>
+			</div>
+
+			<div id="menu-confirmar-reserva-1" class="global-menu">
+				<div class="menu-wc-main-subtitle subtitle" style="display: block; color:#d1d5e2; margin-top: 27px;font-weight: bold; font-size:13px;">Quer confirmar a sua reserva?</div>
+				<div class = "button menu-wc-map-button-confirm" style="left: 5px" onclick="currentMenu('menu-reserva-confirmada-1');alteraCancela();">Sim</div>
+				<div class ="button menu-wc-map-button-confirm" style= "right: 5px;" onclick="currentMenu('menu-reserva-cancelada');">Não</div>
+			</div>
+
+			<div id="menu-reserva-confirmada-1" class="global-menu">
+				<div id="confirmedReservation1" class="menu-wc-map-subtitle subtitle" style="display: block; left:0px;color:#d1d5e2; margin-top: 20px;font-weight: bold; font-size:13px;"></div>
+
+				<div class = "button menu-wc-map-button-confirm" style="left: 5px" onclick='currentMenu("menu-main"); currentMenuSlide(3)'>Sair</div>
+				<div class ="button menu-wc-map-button-confirm" style= "right: 5px;" onclick="currentMenu('menu-ver-localizacao-1');">Ver Rota</div>
+			</div>
+
+			<div id="menu-confirmar-reserva-2" class="global-menu">
+				<div class="menu-wc-main-subtitle subtitle" style="display: block; color:#d1d5e2; margin-top: 27px;font-weight: bold; font-size:13px;">Quer confirmar a sua reserva?</div>
+				<div class = "button menu-wc-map-button-confirm" style="left: 5px" onclick="currentMenu('menu-reserva-confirmada-2');alteraCancela();">Sim</div>
+				<div class ="button menu-wc-map-button-confirm" style= "right: 5px;" onclick="currentMenu('menu-reserva-cancelada');">Não</div>
+			</div>
+
+			<div id="menu-reserva-confirmada-2" class="global-menu">
+				<div id="confirmedReservation2" class="menu-wc-map-subtitle subtitle" style="display: block; left:0px;color:#d1d5e2; margin-top: 20px;font-weight: bold; font-size:13px;"></div>		
+				<div class = "button menu-wc-map-button-confirm" style="left: 5px" onclick='currentMenu("menu-main"); currentMenuSlide(3)'>Sair</div>
+				<div class ="button menu-wc-map-button-confirm" style= "right: 5px;" onclick="currentMenu('menu-ver-localizacao-2');">Ver Rota</div>
+			</div>
+
+			<div id="menu-confirmar-reserva-4" class="global-menu">
+				<div class="menu-wc-main-subtitle subtitle" style="display: block; color:#d1d5e2; margin-top: 27px;font-weight: bold; font-size:13px;">Quer confirmar a sua reserva?</div>
+				<div class = "button menu-wc-map-button-confirm" style="left: 5px" onclick="currentMenu('menu-reserva-confirmada-4');alteraCancela();">Sim</div>
+				<div class ="button menu-wc-map-button-confirm" style= "right: 5px;" onclick="currentMenu('menu-reserva-cancelada');">Não</div>
+			</div>
+
+			<div id="menu-reserva-confirmada-4" class="global-menu">
+				<div id="confirmedReservation4" class="menu-wc-map-subtitle subtitle" style="display: block; left:0px;color:#d1d5e2; margin-top: 20px;font-weight: bold; font-size:13px;"></div>		
+				<div class = "button menu-wc-map-button-confirm" style="left: 5px" onclick='currentMenu("menu-main"); currentMenuSlide(3)'>Sair</div>
+				<div class ="button menu-wc-map-button-confirm" style= "right: 5px;" onclick="currentMenu('menu-ver-localizacao-4');">Ver Rota</div>
+			</div>
+
+			<div id="menu-reserva-cancelada" class="global-menu">
+				<div id="canceled" class="menu-wc-map-subtitle subtitle" style="display: block; color:#d1d5e2; left: 0px;margin-top: 40px;font-weight: bold; font-size:16px;">Reserva não efetuada</div>					
+			</div>
+
+			<div id="menu-ver-mapa" class="global-menu">
+
+				<div class="slide">
+					<div class= "menu-wc-map-slide" style="background-image: url('../First_draft_improved/img/menu-wc/BabyMap3.png');"></div>
+					<img id="pin-3" class="location-pin" src="img/menu-wc/pin.png">
+
+					<div class="menu-wc-map-text-container">
+						<div class="menu-wc-map-subtitle subtitle">Zona Campismo</div>	
+						<div class="menu-wc-map-subtitle subtitle2">5 na fila</div>	
+						<img id="redIndicator" src="img/menu-wc/red.png">
+					</div>
+
+					<div class="button menu-wc-map-button" onclick="currentMenu('menu-permissao-negada');">Reservar?</div>	
+				</div>
+
+				<div class="slide">
+					<div class= "menu-wc-map-slide"></div>
+					<img id="pin-1" class="location-pin" src="img/menu-wc/pin.png">
+
+					<div class="menu-wc-map-text-container">
+						<div class="menu-wc-map-subtitle subtitle">Palco Principal</div>	
+						<div class="menu-wc-map-subtitle subtitle2">9 livres</div>	
+						<img id="greenIndicator" src="img/menu-wc/green.png">	
+					</div>
+
+					<div class="button menu-wc-map-button" onclick="currentMenu('menu-confirmar-reserva-1');">Reservar?</div>
+				</div>
+
+				<div class="slide">
+					<div class= "menu-wc-map-slide" style="background-image: url('../First_draft_improved/img/menu-wc/BabyMap2.png');background-size: 120px;"></div>
+					<img id="pin-2" class="location-pin" src="img/menu-wc/pin.png">
+
+					<div class="menu-wc-map-text-container">
+						<div class="menu-wc-map-subtitle subtitle">Palco Secundário</div>	
+						<div class="menu-wc-map-subtitle subtitle2">12 livres</div>	
+						<img id="greenIndicator" src="img/menu-wc/green.png">	
+					</div>
+
+					<div class="button menu-wc-map-button" onclick="currentMenu('menu-confirmar-reserva-2');">Reservar?</div>
+				</div>
+
+				<div class="slide">
+					<div class= "menu-wc-map-slide" style="background-image: url('../First_draft_improved/img/menu-wc/BabyMap4.png');"></div>
+					<img id="pin-4" class="location-pin" src="img/menu-wc/pin.png">
+
+					<div class="menu-wc-map-text-container">
+						<div class="menu-wc-map-subtitle subtitle">Zona Multibancos</div>	
+						<div class="menu-wc-map-subtitle subtitle2">10 livres</div>	
+						<img id="greenIndicator" src="img/menu-wc/green.png">	
+					</div>
+
+					<div class="button menu-wc-map-button" onclick="currentMenu('menu-confirmar-reserva-4');">Reservar?</div>
+				</div>
+
+				<img class="navigation-arrow arrow-wc" onclick="changeMenuSlide(left);" style="top: 2px;" src="img/botFisicos/scrollLeft.png">
+				<img class="navigation-arrow arrow-wc" onclick="changeMenuSlide(right);" style="top: 54px;" src="img/botFisicos/scrollRight.png">
+
+			</div>
+
+			<div id="menu-permissao-negada" class="global-menu">
+				<div id="menu-wc-map-subtitle subtitle" style="display: block;margin-top: 14px;font-weight: bold;font-size: 12px;">Há 5 pessoas na fila. Confirmar reserva?</div>
+
+				<div class = "button menu-wc-map-button-confirm" style="left: 5px" onclick="currentMenu('menu-confirma-permissao-negada');alteraCancela();">Sim</div>
+				<div class ="button menu-wc-map-button-confirm" style= "right: 5px;" onclick="currentMenu('menu-cancela-permissao-negada');">Não</div>
+			</div>
+
+			<div id="menu-confirma-permissao-negada"  class="global-menu">
+				<div class="menu-wc-map-subtitle subtitle" style="display: block; left:0px;color:#d1d5e2; margin-top: 18px;font-weight: bold; font-size:13px;" >Reserva: Zona Campismo, wc nº5.</div>
+
+				<div class = "button menu-wc-map-button-confirm" style="left: 5px" onclick='currentMenu("menu-main"); currentMenuSlide(3)'>Sair</div>
+				<div class ="button menu-wc-map-button-confirm" style= "right: 5px;" onclick="currentMenu('menu-ver-localizacao-3');">Ver Rota</div>
+			</div>
+
+			<div id="menu-cancela-permissao-negada" class="global-menu">
+				<div class="menu-wc-map-subtitle subtitle" style="display: block; color:#d1d5e2; left: 0px;margin-top: 40px;font-weight: bold; font-size:16px;">Reserva não efetuada</div>
+			</div>
+
+			<div id="menu-ver-localizacao-1" class="global-menu">
+				<img id="pin-1" class="location-pin" src="img/menu-wc/pin.png">
+				<img class="you-pin" src="img/menu-wc/blue-pin.png">
+				<img class="location" src="img/menu-wc/BabyMap1.png">
+				<div class="button menu-wc-map-button" onclick="currentMenu('menu-wc');" style="left:5px; top:5px">Menu WC</div>
+			</div>
+
+			<div id="menu-ver-localizacao-2" class="global-menu">
+				<img  class="location" src="img/menu-wc/BabyMap2.png">
+				<img class="you-pin" src="img/menu-wc/blue-pin.png">
+				<img id="pin-2" class="location-pin" src="img/menu-wc/pin.png">
+				<div class="button menu-wc-map-button" onclick="currentMenu('menu-wc');" style="left:5px; top:5px">Menu WC</div>
+			</div>
+
+			<div id="menu-ver-localizacao-3" class="global-menu">
+				<img class="location" src="img/menu-wc/BabyMap3.png">
+				<img class="you-pin" src="img/menu-wc/blue-pin.png">
+				<img id="pin-3" class="location-pin" src="img/menu-wc/pin.png">
+				<div class="button menu-wc-map-button" onclick="currentMenu('menu-wc');" style="left:5px; top:5px">Menu WC</div>
+			</div>
+
+			<div id="menu-ver-localizacao-4" class="global-menu">
+				<img class="location" src="img/menu-wc/BabyMap4.png">
+				<img class="you-pin" src="img/menu-wc/blue-pin.png">
+				<img id="pin-4" class="location-pin" src="img/menu-wc/pin.png">
+				<div class="button menu-wc-map-button" onclick="currentMenu('menu-wc');" style="left:5px; top:5px">Menu WC</div>
+			</div>
+
+			<div id="menu-cancela-reserva" class="global-menu">
+				<div class="menu-wc-map-subtitle subtitle" style="display: block; left:0px;color:#d1d5e2; margin-top: 35px;font-weight: bold; font-size:12px;">Tem a certeza?</div>
+
+				<div class = "button menu-wc-map-button-confirm" style="left: 5px" onclick="currentMenu('menu-cancelamento');reverteCancela();">Sim</div>
+				<div class ="button menu-wc-map-button-confirm" style= "right: 5px;" onclick="currentMenu('menu-reserva-cancelada');">Não</div>
+			</div>
+
+			<div id = "menu-cancelamento" class= "global-menu">
+				<div class="menu-wc-map-subtitle subtitle" style="display: block; color:#d1d5e2; left: 0px;margin-top: 40px;font-weight: bold; font-size:16px;">Reserva Cancelada</div>					
+			</div>
+
+			<div id="menu-def" class="global-menu">
+				<span>menu def</span>
+			</div>
+      </div>
+   </div>
+
+   <div class="separator separator-side">
+      <div align=center style="position:absolute; top:25%; left:24%">
+        <img id="phy-btn-up" class="physical-button physical-button-arrow use-btn" style="transform:rotate(90deg);width:20px;margin-bottom:5px;padding:8px" src="img/botFisicos/leftArrow.jpg"/>
+
+        <!-- <img id="mango-dots" src="img/botFisicos/rot-dots.png" /> -->
+        <img id="mango" class="physical-button" src="img/botFisicos/rotativo.png" />
+
+        <img id="phy-btn-down" class="physical-button physical-button-arrow use-btn" style="transform:rotate(90deg);width:20px;margin-top:0px;padding:8px" src="img/botFisicos/rightArrow.png" />
+      </div>
+
+      <img class="physical-button" style="position:absolute;top:40%;width:25px;transform:rotate(90deg);margin:0;left:0;margin-left:8px" src="https://d30y9cdsu7xlg0.cloudfront.net/png/24052-200.png" />
+
+      <img id="phy-btn-right" class="physical-button use-btn" style="position:absolute;bottom:35%;transform:rotate(90deg)" src="https://cdn4.iconfinder.com/data/icons/buttons-icons/100/9-512.png" />
+   </div>
+
+  </body>
+
+</html>

@@ -639,6 +639,15 @@
   width: 50px;
 }
 
+.menu-meteo-graph-container{
+  right:5px;
+  top:66px;
+  position:absolute;
+  width:67px;
+  height: 14px;
+  line-height: 5px;
+  background: blue;
+}
 
 .menu-meteo-curr-temp {
   font-size: 20pt;
@@ -662,7 +671,7 @@
 .menu-meteo-minmax-bigger {
   font-size: 11pt;
   position: absolute;
-  margin: 0;
+  margin-top: 5px;
   text-align: center;
   width:65px;
 }

@@ -410,7 +410,10 @@
 				<div style="display:inline-block;width:60%;align-items:center">
 					<div id="meteo-day" class="menu-meteo-curr-loc"></div>
 
-					<img class="navigation-arrow-alert nav-arrow-alert-hour" onclick="showHoursDay(0);currentMenu('menu-meteo-detail');" style="right:6%; top:3%" src="https://d30y9cdsu7xlg0.cloudfront.net/png/23453-200.png"/>
+					<div class="menu-meteo-graph-container" onclick="showHoursDay(0);currentMenu('menu-meteo-detail');">
+						<img class="navigation-arrow-alert nav-arrow-alert-hour" style="right:-2px; top:3px; margin-top:-5px; padding-bottom:0; position:relative" src="https://d30y9cdsu7xlg0.cloudfront.net/png/23453-200.png"/>
+						<div style="font-size:9pt; display:inline-block; ">detalhes</div>
+					</div>
 
 				</div>
 				<div>
@@ -428,9 +431,9 @@
 				<div class="menu-meteo-bottom">
 					<img class="nav-arrow-meteo-lr" onclick="changeMeteoDay(-1)" style="left:0" src="img/botFisicos/scrollLeftWhite.png">
 
-					<img class="menu-meteo-bott-image" style="left:15%" src="">
+					<img class="menu-meteo-bott-image" style="left:15%" src="" onclick="changeMeteoDay(-1)">
 					<img class="menu-meteo-bott-image menu-meteo-bott-image-center" style="left:calc(50% - 10px)" src="">
-					<img class="menu-meteo-bott-image" style="right:15%" src="">
+					<img class="menu-meteo-bott-image" style="right:15%" src="" onclick="changeMeteoDay(1)">
 					<div class="menu-meteo-bott-text" style="left:13%"></div>
 					<div class="menu-meteo-bott-text menu-meteo-bott-text-center" style="left:calc(50% - 10px)"></div>
 					<div class="menu-meteo-bott-text" style="right:13%"></div>

@@ -404,6 +404,20 @@ function changeMeteoDay(n) {
 
 
 function showHoursDay(startHour) {
+	var today = new Date();
+	var h = today.getHours() +1 ;
+	if (h %2 != 0)
+		h -=1;
+
+	if (h<8)
+		h = 0;
+
+	if (startHour == -1) {
+		startHour = (h-8)/2 -1;
+		if (startHour == -1)
+			startHour = 0;
+	}
+
 	startHourShown = startHour;
 	document.getElementsByClassName('menu-meteo-loc-center')[0].innerHTML = meteoDay[meteoDayShown]["day"] + meteoDay[meteoDayShown]["date"];
 	if (startHour == 0) {
@@ -428,7 +442,7 @@ function showHoursDay(startHour) {
 		hours[i].innerHTML = num.toLocaleString(undefined, {minimumIntegerDigits: 2}) + 'h  ';
 		temps[i].innerHTML = meteoDay[meteoDayShown]['hour'][startHour+i];
 		icons[i].src = 'img/menu-meteo/' + meteoDay[meteoDayShown]['icon'][startHour+i] + '.png';
-		if (meteoDayShown == 0 && num == 16) {
+		if (meteoDayShown == 0 && num == h) {
 			document.getElementsByClassName("linha-tabela-meteo")[i].style.background = "#e376bd";
 		}
 	}

@@ -641,7 +641,7 @@
 
 .menu-meteo-graph-container{
   right:2px;
-  top:66px;
+  top:52%;
   position:absolute;
   width:66px;
   height: 14px;
@@ -770,4 +770,26 @@
   padding-left: 5px;
   height: 15px;
   width: 15px;
+}
+
+.minmax-container {
+  color: black;
+  background: #e376bd;
+}
+
+.meteo-actual-container {
+  width: 60px;
+  height:40px;
+  top: 65%;
+  position: absolute;
+  background: #e376bd;
+}
+
+.meteo-other-container {
+  width: 65px;
+  height:50px;
+  top: 20%;
+  right: 5%;
+  position: absolute;
+  background: #e376bd;
 }

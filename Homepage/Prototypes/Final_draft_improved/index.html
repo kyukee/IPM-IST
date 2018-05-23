@@ -51,12 +51,12 @@
 				<div>
 					<div class="slide">
 						<img class="main-screen-slide-side-left" onclick="changeMenuSlide(left)" src="img/main-menu/def.png">	
-						<img class="main-screen-slide" onclick="currentMenu('menu-alert');currentMenuSlide(1)" src="https://png.icons8.com/metro/1600/music.png">
+						<img class="main-screen-slide" onclick="currentMenu('menu-alert');currentMenuSlide(1)" src="img/main-menu/music.png">
 						<img class="main-screen-slide-side-right" onclick="changeMenuSlide(right)" src="img/main-menu/cloud.png">
 					</div>
 					
 					<div class="slide"> 
-						<img class="main-screen-slide-side-left" onclick="changeMenuSlide(left)" src="https://png.icons8.com/metro/1600/music.png"> 
+						<img class="main-screen-slide-side-left" onclick="changeMenuSlide(left)" src="img/main-menu/music.png"> 
 						<img class="main-screen-slide" onclick="currentMenu('menu-meteo');showMeteoDay(0)" src="img/main-menu/cloud.png">
 						<img class="main-screen-slide-side-right" onclick="changeMenuSlide(right)" src="img/main-menu/wc.png"> 
 					</div>
@@ -70,7 +70,7 @@
 					<div class="slide">
 						<img class="main-screen-slide-side-left" onclick="changeMenuSlide(left)" src="img/main-menu/wc.png">	
 						<img class="main-screen-slide" onclick="currentMenu('menu-def');" src="img/main-menu/def.png">
-						<img class="main-screen-slide-side-right" onclick="changeMenuSlide(right)" src="https://png.icons8.com/metro/1600/music.png"> 
+						<img class="main-screen-slide-side-right" onclick="changeMenuSlide(right)" src="img/main-menu/music.png"> 
 					</div>
 				</div>
 
@@ -409,24 +409,28 @@
 			<div id="menu-meteo" class="global-menu">
 				<div style="display:inline-block;width:60%;align-items:center">
 					<div id="meteo-day" class="menu-meteo-curr-loc"></div>
-
-					<div class="menu-meteo-graph-container" onclick="showHoursDay(0);currentMenu('menu-meteo-detail');">
-						<img class="navigation-arrow-alert nav-arrow-alert-hour" style="top:3px; margin-top:-5px; padding-bottom:0; position:relative" src="img/menu-meteo/graph.png"/>
-						<div style="font-size:9pt; display:inline-block; color:black;">detalhes</div>
-					</div>
-
 				</div>
 				<div>
 					<img class="menu-meteo-curr-image" src="img/menu-meteo/rain.png">
 					<div class="menu-meteo-curr-temp meteo-actual-day">
 						<div id="curr-temp"></div>
-						<div class="menu-meteo-minmax" style="top:65%"></div>
-						<div class="menu-meteo-minmax" style="top:90%"></div>
+						<div class="meteo-actual-container" onclick="showHoursDay(4); currentMenu('menu-meteo-detail');">
+							<div class="menu-meteo-minmax" style="top:5%"></div>
+							<div class="menu-meteo-minmax" style="top:35%"></div>
+							<div class="menu-meteo-minmax" style="top:65%;width: 100%">
+								<img class="navigation-arrow-alert nav-arrow-alert-hour" style="top:3px; margin-top:-5px; padding-bottom:0; position:relative" src="img/menu-meteo/graph.png"/>
+								<div style="font-size:9pt; display:inline-block;">horário</div>
+							</div>
+						</div>
 					</div>
-					<div class="menu-meteo-curr-temp meteo-other-day">
+					<div class="menu-meteo-curr-temp meteo-other-day meteo-other-container" onclick="showHoursDay(0);currentMenu('menu-meteo-detail');">
 						<div class="menu-meteo-minmax-bigger"></div>
-						<div class="menu-meteo-minmax-bigger" style="top:50%"></div>
-					</div> 
+						<div class="menu-meteo-minmax-bigger" style="top:30%"></div>
+						<div class="menu-meteo-minmax-bigger" style="top:60%;width: 100%">
+							<img class="navigation-arrow-alert nav-arrow-alert-hour" style="top:3px; margin-top:-5px;padding-bottom:0; position:relative" src="img/menu-meteo/graph.png"/>
+							<div style="font-size:9pt; display:inline-block;">horário</div>
+						</div>
+					</div>
 				</div>
 				<div class="menu-meteo-bottom">
 					<img class="nav-arrow-meteo-lr" onclick="changeMeteoDay(-1)" style="left:0" src="img/botFisicos/scrollLeftWhite.png">
@@ -722,9 +726,9 @@
         <img id="phy-btn-down" class="physical-button physical-button-arrow use-btn" style="transform:rotate(90deg);width:20px;margin-top:0px;padding:8px" src="img/botFisicos/rightArrow.png" />
       </div>
 
-      <img class="physical-button" style="position:absolute;top:40%;width:25px;transform:rotate(90deg);margin:0;left:0;margin-left:8px" src="https://d30y9cdsu7xlg0.cloudfront.net/png/24052-200.png" />
+      <img class="physical-button" style="position:absolute;top:40%;width:25px;transform:rotate(90deg);margin:0;left:0;margin-left:8px" src="img/botFisicos/rotativeIcon.png" />
 
-      <img id="phy-btn-right" class="physical-button use-btn" style="position:absolute;bottom:35%;transform:rotate(90deg)" src="https://cdn4.iconfinder.com/data/icons/buttons-icons/100/9-512.png" />
+      <img id="phy-btn-right" class="physical-button use-btn" style="position:absolute;bottom:35%;transform:rotate(90deg)" src="img/botFisicos/pressIcon.png" />
    </div>
 
   </body>

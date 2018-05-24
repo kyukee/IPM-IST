@@ -409,8 +409,11 @@ function showHoursDay(startHour) {
 	if (h %2 != 0)
 		h -=1;
 
-	if (h<8)
+	if (h<8) {
 		h = 0;
+		if (startHour == -1)
+			startHour = 0;
+	}
 
 	if (startHour == -1) {
 		startHour = (h-8)/2 -1;
